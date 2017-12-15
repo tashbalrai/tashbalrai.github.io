@@ -1,5 +1,3 @@
-# [BALRAI](https://tashbalrai.github.io)
-
 ###### *[#JavaScript](/js.md)*, **#PHP**, # HTTP, # Node.JS, # Python
 
 ### The Article Title Is The Article Title
