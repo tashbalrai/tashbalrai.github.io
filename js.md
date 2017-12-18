@@ -45,7 +45,7 @@ e.g.: ```NaN + 5 // = NaN```
 
 JavaScript also have special values ```-Infinity``` and ```Infinity```
 
-```JavaScript
+```javascript
 1 / 0 // = Infinite
 -1 / 0 // = -Infinite
 (1/0) === Infinity // = true
@@ -53,7 +53,7 @@ JavaScript also have special values ```-Infinity``` and ```Infinity```
 ```
 
 ```isFinite()``` can check for ```Infinity```, ```-Infinity``` and ```NaN``` cases.
-```JavaScript
+```Javascript
 isFinite(Infinity) // = false
 isFinite(-Infinity) // = false
 isFinite(NaN) // = false
