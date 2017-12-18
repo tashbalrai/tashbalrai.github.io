@@ -97,3 +97,4 @@ You can convert these values using a ```Boolean()``` function.
 ```javascript
 Boolean("") // = false
 ```
+Complex types would be dicussed in their respective sections and articles because these are lengthy topics.
