@@ -53,7 +53,7 @@ JavaScript also have special values ```-Infinity``` and ```Infinity```
 ```
 
 ```isFinite()``` can check for ```Infinity```, ```-Infinity``` and ```NaN``` cases.
-```Javascript
+```javascript
 isFinite(Infinity) // = false
 isFinite(-Infinity) // = false
 isFinite(NaN) // = false
@@ -63,21 +63,21 @@ Strings in JavaScript are Unicode characters indeed *UTF-16*. More accurately, t
 
 If you add number to string everything is converted to string and concatenation is performed.
 e.g.: 
-```JavaScript
+```javascript
 "3" + 4 + 5 // = 345
 3 + 4 + "5" // = 75
 ```
 
 String's individual characters can be accessed using ```Array``` like syntax or using function ```charAt()```.
 e.g.:
-```JavaScript
+```javascript
 'abcd'[1] // returns 'b'
 'abcd'.charAt(1) // returns 'b'
 ```
 
 Though, you can access characters using brackets '[]' array like syntax, but you cannot modify the original string.
 e.g.:
-```JavaScript
+```javascript
 s = 'abcd';
 s[1] = 'E'; //cannot be done. NO ERROR, NO EXCEPTION is raised
 ```
@@ -94,6 +94,6 @@ Best practice is to always using ```charAt()``` because it's much readable and y
 2. all other values becomes true.
 
 You can convert these values using a ```Boolean()``` function.
-```JavaScript
+```javascript
 Boolean("") // = false
 ```
