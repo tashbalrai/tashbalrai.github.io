@@ -1,4 +1,4 @@
-###### *[#JavaScript](/js.md)*, **#PHP**, # HTTP, # Node.JS, # Python
+###### *[#JavaScript](/js/index.md)*, **#PHP**, # HTTP, # Node.JS, # Python
 
 ### The Article Title Is The Article Title
 
