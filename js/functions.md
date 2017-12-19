@@ -12,7 +12,7 @@ Functions in JavaScript are basically objects but these are specialized objects 
 
 Functions have few additional capabilities that distinguish them from other objects in JavaScript.
 
-1. Calling ability i.e. you can call a function object as a normal function call
+1. Calling ability i.e. you can call a function object as a normal function call.
 2. Context of a function i.e. whether the function is executed from global context or as a method of some object.
 3. Code of the function i.e. the function behavior then it is executed.
 
@@ -23,7 +23,7 @@ Functions can be invoked in the following styles:
 3. Constructor invocation
 4. Apply invocation
 
-There is no limit on number of arguments and parameters received or passed to a function. If you pass more parameters to a function then arguments defined the extra parameters will be ignored. If you pass less parameters the rest of the argument will have undefined values. 
+There is no limit on number of arguments and parameters received or passed to a function. If you pass more parameters to a function then arguments defined the extra parameters will be ignored. If you pass less parameters the rest of the argument will have ```undefined``` values. 
 
 >There is no any exception raised when this happen.
 
