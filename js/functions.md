@@ -1,100 +1,139 @@
 ###### *[#home](https://tashbalrai.github.io)*, [#JS Data Types](/js/index.html), **#Functions**, [#Arrays](/js/arrays.md), [#RegExp](/js/regexp.md), [#Inheritance](/js/inheritance.md), [#Prototype](/js/proto.md), [#Object](/js/object.md), [#Awful Parts](/js/awful.md),
 
-## JavaScript Types
+## JavaScript Functions
 
-In JavaScript everything is an object including Number, String, Boolean etc. There are two special types called ```undefined``` and ```null```.
+Functions in JavaScript are basically objects but these are specialized objects that can be treated as functions, methods, constructors and these can also work as classes to support inheritance using the prototype property available on them. Functions can be passed around to different functions as a parameters. These are very powerful objects in JavaScript derived from base JavaScript Object.
 
-### Primitive Types
-1. Number
-2. Boolean
-3. null
-4. undefined
-5. String
+>Functions -> Functions.prototype -> Object.prototype
 
-### Complex Types
-1. Function
-2. Array
-3. Symbol (ES6+)
-4. Error (In-built object)
-5. Math (In-built object)
-6. Date (In-built object)
-7. RegExp (In-built object)
-8. Promise (ES6+)
-9. Reflect (ES6+)
-10. Proxy (ES6+)
+```Object.prototype``` is ```null``` because ```Object``` is not inherited from any object. It is a base object and all JavaScript objects are derived from this base object. ```Functions.prototype``` is ```object``` because a function object is derived from base object.
 
-##### Number
-Numbers in JavaScript are "double-precision 64-bit format IEEE 754 values". There are no integers in JavaScript. Integers in JavaScript are formatted representation of floating points. Integers can only express 32bit integers.
+```Function``` is a constructor for function object in JavaScript. You can create a new function using ```new Function()``` constructor or you can use the keyword ```function``` to define a function. Notice the upper case 'F' in constructor and lower case 'f' in keyword.
 
-**Conversion string to integer or float.**
+Functions have few additional capabilities that distinguish them from other objects in JavaScript.
 
-```parseInt``` = string to integer. Accepts two parameters string value and radix.
+1. Calling ability i.e. you can call a function object as a normal function call
+2. Context of a function i.e. whether the function is executed from global context or as a method of some object.
+3. Code of the function i.e. the function behavior then it is executed.
 
-If the input string begins with "0x" or "0X", radix is 16 (hexadecimal) and the remainder of the string is parsed.
+Functions can be invoked in the following styles:
 
-If the input string begins with "0", radix is eight (octal) or 10 (decimal).  Exactly which radix is chosen is implementation-dependent.  ECMAScript 5 specifies that 10 (decimal) is used, but not all browsers support this yet.  For this reason always specify a radix when using ```parseInt```.
+1. Method invocation
+2. Function invocation
+3. Constructor invocation
+4. Apply invocation
 
-If the input string begins with any other value, the radix is 10 (decimal).
+There is no limit on number of arguments and parameters received or passed to a function. If you pass more parameters to a function then arguments defined the extra parameters will be ignored. If you pass less parameters the rest of the argument will have undefined values. 
 
-```parseFloat``` = string to Float. Accepts only 1 parameter i.e. string.
+>There is no any exception raised when this happen.
 
-```+ (operator)``` = used to convert the string to integer or float but if non numeric character is there return ```NaN```. ```parseInt``` and ```parseFloat``` doesn't behave like this.
+```this``` and ```arguments``` are two bonus arguments that a function have. ```this``` value depends on the style of function invocation. ```arguments``` holds all the arguments that was sent to a function in an array.
 
-```NaN``` is toxic: if you provide it as an input to any mathematical operation the result will also be NaN.
-e.g.: ```NaN + 5 // = NaN```
+>Because of a design error, arguments is not really an array. It is an array-like object. arguments has a length property, but it lacks all of the array methods.
 
-JavaScript also have special values ```-Infinity``` and ```Infinity```
+```this``` value is bound to the function at invocation time. Methods that get their context from ```this``` are called public methods.
 
+1. **Method invocation.**
+When you use object property as method and you call method using object through "." dot/period and "[]" notation it is called method invocation. ```this``` refers to object inside function body.
+
+E.g.:
 ```javascript
-1 / 0 // = Infinite
--1 / 0 // = -Infinite
-(1/0) === Infinity // = true
-(-1/0) === -Infinity // = true
+var foo = {
+     counter: 0,
+     bar: function (i) {
+         this.counter += i;
+     }
+}
+
+foo.bar(1); //this inside function now refers to foo object.
+foo["bar"](1); //this inside function again refers to foo object.
+
+var func = foo.bar;
+func(1); //not a method invocation; this refers to global object not foo object. global object in browser is window.
 ```
 
-```isFinite()``` can check for ```Infinity```, ```-Infinity``` and ```NaN``` cases.
-```javascript
-isFinite(Infinity) // = false
-isFinite(-Infinity) // = false
-isFinite(NaN) // = false
-```
-##### Strings
-Strings in JavaScript are Unicode characters indeed *UTF-16*. More accurately, they are sequences of *UTF-16* code units; each code unit is represented by a 16-bit number. Each Unicode character is represented by either 1 or 2 code units.
+2. **Function invocation.**
+Function invocation method will always have ```this``` referred to the global object. Whether it is inner function or outer function. Inner functions will have access to outer functions variables but ```this``` will refer to global object.
 
-If you add number to string everything is converted to string and concatenation is performed.
-e.g.: 
+E.g.:
 ```javascript
-"3" + 4 + 5 // = 345
-3 + 4 + "5" // = 75
-```
+foo.add(a,b) {
+     var c = a + b;
+     var that = this; //"this" refers to foo object here.
+     function inner() {
+         that.value = c; // "that" is accessible here.  but "this" refers to global object not foo.
+     }
+     inner(); // function invocation
+}
 
-String's individual characters can be accessed using ```Array``` like syntax or using function ```charAt()```.
-e.g.:
-```javascript
-'abcd'[1] // returns 'b'
-'abcd'.charAt(1) // returns 'b'
+foo.add(2,3);
 ```
 
-Though, you can access characters using brackets '[]' array like syntax, but you cannot modify the original string.
-e.g.:
+3. **Constructor invocation**
+Constructor invocation is adopted to make it more like classical inheritance than prototypal. ```new``` keyword is prefix in front of function name to create object of the function. By convention, constructor functions have first letter of their name capital.
+
+```return``` keyword works differently when methods are invoked using constructor style.
+
+E.g.:
 ```javascript
-s = 'abcd';
-s[1] = 'E'; //cannot be done. NO ERROR, NO EXCEPTION is raised
+var Foo = function (str) {
+     this.status = str;
+}
+
+Foo.prototype.getStatus = function () {
+     return this.status;
+}
+
+var obj = new Foo('init'); // constructor invocation
+obj.getStatus(); //this refers to obj inside getStatus()
 ```
 
-Best practice is to always using ```charAt()``` because it's much readable and you are not tempted to set the value using this function.
+4. **Apply invocation**
+```apply()``` built-in method of JS allow us to call a function and set their ```this``` value and arguments as an array. Functions called with apply have ```this``` value passed as first parameter and arguments as second parameter.
 
-##### Other Types
-```null``` and ```undefined``` has different meaning in JavaScript. ```null``` represents *no value* and ```undefined``` represents *no existence*.
-
-```undefined``` is a constant.
-
-```Boolean``` type have possible values ```true``` and ```false```. ```true``` and ```false``` are keywords in JavaScript. Any value can be converted to Boolean according to the following rule.
-1. false, 0, empty string(""), undefined, null and NaN becomes false.
-2. all other values becomes true.
-
-You can convert these values using a ```Boolean()``` function.
+E.g.:
 ```javascript
-Boolean("") // = false
+var array = [3, 4];
+var sum = add.apply(null, array);    // sum is 7, this is set to null.
+
+// Make an object with a status member.
+var statusObject = {
+    status: 'A-OK'
+};
+
+// statusObject does not inherit from Foo as in last example,
+// but we can invoke the getStatus method on
+// statusObject even though statusObject does not have
+// a getStatus method.
+
+var status = Foo.prototype.getStatus.apply(statusObject);    // status is 'A-OK'
 ```
-Complex types would be dicussed in their respective sections and articles because these are lengthy topics.
+
+**Return statement**
+
+The return statement can be used to cause the function to return control early instead of completing the whole function execution. 
+
+>A function always returns a value. If the return value is not specified, then undefined is returned.
+
+If the function was invoked with the new prefix and the return value is not an object, then this (the new object) is returned instead.
+
+E.g.:
+```javascript
+var Foo = function () {
+  this.status = 'new';
+  this.data = 'data';
+  return {buz: 'buzz'};
+}
+
+var AnotherFoo = function () {
+  this.status = 'new';
+  this.data = 'data';
+  return this.status;
+}
+
+var bar = new Foo();
+var barAnother = new AnotherFoo();
+
+console.log(bar); // returns Object {buz: 'buzz'}, custom object was returned not "this" object.
+console.log(barAnother); // returns Object {status: 'new', data: 'data'}, "this" object was returned.
+```
