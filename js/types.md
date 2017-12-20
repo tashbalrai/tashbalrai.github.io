@@ -4,7 +4,7 @@
 
 In JavaScript everything is an object including Number, String, Boolean etc. There are two special types called ```undefined``` and ```null```.
 
-### Primitive Types
+#### Primitive Types
 1. Number
 2. Boolean
 3. null
@@ -12,7 +12,7 @@ In JavaScript everything is an object including Number, String, Boolean etc. The
 5. String
 6. Symbol (ES6+)
 
-### Complex Types
+#### Complex Types
 1. [Function](/js/functions.html)
 2. [Array](/js/arrays.html)
 3. Error (In-built object)
@@ -23,7 +23,7 @@ In JavaScript everything is an object including Number, String, Boolean etc. The
 8. Reflect (ES6+)
 9. Proxy (ES6+)
 
-##### Number
+#### Number
 Numbers in JavaScript are "double-precision 64-bit format IEEE 754 values". There are no integers in JavaScript. Integers in JavaScript are formatted representation of floating points. Integers can only express 32bit integers.
 
 **Conversion string to integer or float.**
@@ -58,7 +58,7 @@ isFinite(Infinity) // = false
 isFinite(-Infinity) // = false
 isFinite(NaN) // = false
 ```
-##### Strings
+#### Strings
 Strings in JavaScript are Unicode characters indeed *UTF-16*. More accurately, they are sequences of *UTF-16* code units; each code unit is represented by a 16-bit number. Each Unicode character is represented by either 1 or 2 code units.
 
 If you add number to string everything is converted to string and concatenation is performed.
@@ -84,7 +84,7 @@ s[1] = 'E'; //cannot be done. NO ERROR, NO EXCEPTION is raised
 
 Best practice is to always using ```charAt()``` because it's much readable and you are not tempted to set the value using this function.
 
-##### Other Types
+#### Other Types
 ```null``` and ```undefined``` has different meaning in JavaScript. ```null``` represents *no value* and ```undefined``` represents *no existence*.
 
 ```undefined``` is a constant.
