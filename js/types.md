@@ -98,3 +98,5 @@ You can convert these values using a ```Boolean()``` function.
 Boolean("") // = false
 ```
 Complex types would be dicussed in their respective sections and articles because these are lengthy topics.
+
+[Prev - Types](/js/types.html) - [Next - Functions](/js/functions.html)
