@@ -1,4 +1,4 @@
-###### *[#home](https://tashbalrai.github.io)*, **#JS Data Types**, [#Functions](/js/functions.html), [#Arrays](/js/arrays.md), [#RegExp](/js/regexp.md), [#Inheritance](/js/inheritance.md), [#Prototype](/js/proto.md), [#Object](/js/object.md), [#Awful Parts](/js/awful.md),
+###### *[#home](https://tashbalrai.github.io)*, **#JS Data Types**, [#Functions](/js/functions.html), [#Arrays](/js/arrays.html), [#RegExp](/js/regexp.html), [#Inheritance](/js/inheritance.html), [#Prototype](/js/proto.html), [#Object](/js/object.html), [#Awful Parts](/js/awful.html),
 
 ## JavaScript Types
 
@@ -10,18 +10,18 @@ In JavaScript everything is an object including Number, String, Boolean etc. The
 3. null
 4. undefined
 5. String
+6. Symbol (ES6+)
 
 ### Complex Types
-1. Function
-2. Array
-3. Symbol (ES6+)
-4. Error (In-built object)
-5. Math (In-built object)
-6. Date (In-built object)
-7. RegExp (In-built object)
-8. Promise (ES6+)
-9. Reflect (ES6+)
-10. Proxy (ES6+)
+1. [Function](/js/functions.html)
+2. [Array](/js/arrays.html)
+3. Error (In-built object)
+4. Math (In-built object)
+5. Date (In-built object)
+6. RegExp (In-built object)
+7. Promise (ES6+)
+8. Reflect (ES6+)
+9. Proxy (ES6+)
 
 ##### Number
 Numbers in JavaScript are "double-precision 64-bit format IEEE 754 values". There are no integers in JavaScript. Integers in JavaScript are formatted representation of floating points. Integers can only express 32bit integers.
