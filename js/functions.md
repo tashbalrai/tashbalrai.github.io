@@ -33,7 +33,7 @@ There is no limit on number of arguments and parameters received or passed to a 
 
 ```this``` value is bound to the function at invocation time. Methods that get their context from ```this``` are called public methods.
 
-1. **Method invocation.**
+**1. Method invocation.**
 When you use object property as method and you call method using object through "." dot/period and "[]" notation it is called method invocation. ```this``` refers to object inside function body.
 
 E.g.:
@@ -52,7 +52,7 @@ var func = foo.bar;
 func(1); //not a method invocation; this refers to global object not foo object. global object in browser is window.
 ```
 
-2. **Function invocation.**
+**2. Function invocation.**
 Function invocation method will always have ```this``` referred to the global object. Whether it is inner function or outer function. Inner functions will have access to outer functions variables but ```this``` will refer to global object.
 
 E.g.:
@@ -69,7 +69,7 @@ foo.add(a,b) {
 foo.add(2,3);
 ```
 
-3. **Constructor invocation**
+**3. Constructor invocation**
 Constructor invocation is adopted to make it more like classical inheritance than prototypal. ```new``` keyword is prefix in front of function name to create object of the function. By convention, constructor functions have first letter of their name capital.
 
 ```return``` keyword works differently when methods are invoked using constructor style.
@@ -88,7 +88,7 @@ var obj = new Foo('init'); // constructor invocation
 obj.getStatus(); //this refers to obj inside getStatus()
 ```
 
-4. **Apply invocation**
+**4. Apply invocation**
 ```apply()``` built-in method of JS allow us to call a function and set their ```this``` value and arguments as an array. Functions called with apply have ```this``` value passed as first parameter and arguments as second parameter.
 
 E.g.:
