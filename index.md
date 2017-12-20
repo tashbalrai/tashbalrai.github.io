@@ -1,4 +1,4 @@
-###### *[#Home](https://tashbalrai.github.io)*, [#About](/about.html)
+###### *[Home](https://tashbalrai.github.io)*, [About](/about.html)
 
 > This project is still under progress so many of the pages you visit will give 404 errors because the content is yet to be published
 
