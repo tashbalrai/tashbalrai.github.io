@@ -3,25 +3,31 @@
 ## JavaScript Objects
 Everything in JavaScript is an object or object-like entity, except null and undefined.
 
-### object-like entity:
+### Object-like Entity:
 This means primitive types can be visualized as objects because they have methods associated with them. But these are immutable means their value cannot be changed unlike objects.
 Objects in JavaScript are mutable keyed collections.
 
-### Common misconception:
+### Common Misconception:
 number literals cannot be used as objects. This is just because JavaScript internal treats dot '.' as a floating point instead of object access operator. 
 
+```javascript
 1234.toString(); // this gives a Syntax error.
+```
 
-Workarounds:
+_Workarounds:_
+```javascript
 1234..toString(); // '1234'
 1234 .toString(); // '1234'
 (1234).toString(); // '1234'
+```
 
 ## Creation of Object
 There are two ways to create the object: 1) using literal syntax and 2) using Object constructor.
 
+```javascript
 var obj = {}; // literal way
 var obj2 = new Object(); //Constructor method.
+```
 
 If you pass null or undefined to the Object constructor it will create an empty object.
 
@@ -53,7 +59,7 @@ dynamic keys.
 var key = '12hello-there';
 obj[key] = 'Hi there'; //works
 
-## Delete property
+## Delete Property
 Only way to remove a property from object is through delete keyword. Setting null and undefined just change the value of the property.
 
 var obj = {
@@ -67,7 +73,7 @@ delete obj.baz; // actually removes property from obj.
 
 console.log(obj); // output Object {bar: undefined, foo: null}
 
-## Notation of keys
+## Notation of Keys
 Keys of object can be notated using string notation or without strings. see below example.
 
 var obj = {
