@@ -6,7 +6,7 @@ JavaScript arrays are objects itself but they are different type of objects. Arr
 #### Array Index & Length
 Arrays do have many associated properties and methods which are inherited from its prototype i.e. ```Array.prototype```. E.g. Arrays have ```push()``` and ```pop()``` methods but Objects do not have. Arrays have ```length``` property which gives the length of array indexes but the objects ```length``` property will always be 1 no matter how many properties and/or methods the object contains. 
 
-**```length``` of the array is last index of the array plus one but not the actual number of elements stored in the array.**
+*```length``` of the array is last index of the array plus one but not the actual number of elements stored in the array.*
 
 E.g.:
 
