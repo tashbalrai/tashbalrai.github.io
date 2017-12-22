@@ -4,11 +4,12 @@
 Everything in JavaScript is an object or object-like entity, except null and undefined.
 
 ### Object-like Entity:
-This means primitive types can be visualized as objects because they have methods associated with them. But these are immutable means their value cannot be changed unlike objects.
+This means primitive types can be visualized as objects because they have methods associated with them. But these are **immutable** means their value cannot be changed unlike objects.
+
 Objects in JavaScript are mutable keyed collections.
 
 ### Common Misconception:
-number literals cannot be used as objects. This is just because JavaScript internal treats dot '.' as a floating point instead of object access operator. 
+Number literals cannot be used as objects. This is just because JavaScript internal treats dot '.' as a floating point instead of object access operator. 
 
 ```javascript
 1234.toString(); // this gives a Syntax error.
@@ -22,8 +23,11 @@ _Workarounds:_
 ```
 
 ## Creation of Object
-There are two ways to create the object: 1) using literal syntax and 2) using Object constructor.
+There are two ways to create the object: 
+1. Using object constructor, and 
+2. Using object literal syntax.
 
+### Using Object Constructor
 ```javascript
 var obj = {}; // literal way
 var obj2 = new Object(); //Constructor method.
@@ -31,55 +35,78 @@ var obj2 = new Object(); //Constructor method.
 
 If you pass null or undefined to the Object constructor it will create an empty object.
 
+```javascript
 var obj = new Object(null); // will create {} empty object
+```
 
-If you pass in a value to Object(), it will create object to the corresponding Type. e.g.
+If you pass in a value to Object(), it will create object to the corresponding JS primitive type. 
+
+E.g.:
+```javascript
 var objNum = new Object(123); // creates Number object for 123 integer value.
 var objStr = new Object('xyz'); // creates String object for 'xyz' string value.
+```
 
 If you do not use the new with Object() it will still produce the same result of creating the object.
 
-Objects as data type
+### Using Object Literal Syntax
+
+##### Objects as Data Type
 Objects in JS can be used as data type to create a hash maps.
 
-Object literal = {}, can be used to create new object. This new object inherits from Object.prototype and do not have own properties defined.
+Object literal ```{}```, can be used to create new object. This new object inherits from Object.prototype and do not have own properties defined.
 
-2 types of property assignment. using dot operator and [].
+##### Creation of Object and Defining Properties
 
-var obj = {};
+You can defined the properties using dot operator and ```[]```.
+
+```javascript
+var obj = {}; // object creation using literal syntax
 obj.foo = 'Foo';
 obj['bar'] = 'Bar';
+```
 
-Brackets can handle complex key names which otherwise could raise Syntax errors. E.g.
+Brackets can handle complex key names which otherwise could raise syntax errors. 
 
+E.g.:
+```javascript
 obj.1234 = 'hi'; // syntax error
 obj['1234'] = 'hi'; //works perfectly fine.
+```
 
-dynamic keys.
+```[]``` brackets can also be used to define dynamic keys.
+
+```javascript
 var key = '12hello-there';
 obj[key] = 'Hi there'; //works
+```
 
 ## Delete Property
-Only way to remove a property from object is through delete keyword. Setting null and undefined just change the value of the property.
+Only way to remove a property from object is through ```delete``` keyword. Setting ```null``` and ```undefined``` just change the value of the property.
 
+```javascript
 var obj = {
     bar: 1,
     foo: 2,
     baz: 3
 };
+
 obj.bar = undefined;
 obj.foo = null;
 delete obj.baz; // actually removes property from obj.
 
 console.log(obj); // output Object {bar: undefined, foo: null}
+```
 
 ## Notation of Keys
 Keys of object can be notated using string notation or without strings. see below example.
 
+```javascript
 var obj = {
      'case': 'case is keyword', //using string notation of object key.
      delete: 'delete is keyword' // without using string notation of object key.
 }
+```
 
 Prior to ECMAScript 5 above will raise syntax error because delete is a keyword, hence must be enclosed in quotation.
 
