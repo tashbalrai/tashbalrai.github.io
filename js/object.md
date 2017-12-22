@@ -1,3 +1,5 @@
+###### *[Home](https://tashbalrai.github.io)*, [JS Types](/js/index.html), **Object**, [Functions](/js/functions.html), [Arrays](/js/arrays.html), [RegExp](/js/regexp.html), [Inheritance](/js/inheritance.html), [Prototype](/js/proto.html), [Awful Parts](/js/awful.html),
+
 ## JavaScript Objects
 Everything in JavaScript is an object or object-like entity, except null and undefined.
 
@@ -15,7 +17,7 @@ Workarounds:
 1234 .toString(); // '1234'
 (1234).toString(); // '1234'
 
-Creation of Object
+## Creation of Object
 There are two ways to create the object: 1) using literal syntax and 2) using Object constructor.
 
 var obj = {}; // literal way
@@ -51,7 +53,7 @@ dynamic keys.
 var key = '12hello-there';
 obj[key] = 'Hi there'; //works
 
-Delete property
+## Delete property
 Only way to remove a property from object is through delete keyword. Setting null and undefined just change the value of the property.
 
 var obj = {
@@ -65,7 +67,7 @@ delete obj.baz; // actually removes property from obj.
 
 console.log(obj); // output Object {bar: undefined, foo: null}
 
-Notation of keys
+## Notation of keys
 Keys of object can be notated using string notation or without strings. see below example.
 
 var obj = {
