@@ -108,9 +108,10 @@ var obj = {
 }
 ```
 
-Prior to ECMAScript 5 above will raise syntax error because delete is a keyword, hence must be enclosed in quotation.
+Prior to ECMAScript 5 above will raise syntax error because ```delete``` is a keyword, hence must be enclosed in quotation.
 
 Objects are always passed by reference, never copied.
+```javascript
 var a = {}, b = {}; // a, b are different objects.
 a.name = 'AA';
 b.name = 'BB';
@@ -124,14 +125,17 @@ console.log(b);
 var x = y = z = {}; // all three objects x, y and z points to the same location.
 x.name = 'A';
 y.age = 20;
-console.log(c); // c has all both name and age property with values assigned above.
-
+console.log(z); // z has all both name and age property with values assigned above.
+```
 Note: Object references in JavaScript are not pure references. Consider the below example.
+
+```javascript
 var a = b = {v:100};
 b.v = 150;
 console.log(a); // 150 because a and b points to same object.
 
 b = {z: 200};
 console.log(a); //a still points to {v:150} changing the value of b doesn't affect a.
+```
 
-a and b are variables holding location information of object in the memory. When you change the b variable's content it simple washout the location information of the previous object from b and put another object's location information. while "a" remains pointing to the original object. Refer to the following figure.
+a and b are variables holding location information of object in the memory. When you change the b variable's content it simply washout the location information of the previous object from b and put another object's location information. while "a" remains pointing to the original object. Refer to the following figure.
