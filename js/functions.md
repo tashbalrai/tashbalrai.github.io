@@ -1,4 +1,4 @@
-###### *[Home](https://tashbalrai.github.io)*, [JS Types](/js/index.html), **Functions**, [Arrays](/js/arrays.md), [RegExp](/js/regexp.md), [Inheritance](/js/inheritance.md), [Prototype](/js/proto.md), [Object](/js/object.md), [Awful Parts](/js/awful.md),
+###### *[Home](https://tashbalrai.github.io)*, [Overview](/js/index.html), [Types](/js/types.html), **Functions**, [Arrays](/js/arrays.html), [Object](/js/object.html), [Prototype](/js/proto.html), [Inheritance](/js/inheritance.html), [RegExp](/js/regexp.html), [Awful Parts](/js/awful.html),
 
 ## JavaScript Functions
 
