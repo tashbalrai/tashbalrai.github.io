@@ -139,3 +139,6 @@ console.log(a); //a still points to {v:150} changing the value of b doesn't affe
 ```
 
 a and b are variables holding location information of object in the memory. When you change the b variable's content it simply washout the location information of the previous object from b and put another object's location information. while "a" remains pointing to the original object. Refer to the following figure.
+
+![Object References Figure](/assets/memory.jpg)
+
