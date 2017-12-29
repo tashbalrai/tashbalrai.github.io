@@ -142,3 +142,5 @@ a and b are variables holding location information of object in the memory. When
 
 ![Object References Figure](/assets/memory.jpg)
 
+**for in**
+The ```for in``` loop can be used to iterate over the object properties. Properties can come in any order. ```typeof``` keyword and ```hasOwnProperty``` function can be used to check the type and to filter the own property of object instead of prototype chain, respectively.
