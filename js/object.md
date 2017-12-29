@@ -110,7 +110,7 @@ var obj = {
 
 Prior to ECMAScript 5 above will raise syntax error because ```delete``` is a keyword, hence must be enclosed in quotation.
 
-Objects are always passed by reference, never copied.
+**Objects are always passed by reference, never copied.**
 ```javascript
 var a = {}, b = {}; // a, b are different objects.
 a.name = 'AA';
@@ -127,7 +127,7 @@ x.name = 'A';
 y.age = 20;
 console.log(z); // z has all both name and age property with values assigned above.
 ```
-Note: Object references in JavaScript are not pure references. Consider the below example.
+> Note: Object references in JavaScript are not pure references. Consider the below example.
 
 ```javascript
 var a = b = {v:100};
