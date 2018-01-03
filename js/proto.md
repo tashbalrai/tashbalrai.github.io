@@ -28,6 +28,7 @@ console.log(Object.getPrototypeOf(Object)); // function()
 ```
 
 **constructor property**
+
 Every object in JS have a constructor property which tells the name of the constructor who created that object with exception to special types ```undefined``` and ```null```.
 
 E.g.
