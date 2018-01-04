@@ -1,9 +1,14 @@
-Pseudo classical inheritance.
-JavaScript is a prototypal language, which means that objects inherit directly from other objects. JavaScript is conflicted about its prototypal nature. Its prototype mechanism is obscured by some complicated syntactic business that looks vaguely classical. Instead of having objects inherit directly from other objects, an unnecessary level of indirection is inserted such that objects are produced by constructor functions using new operator to form the pseudo classical inheritance.
+###### *[Home](https://tashbalrai.github.io)*, [Overview](/js/index.html), [Types](/js/types.html), [Functions](/js/functions.html), [Arrays](/js/arrays.html), [Object](/js/object.html), [Prototype](/js/proto.html), **Inheritance**, [RegExp](/js/regexp.html), [Awful Parts](/js/awful.html),
+
+## JavaScript Inheritance
+
+JavaScript is a prototypal language, which means that objects inherit directly from other objects. JavaScript is conflicted about its prototypal nature. Its prototype mechanism is obscured by complex syntactic layer that looks like the classical class based inheritance. A non-required layer of indirection is inserted i.e. objects are produced using constructor functions using ```new``` operator to form the pseudo classical inheritance (class based inheritance) instead of letting the objects directly inherit from other objects directly.
 
 When a new object is created from Function constructor, code something like following is executed:
 
+```javascript
 this.prototype = {constructor: this};
+```
 
 The new function object is given a prototype property whose value is an object containing a constructor property whose value is the new function object. The prototype object is the place where inherited traits are to be deposited. Every function gets a prototype object because the language does not provide a way of determining which functions are intended to be used as constructors. The constructor property is not useful. It is the prototype object that is important.
 
