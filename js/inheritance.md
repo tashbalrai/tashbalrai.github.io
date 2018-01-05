@@ -104,6 +104,7 @@ In prototypal inheritance, instead of inheriting from classes, we directly inher
 Creating private variables and methods
 Above method didn't support private properties and methods of an object. We can use the functional approach to define private properties and methods.
 
+```javascript
 var mammal = function (specs) {
      var that = this;
      that.get_name = function () {
@@ -115,9 +116,11 @@ var mammal = function (specs) {
 
      return that;
 }
+```
 
 In the above function "specs" is private, it cannot referenced directly and must only be referred to by get_name and says method. It takes benefit of closure. This is because specs is not accessible to outside but get_name and says method have access to this variable because it is in its scope.
 
+```javascript
 var mammalObj = mammal({name:'animal'});
 mammalObj.get_name(); //returns animal
 
@@ -142,9 +145,11 @@ var myCat = cat({name:'Laura'});
 myCat.purr(); // return purr
 myCat.get_name(); // return like Laura
 myCat.says(); // return meow
+```
 
 In above example we extended the mammal in cat and we inherited says function. But it also overridden the get_name function. if you want to call super object method you cannot do it. To be able to call the super object's method we first need to save its copy and then call it inside cat's get_name. Please see the example below.
 
+```javascript
 var coolcat = function (specs) {
      specs.saying = specs.saying || 'meow';
      var that = mammal(specs);
@@ -160,3 +165,5 @@ var coolcat = function (specs) {
      }
      that.purr = purr;
      return that;
+ }
+ ```
