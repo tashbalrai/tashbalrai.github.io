@@ -12,7 +12,7 @@ this.prototype = {constructor: this};
 
 The new function object is given a prototype property whose value is an object containing a constructor property whose value is the new function object. The prototype object is the place where inherited traits are to be deposited. Every function gets a prototype object because the language does not provide a way of determining which functions are intended to be used as constructors. The constructor property is not useful. It is the prototype object that is important.
 
-When a new object is created using new prefix, it just modifies the way function code is executed. if new operator were a function/method instead of operator, it could have been implemented like this:
+When a new object is created using new prefix, it just modifies the way function code is executed. if ```new``` operator were a function/method instead of operator, it could have been implemented like this:
 
 ```javascript
 Function.method('new', function (  ) {
@@ -124,7 +124,7 @@ In the above function "specs" is private, it cannot referenced directly and must
 var mammalObj = mammal({name:'animal'});
 mammalObj.get_name(); //returns animal
 
-Now let's extend mammal to specific animal.
+// Now let's extend mammal to specific animal.
 
 var cat = function (specs) {
      specs.saying = specs.saying || 'meow';
