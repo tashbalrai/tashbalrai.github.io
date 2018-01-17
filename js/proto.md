@@ -1,4 +1,4 @@
-###### *[Home](https://tashbalrai.github.io)*, [Overview](/js/index.html), [Types](/js/types.html), [Functions](/js/functions.html), [Arrays](/js/arrays.html), [Object](/js/object.html), **Prototype**, [Inheritance](/js/inheritance.html), [RegExp](/js/regexp.html), [Awful Parts](/js/awful.html),
+###### *[Home](https://tashbalrai.github.io)*, [Overview](/js/index.html), [Types](/js/types.html), [Functions](/js/functions.html), [Arrays](/js/arrays.html), [Object](/js/object.html), **Prototype**, [Inheritance](/js/inheritance.html),  [Awful Parts](/js/awful.html),
 
 ## JavaScript Prototype
 Every object in JS is linked to a prototype object from which it can inherit properties.
