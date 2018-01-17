@@ -1,4 +1,4 @@
-###### *[Home](https://tashbalrai.github.io)*, [Overview](/js/index.html), [Types](/js/types.html), [Functions](/js/functions.html), [Arrays](/js/arrays.html), [Object](/js/object.html), [Prototype](/js/proto.html), [Inheritance](/js/inheritance.html), [RegExp](/js/regexp.html), **Awful Parts**
+###### *[Home](https://tashbalrai.github.io)*, [Overview](/js/index.html), [Types](/js/types.html), [Functions](/js/functions.html), [Arrays](/js/arrays.html), [Object](/js/object.html), [Prototype](/js/proto.html), [Inheritance](/js/inheritance.html), **Awful Parts**
 
 ## Automatic Semicolon Insertion (ASI)
 JS tries to auto correct the code by inserting the semicolon where a programmer omitted the ";". This creates worse case, consider the following return statement.
