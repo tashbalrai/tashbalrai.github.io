@@ -7,9 +7,10 @@ JavaScript have evolved too much. The current JavaScript version have so many ad
 In JavaScript or ECMAScript a block is marked with {} curly braces and block level scoping means that a variable function defined with in a block will only appear in that same block or its inner block but will not be accessible outside of the block.
 
 ### let and const variable scoping
-A varibale or constant defined with let/const will appear only with in the scope. These are not hoisted.
+A varibale/constant defined with let/const will appear only with in the block scope. These are not hoisted.
 
 The ```let``` keyword defines a block level variable.
+
 The ```const``` keyword defines a block level constant.
 
 E.g.:
@@ -21,7 +22,7 @@ E.g.:
 console.log(val); //ReferenceError: val is not defined
 ```
 
-#### No Re-declarations
+**No Re-declarations**: we cannot declare a variable again if defined already.
 Example 1:
 ```javascript
 var count = 30;
@@ -46,3 +47,28 @@ console.log(count2); //ReferenceError: can't access lexical declaration `count2'
 let count2 = 10;
 ```
 
+#### const works on binding basis
+If you declare an identifier with const the value bounded to the identifier cannot be changed. E.g.:
+
+```javascript
+const name = 'foo';
+name = 'bar'; //throws an error because you cannot change the value bound to name variable/identifier.
+```
+
+If you declare objects with const you can change the values of the object. E.g.:
+```javascript
+const person = {
+     name: 'foo'
+};
+
+person.name = 'bar'; //works
+```
+
+This is because person constant is bound to the object not its values. Means person's reference to the object cannot be changed but value of the object properties can be changed.
+
+However, following would give error.
+```javascript
+person = {};
+```
+
+Because you cannot change the binding of the constant.
