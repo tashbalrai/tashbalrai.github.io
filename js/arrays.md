@@ -1,4 +1,4 @@
-###### *[Home](https://tashbalrai.github.io)*, [Overview](/js/index.html), [Types](/js/types.html), [Functions](/js/functions.html), **Arrays**, [Object](/js/object.html), [Prototype](/js/proto.html), [Inheritance](/js/inheritance.html), [RegExp](/js/regexp.html), [Awful Parts](/js/awful.html),
+###### *[Home](https://tashbalrai.github.io)*, [Overview](/js/index.html), [Types](/js/types.html), [Functions](/js/functions.html), **Arrays**, [Object](/js/object.html), [Prototype](/js/proto.html), [Inheritance](/js/inheritance.html), [Awful Parts](/js/awful.html),
 
 ## JavaScript Arrays
 JavaScript arrays are objects itself but they are different type of objects. Arrays are created from ```Array.prototype``` and Objects are created from ```Object.prototype```.
