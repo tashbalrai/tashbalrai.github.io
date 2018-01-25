@@ -29,4 +29,24 @@ Characters and graphemes are similar terms. Characters are the digital form of t
 #### Glyph
 Glyph is a particular or concrete way of displaying a grapheme by an application program. Unicode defines the character codes for different characters/graphemes but do not impose how to display them on screen (for example, style of rendering a character 'T' would be different for 'Time New Roman' font from 'Courier' font)
 
+#### BOM Byte Order Mark
+In unicode BOM is a special code point U+FEFF which tells the consumer of the text stream that in which order the bytes of a text stream is presented. BOM is different for each type of unicode encoding for example UTF-8, UTF-16 etc. Here, byte order means endianness which is either big endian or low endian. In big endian byte order the more significant bytes of the code points come first and by default BIG endian order is used. In low endian byte order the least significant bytes comes first.
 
+BOM matters only in the information interchange/trasnmission of different channels and is not concerned with text processing once the complete text stream has been downloaded successfully.
+
+BOM itself is encoded in the same scheme (endianness) as the rest of the document, but has a known value i.e. U+FEFF, the consumer of the text can examine these first few bytes to determine the encoding. The BOM thus gives the producer of the text a way to describe the text endianness to the consumer of the text without requiring some contract or metadata outside of the text stream itself.
+
+#### Normalization
+In unicode, some graphemes can be represented as a signle code point or multiple code points can be combined together to represent a signle grapheme. For example, the grapheme ö can be represented as a single code point or as an o followed by a combining character ¨ (double dot). Normalization is about translating a text to a canonical representation. These different ways of representing a grapheme is standardized to a signle code point so that it could be useful for text processing functions for example, searching a text in the string. Unicode specifies several normalizations. 
+
+### Unicode Encodings
+Unicode have different encoding schemes to encode text. These encoding formats are UTF-8, UTF-16 and UTF-32. There are other formats too but these are the most popular and widely used encoding formats.
+
+#### UTF-8
+UTF-8 uses 8 bits of code unit to encode a particular grapheme. All the ASCII characters can be represented by 1 code unit i.e. 8 bits and that's why this encoding scheme compatible with ASCII and is used videly in web, text processing systems where compatibility with older applications is required. Higher order code points can user 1 - 4 code units. Because of its capability of being compatible with all of the major older charsets it is widely used in JSON, XML, HTML and on almost on web applications.
+
+#### UTF-16
+UTF-16 uses 16 bits of code unit and to represent a code unit it can use either 1 code unit or 2 code units. It is not compatible with older systems of text encodings.
+
+#### UTF-32
+UTF-32 uses 32 bits of code unit. Its is fixed lenth encoding scheme because all the code points can be represented only with one code unit of 32 bits.
