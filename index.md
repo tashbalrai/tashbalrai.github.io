@@ -12,3 +12,6 @@ JavaScript short form JS is the general purpose programming language was first d
 
 ### JavaScript ES2015 to ES2017
 JavaScript have evolved too much. The current JavaScript version have so many advanced concepts added like classes, modules, generator functions, arrow functions. ES6 or ES2015 have been a very big release in the JavaScript history and many of the JavaScript implementors are still upgrading to the new ECMAScript standards. These enchancements have made the JavaScript even more powerful. [more](/es2017/index.md)
+
+### Get to know Unicode
+JavaScript have evolved too much. The current JavaScript version have so many advanced concepts added like classes, modules, generator functions, arrow functions. ES6 or ES2015 have been a very big release in the JavaScript history and many of the JavaScript implementors are still upgrading to the new ECMAScript standards. These enchancements have made the JavaScript even more powerful. [more](/common/unicode.md)
