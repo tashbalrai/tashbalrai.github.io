@@ -51,7 +51,27 @@ Number('0o10'); // result 8 with parseInt result would be 0
 ### "Number" Static Property
 Previously defined global functions are now added to the Number as a method such as parseInt, isFinite, isNaN and parseFloat. Their working is same as globally defined counterparts of these functions except that isNaN and isFinite doesn't force the string to be converted to number first and then tested.
 
-For example:
+#### Number.EPSILON
+Gives precise round off error. It is very useful in comparing the float values. For example, consider the below code.
+
 ```javascript
-Number.isFinite('123'); // result false
-Number.isNaN('')
+function epsEqu(x, y) {
+    return Math.abs(x - y) < Number.EPSILON;
+}
+console.log(epsEqu(0.1+0.2, 0.3)); // true
+```
+
+#### Number.isInteger(number)
+Returns ```true``` if number have decimal point.
+
+#### Number.isSafeInteger(number)
+Returns true if the number lies in the sage integer range of JavaScript. Safe integer range in JS is -2^53 to + 2^53.
+
+#### Number.MIN_SAFE_INTEGER
+Its value is minimum safe integer possible in JavaScript.
+
+#### Number.MAX_SAFE_INTEGER
+Its value is the maximum safe integer in JavaScript.
+```javascript
+Number.MAX_SAFE_INTEGER = Math.pow(2, 53)-1;
+```
