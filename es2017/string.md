@@ -91,9 +91,11 @@ tagFunc`Hello ${name}, Welcome back!!`;
 tagFunc`${name} Welcome back!!`;
 // Output: ["", "Welcome back!!"] ["vince"]
 // Notice the first element of the template string parts is empty string.
-// This is because subsitution is first in the literal.
+// This is because subsitution is first in the template literal.
 
 tagFunc`Hello ${name}`;
+// Output: ["Hello ", ""] ["vince"]
+// This is because subsitution is last in the template literal.
 ```
 
 
