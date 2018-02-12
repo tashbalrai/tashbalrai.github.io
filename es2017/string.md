@@ -70,3 +70,31 @@ POST`http://foo.org/bar?a=${a}&b=${b}
        "bar": ${bar}}`(myOnReadyStateChangeHandler);
 ```
 
+### Tagged Function
+A tagged function receives 2 types of input.
+
+1. Template string object holds the *raw* and *cooked* string parts excluding subsitutions.
+2. one or more subsitution parameters for the template string.
+
+For example, consider the below tagged function:
+
+```javascript
+function tagFunc(template, ...subs) {
+     console.log(template, subs);
+}
+
+let name = "vince";
+tagFunc`Hello ${name}, Welcome back!!`;
+// Output: ["Hello ", ", Welcome back!!"] ["vince"]
+// First array is the template string parts and second array is the subsitution parameters.
+
+tagFunc`${name} Welcome back!!`;
+// Output: ["", "Welcome back!!"] ["vince"]
+// Notice the first element of the template string parts is empty string.
+// This is because subsitution is first in the literal.
+
+tagFunc`Hello ${name}`;
+```
+
+
+
