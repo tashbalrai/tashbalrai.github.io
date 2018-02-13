@@ -102,6 +102,84 @@ const [x=someValue(), y=0] = [];
 Order matters when refering to the default values. Variables are declared from left -> right. So, refering to a variable which is not yet been defined will throw a reference error.
 
 ```javascript
-const [x=2, y=x] = [1]; //It works
-const [x=y, y=2] = [1]; It doesn't work
+const [x=2, y=x] = [1]; // It works.
+const [x=y, y=2] = [1]; // It doesn't work. ReferenceError
 ```
+
+### Default values for pattern
+A complete pattern can have a default value.
+
+```javascript
+const [{ prop: x } = {}] = []; // because there is no prop in source; an empty object will be assigned
+const [{ prop: x } = { prop: 123 }] = [{}]; // because there is no prop in source; {prop:123} will be assigned. x will have 123 value.
+```
+
+Property value shorthands are a feature of object literals: If the property value is a variable that has the same name as the property key then you can omit the key.
+
+ES6 object literals can have computed property keys and same goes for destructuring as well. You can use the square brackets for computed propery keys.
+
+```javascript
+const FOO = 'foo';
+const { [FOO]: f } = { foo: 123 }; // f = 123
+
+// Create and destructure a property with key as symbol
+const KEY = Symbol();
+const obj = { [KEY]: 'abc' };
+const { [KEY]: x } = obj; // x = 'abc'
+```
+
+### Few Array destructuring features.
+#### Array holes
+Array holes can be used to skip the elements in the source.
+
+```javascript
+const [,, x, y] = ['a', 'b', 'c', 'd']; // x = 'c'; y = 'd'
+```
+
+#### Rest operator
+A rest operator can be used to capture the rest of the iterables into any array. If an rest operator is used in array pattern it must be the last in the array.
+
+```javascript
+const [x, ...y] = ['a', 'b', 'c']; // x='a'; y=['b', 'c']
+```
+
+If rest element doesn't have a match in source it will be set to empty array.
+
+```javascript
+const [x, ...y] = ['a']; //x='a', y=[]
+```
+
+You can also have a pattern instead of variable with rest operator.
+
+```javascript
+const [x, ...[y, z]] = ['a', 'b', 'c', 'd']; // x='a', y='b', z='c'
+```
+
+### Assignment target type
+If you assign via destructuring, each assignment target can be everything that is allowed on the left-hand side of a normal assignment.
+
+For example:
+
+```javascript
+const obj = {};
+({ foo: obj.prop } = { foo: 123 });
+console.log(obj); // {prop:123}
+
+const arr = [];
+({ bar: arr[0] } = { bar: true });
+console.log(arr); // [true]
+
+const obj = {};
+[first, ...obj.prop] = ['a', 'b', 'c'];
+// use of rest operator; first = 'a'; obj.prop = ['b', 'c']
+```
+
+## Pitfalls of destructuring.
+Pitfalls of destructuring is that you cannot start the statement with curly brackets. It will throw SyntaxError because code blocks start with curly brackets.
+
+```javascript
+{a, b} = someValue; // SyntaxError
+({ a, b } = someObject); // OK
+({ a, b }) = someObject; // SyntaxError
+```
+
