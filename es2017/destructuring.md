@@ -71,4 +71,37 @@ Non iterables cannot be destructured using array pattern. It throws TypeError wh
 [] = null // TypeError
 ```
 
+## Default values
+You can specify a default value if there is not match or ```undefined``` value in the destructuring source. Default value is optional and can be assigned with assignment operator.
 
+```javascript
+const [x=0, y] = [];
+const {first:x=0, last:l} = {};
+```
+
+If no default value is given and there is no match the variable is set to ```undefined```.
+
+### Default values are only computed when required. 
+
+```javascript
+function someValue() {
+  console.log('Executed');
+  return 10;
+}
+
+const {first: f=someValue(), last:l} = {first:"v", last:"j"};
+```
+
+In the above code, the function *someValue* will never execute because default value was not needed so function wasn't evaluated. But in the below code it will.
+
+```javascript
+const [x=someValue(), y=0] = [];
+```
+
+### Default values can refer other variables in the pattern.
+Order matters when refering to the default values. Variables are declared from left -> right. So, refering to a variable which is not yet been defined will throw a reference error.
+
+```javascript
+const [x=2, y=x] = [1]; //It works
+const [x=y, y=2] = [1]; It doesn't work
+```
