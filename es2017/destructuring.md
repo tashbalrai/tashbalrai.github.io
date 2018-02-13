@@ -24,3 +24,51 @@ Two parties are involved in destructuring:
 
 **2. Destructuring target:** the pattern used for destructuring.
 
+There are two types of pattern used for target. These are called object pattern and array pattern. 
+
+**Object pattern:** It consists of object properties and further property values can be pattern recursively.
+
+**Array pattern:** It consists of array elements and further an element can be a pattern recursively.
+
+Patterns can be nested deeply.
+
+### Object pattern coerce the values to objects.
+It means primitive values can also be used with object pattern.
+
+```javascript
+let {length: len} = "abc";
+console.log(len);
+// Output: 3
+```
+
+```undefined``` and ```null``` gives TypeError when using with destructuring. This is because conversion of primitive values is not done using Object() but instead is done with internal method ToObject(). ToObject throws TypeError instead of empty object.
+
+>You can check if a value is coercible to object or not using an empty object pattern
+
+```javascript
+({} = [true, false]) // OK, arrays are coercible to object.
+({} = "abc") // OK, string values are coercible to object.
+({} = undefined) // TypeError, undefined is not coercible to object.
+({} = null) // TypeError, null is not coercible to object.
+```
+
+### Array pattern works with iterables
+String are iterables so it works with strings too.
+
+```javascript
+let [x, ...y] = "abc"; // x = "a", y = ["b", "c"]
+```
+
+As of ES2015, strings return code points instead of code units.
+
+>You can’t access the elements of a Set via indices, but you can do so via an iterator. 
+
+Non iterables cannot be destructured using array pattern. It throws TypeError which means you can use the empty array pattern to check if a particular value is iterable or not.
+
+```javascript
+[] = {} // TypeError empty objects are not iterable
+[] = undefined // TypeError
+[] = null // TypeError
+```
+
+
