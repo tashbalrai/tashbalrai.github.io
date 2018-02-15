@@ -294,10 +294,12 @@ console.log(foo(7)); // 17
 ## Tail Call Optimization
 Tail call optimization deals with optimizing the call stack of the function calls. A tail call is when the function is called as the last statement inside another function.
 
+```javascript
 function doSomething() {
      //statements;
      return doSomethingElse(); // tail call
 }
+```
 
 Tail calls as implemented in ES5 engines are handled just like any other function call: a new stack frame is created and pushed onto the call stack to represent the function call. That means every previous stack frame is kept in memory, which is problematic when the call stack gets too large.
 
