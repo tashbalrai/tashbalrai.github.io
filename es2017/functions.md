@@ -1,21 +1,29 @@
 ###### *[Home](https://tashbalrai.github.io)*, **Destructuring**
 
+## Default values
 ES6 supports default values for parameters. E.g.
+
+```javascript
 function makeRequest(url, timeout = 2000, callback = function(){}) {
      ....
 }
+```
 
 It is not necessary to have default parameters at the end of the parameter list. E.g.
+
+```javascript
 function makeRequest(url, timeout = 2000, callback) {
      ....
 }
+```
 
-If the parameter was not passed or undefined was passed for the default parameters then the default value will be used.
+If the parameter was not passed or ```undefined``` was passed for the default parameters then the default value will be used.
 
-If null is passed as the value then parameter value is set to null not to the default value.
+If ```null``` is passed as the value, it won't trigger the default value.
 
 In ES5, arguments object behaved differently when in strict mode and in non-strict mode.
 
+```javascript
 function mixArgs(first, second) {
     console.log(first === arguments[0]); // true
     console.log(second === arguments[1]); // true
@@ -26,10 +34,11 @@ function mixArgs(first, second) {
 }
 
 mixArgs("a", "b");
+```
 
+In non strict mode, arguments were bound with parameters, so changes to parameters in ```first``` and ```second``` reflected in ```arguments[0]``` and ```arguments[1]``` that is why they returned true values. This is different in strict mode, parameters are not bound to arguments so changes to parameters are not reflected in the arguments object, consider the following example.
 
-In non strict mode arguments were bound with parameters, so changes to parameters in first and second reflected in arguments[0] and arguments[1] that is why they returned true values. This is different in strict mode, parameters are not bound to arguments so changes to parameters are not reflected in the arguments object, consider the following example.
-
+```javascript
 function mixArgs(first, second) {
     "use strict";
 
@@ -42,10 +51,11 @@ function mixArgs(first, second) {
 }
 
 mixArgs("a", "b");
+```
 
+In ES6 with default parameters case, arguments object always work like ES5 strict mode. E.g.:
 
-In ES6 default parameter case, arguments object always work like ES5 strict mode. E.g.:
-
+```javascript
 // not in strict mode
 function mixArgs(first, second = "b") {
     console.log(arguments.length); // 1 because only one argument was passed to function.
@@ -58,10 +68,12 @@ function mixArgs(first, second = "b") {
 }
 
 mixArgs("a");
+```
 
-
-Default Parameter Expression
+## Default Parameter Expression
 You can use the expression as the value for the default parameters. You can use a function call to get value of the default parameter or any valid expression. E.g.:
+
+```javascript
 let value = 5;
 function getValue() {
      return value++;
@@ -74,20 +86,25 @@ function add(first, second = getValue()) {
 add(1,1); // 2
 add(1); // 6
 add(1); // 7
+```
 
-Note: default parameter expression is only evaluated when the argument for that parameter is not passed in or is undefined. If you are using a function call as a parameter value make sure you do not remove the calling parenthesis () from function call. Otherwise it will assign the function reference to the parameter instead of the returned value.
+>Note: Default parameter expression is only evaluated when the argument for that parameter is not passed in or is undefined. If >you are using a function call as a parameter value make sure you do not remove the calling parenthesis () from function call. >Otherwise it will assign the function reference to the parameter instead of the returned value.
 
 You can also have first parameter value assigned to second parameter as a default value. E.g.:
 
+```javascript
 function add(first, second=first) { //Valid code
 }
+```
 
 But you cannot use previous parameter as a value to the earlier parameter because of temporal dead zone TDZ. E.g.:
 
+```javascript
 function add(first=second, second) { //throws error
 }
+```
 
-REST parameters
+## REST parameters
 You can have any number of parameters passed to a function than formal parameters defined in the function declaration. In ES5 you used arguments object to access informally parameters passed to a function. arguments object indices starts from the first formal parameters defined and goes onto the last parameter passed to the function.
 
 function foo(first, second) {
