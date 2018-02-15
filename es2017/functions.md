@@ -246,6 +246,7 @@ ES6 provide block level functions. Earlier block level functions when used in st
 
 In ES6 you can define block level functions, in strict mode, these functions are only available inside that block. Block level functions are hoisted unlike the let/const's block level variables. E.g.:
 
+```javascript
 'use strict';
 {
   console.log(typeof foo); // function; hoisting works here
@@ -255,6 +256,7 @@ In ES6 you can define block level functions, in strict mode, these functions are
   foo();
 }
 console.log(typeof foo); // undefined; not available outside the block
+```
 
 >Block level functions are available to the global scope if not defined in strict mode. 
 
