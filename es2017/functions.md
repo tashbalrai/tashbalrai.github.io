@@ -1,3 +1,5 @@
+###### *[Home](https://tashbalrai.github.io)*, **Destructuring**
+
 ES6 supports default values for parameters. E.g.
 function makeRequest(url, timeout = 2000, callback = function(){}) {
      ....
