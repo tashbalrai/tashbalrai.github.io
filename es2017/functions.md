@@ -241,7 +241,7 @@ let p1 = Person(); // throws error
 let p2 = Person.call(p); // throws error
 ```
 
-Block Level Functions
+## Block Level Functions
 ES6 provide block level functions. Earlier block level functions when used in strict mode were throwing error but in non-strict mode their behavior was not standardized. It was vendor specific.
 
 In ES6 you can define block level functions, in strict mode, these functions are only available inside that block. Block level functions are hoisted unlike the let/const's block level variables. E.g.:
@@ -256,20 +256,23 @@ In ES6 you can define block level functions, in strict mode, these functions are
 }
 console.log(typeof foo); // undefined; not available outside the block
 
-Block level functions are available to the global scope if not defined in strict mode. Function expressions using let statements are not hoisted even in block level. They form TDZ.
+>Block level functions are available to the global scope if not defined in strict mode. 
 
-Arrow Functions
+>Function expressions using let statements are not hoisted even in block level. They form TDZ.
+
+## Arrow Functions
 Arrow functions have the following properties:
+
 1. No this, super, arguments, and new.target bindings - The value of this, super, arguments, and new.target inside of the function is by the closest containing non-arrow function.
-2. Cannot be called with new - Arrow functions do not have a [[Construct]] method and therefore cannot be used as constructors. Arrow functions throw an error when used with new.
+2. Cannot be called with new - Arrow functions do not have a [[Constructor]] method and therefore cannot be used as constructors. Arrow functions throw an error when used with new.
 3. No prototype - since you can’t use new on an arrow function, there’s no need for a prototype. The prototype property of an arrow function doesn’t exist.
-4. Can’t change this - The value of this inside of the function can’t be changed. It remains the same throughout the entire life-cycle of the function.
+4. Can’t change ```this``` - The value of ```this``` inside of the function can’t be changed. It remains the same throughout the entire life-cycle of the function.
 5. No arguments object - Since arrow functions have no arguments binding, you must rely on named and rest parameters to access function arguments.
 6. No duplicate named arguments - arrow functions cannot have duplicate named arguments in strict or non-strict mode, as opposed to non-arrow functions that cannot have duplicate named arguments only in strict mode.
 
 Variations of arrow functions:
 
-
+```javascript
 let foo = x => x; // no return keyword required
 console.log(foo(6)); // 6
 
@@ -284,8 +287,9 @@ foo = x => {
      return x + y; // multiple statements in the function body require return keyword
 }
 console.log(foo(7)); // 17
+```
 
-Tail Call Optimization
+## Tail Call Optimization
 Tail call optimization deals with optimizing the call stack of the function calls. A tail call is when the function is called as the last statement inside another function.
 
 function doSomething() {
@@ -295,7 +299,7 @@ function doSomething() {
 
 Tail calls as implemented in ES5 engines are handled just like any other function call: a new stack frame is created and pushed onto the call stack to represent the function call. That means every previous stack frame is kept in memory, which is problematic when the call stack gets too large.
 
-ES6 seeks to reduce the size of the call stack for certain tail calls in strict mode (non-strict mode tail calls are left untouched). With this optimization, instead of creating a new stack frame for a tail call, the current stack frame is cleared and reused so long as the following conditions are met:
+ES6 seeks to reduce the size of the call stack for certain tail calls in strict mode (non-strict mode tail calls are left untouched). With this optimization, instead of creating a new stack frame for a tail call, the current stack frame is cleared and reused as long as the following conditions are met:
 
 1. Tail call do not use closure.
 2. Tail call has no further work to do after the tail call returns.
