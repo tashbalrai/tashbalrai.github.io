@@ -122,7 +122,7 @@ console.log(Object.getPrototypeOf(friend) === dog);     // true
 ```
 
 ## Prototype Access With Super
-ES6 introduces a new keyword super to access the base object's properties and methods. You can use ```super``` inside a concise method to access the inherited method. You cannot use ```super``` inside a non-concise method.
+ES6 introduces a new keyword ```super``` to access the base object's properties and methods. You can use ```super``` inside a concise method to access the inherited method. You cannot use ```super``` inside a non-concise method.
 
 ## A Formal Method Definition
 ECMAScript 6 formally defines a method as a function that has an internal [[HomeObject]] property containing the object to which the method belongs.
