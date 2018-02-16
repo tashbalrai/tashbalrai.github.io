@@ -1,4 +1,4 @@
-###### *[Home](https://tashbalrai.github.io)*, **Destructuring**
+###### *[Home](https://tashbalrai.github.io)*, **Functions**
 
 ## Default values
 ES6 supports default values for parameters. E.g.
