@@ -171,7 +171,7 @@ WeakSets are a good way of handling the object references i.e. to find if any ob
 ## Maps in ECMAScript 6
 Maps are key-value pairs. Maps do not coerce the keys to be strings so 3 and "3" keys are both different and can store different values.
 
-Maps can also user objects as keys and this feature provides a way to associate additional data to an object without modifying the original object itself.
+Maps can also use objects as keys and this feature provides a way to associate additional data to an object without modifying the original object itself.
 
 ```javascript
 let map = new Map([['key1', 'value1'], ['key2', 'value2']]); // initializing the Map with constructor call.
@@ -191,7 +191,7 @@ console.log(map.get({}));
 console.log(map.get('key1')); // value1
 ```
 
-Map constructor accepts an array of arrays with key-value pair. each nested array contains exactly two values. first as key and second as value. Array is used to initialize the Map with constructor instead of object because objects keys are coerced to be strings hence eliminates the types information.
+Map constructor accepts an array of arrays with key-value pair e.g. ```[['key1', 'value1'], ['key2', 'value2']]```. Each child array contains exactly two values. First as key and second as value. Array is used to initialize the Map with constructor instead of object because object's keys are coerced to be strings hence eliminates the type information.
 
 ```set(key, value)``` method can be used to set the values in the map. ```get(key)``` method can be used to get the value. If there is no key exists with the one passed into the ```get(key)``` method. It will return undefined.
 
@@ -202,4 +202,22 @@ If you use direct object literal as a key to ```set(key, value)``` method, you w
 ```clear()``` method removes all of key-value pairs from the map and makes the map empty.
 ```size``` property give number of key-value pairs a map contains.
 
+### forEach method for Maps
+Maps do have a forEach method which accepts callback same as the Sets case. The only difference is that the second argument to the callback is the key instead of the same value as in Sets.
 
+```javascript
+const map = new Map([['key1', 'value1'], ['key2', 'value2'], ['key3', 'value3']]);
+map.forEach(function(value, key, omap) {
+    // statements
+});
+```
+
+```forEach()``` method process the key-value pairs in order they were inserted to the map. Array are processed based on the index value of the array instead of the insertion order.
+
+## WeakMaps
+Similar to WeakSets, WeakMaps cannot store primitive values as keys. Every key must be an object. WeakMap keys are weak references same as in sets i.e. garbage collector will remove the element if all the outside references are destroyed.
+
+**Use Case for WeakMap**
+The most useful place to employ weak maps is when creating an object related to a particular DOM element in a web page. For example, some JavaScript libraries for web pages maintain one custom object for every DOM element referenced in the library, and that mapping is stored in a cache of objects internally.
+
+The difficult part of this approach is determining when a DOM element no longer exists in the web page, so that the library can remove its associated object. Otherwise, the library would hold onto the DOM element reference past the reference’s usefulness and cause a memory leak. Tracking the DOM elements with a weak map would still allow the library to associate a custom object with every DOM element, and it could automatically destroy any object in the map when that object’s DOM element no longer exists.
