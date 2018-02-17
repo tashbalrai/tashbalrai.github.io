@@ -157,4 +157,49 @@ key = null;
 console.log(wset.has(key)); // false
 ```
 
+### Notable things about WeakSets
+1. Weak references to the object values.
+2. ```add()``` method throws error on adding primitive values.
+3. ```delete()``` and ```hash()``` method returns ```false``` if passed primitive value.
+4. WeakSets are not iterable and cannot be used in ```for-in``` loop.
+5. WeakSets do not have iterators so no way of programmatically explore the contents of a WeakSet.
+6. Do not have ```forEach()``` method.
+7. Do not have ```size``` property.
+
+WeakSets are a good way of handling the object references i.e. to find if any object is still available or not.
+
+## Maps in ECMAScript 6
+Maps are key-value pairs. Maps do not coerce the keys to be strings so 3 and "3" keys are both different and can store different values.
+
+Maps can also user objects as keys and this feature provides a way to associate additional data to an object without modifying the original object itself.
+
+```javascript
+let map = new Map([['key1', 'value1'], ['key2', 'value2']]); // initializing the Map with constructor call.
+let key = {};
+map.set(key, 'My key is an object'); // object can be keys
+
+// Cannot track the object once added 
+// because no refernce to the original object available afterwards
+map.set({}, 'I am untrackable.');
+
+console.log(map.get(key)); // 'my key is an object'
+
+// undefined because reference to passed object 
+// is not same as the object we set earlier.
+console.log(map.get({}));
+
+console.log(map.get('key1')); // value1
+```
+
+Map constructor accepts an array of arrays with key-value pair. each nested array contains exactly two values. first as key and second as value. Array is used to initialize the Map with constructor instead of object because objects keys are coerced to be strings hence eliminates the types information.
+
+```set(key, value)``` method can be used to set the values in the map. ```get(key)``` method can be used to get the value. If there is no key exists with the one passed into the ```get(key)``` method. It will return undefined.
+
+If you use direct object literal as a key to ```set(key, value)``` method, you will no longer be able to get back the value of the same object because each object have a different reference.
+
+```has(key)``` method return true or false.
+```delete(key)``` method removes one key-value pair from the map specified with the key.
+```clear()``` method removes all of key-value pairs from the map and makes the map empty.
+```size``` property give number of key-value pairs a map contains.
+
 
