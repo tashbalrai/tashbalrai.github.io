@@ -103,9 +103,23 @@ set.forEach(function(value1, value2, set){
     // ... statements
 }[, thisValue]);
 ```
+
 ```value1``` and ```value2``` are same and hold the value of the set at current position.
 
 ```set``` is the set itself.
 
-```thisValue``` thisValue is option to pass. If passed callback function will have ```this``` set to the passed object.
+```thisValue``` is optional to pass. If passed callback function will have ```this``` set to the passed object.
 
+> If you use the arrow function you wont need to pass ```this``` reference to the function.
+
+You cannot access the set values with index as you do with array. To access the values like array, you need to convert it to array first using the spread operator.
+
+E.g.: Set to array conversion.
+```javascript
+let set = new Set([4, 6, 3, 5, 3, 4, 5]),
+    array = [...set];
+
+console.log(array);             // [ 4, 6, 3, 5 ]
+```
+
+An array can be easily converted to a set by passing the array to the set constructor. A set can be easily converted to an array using the spread operator.
