@@ -78,10 +78,34 @@ Set is an ordered list of unique (no duplicate) values.
 
 ```javascript
 let set = new Set();
-set.add(5);
-set.add("5");
-console.log(set.size);
+set.add(27);
+set.add("27");
 set.add({}); // objects can be added
 set.add({}); // multiple objects added to set because they are not converted to string.
 set.add(); // adds undefined to the set
+set.add(27); // duplicates are simplly ignored.
+set.add(); // duplicate undefined value will also be ignored.
+console.log(set.size); // output 5
 ```
+
+Sets can contain two different values for 27 and "27" because it doesn't coerce the value to be a string. Objects are treated as a separate item, so you can have multiple object items.
+
+```delete()``` method deletes a single value from the set.
+```clear()``` removes all of the values from the set and makes it empty.
+```has()``` checks if a value exists in a set.
+
+
+### forEach With Sets
+```forEach``` accepts a callback function and this callback accepts 3 arguments.
+
+```javascript
+set.forEach(function(value1, value2, set){
+    // ... statements
+}[, thisValue]);
+```
+```value1``` and ```value2``` are same and hold the value of the set at current position.
+
+```set``` is the set itself.
+
+```thisValue``` thisValue is option to pass. If passed callback function will have ```this``` set to the passed object.
+
