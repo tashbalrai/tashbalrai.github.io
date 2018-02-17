@@ -112,14 +112,35 @@ set.forEach(function(value1, value2, set){
 
 > If you use the arrow function you wont need to pass ```this``` reference to the function.
 
-You cannot access the set values with index as you do with array. To access the values like array, you need to convert it to array first using the spread operator.
+### Set to Array to Set
+You cannot access the ```set``` values with index as you do with array. To access the values like array, you need to convert it to array first using the spread operator.
 
 E.g.: Set to array conversion.
 ```javascript
-let set = new Set([4, 6, 3, 5, 3, 4, 5]),
+let set = new Set([4, 6, 3, 5, 3, 4, 5]), // duplicates are removed in conversion to set
     array = [...set];
 
 console.log(array);             // [ 4, 6, 3, 5 ]
 ```
 
 An array can be easily converted to a set by passing the array to the set constructor. A set can be easily converted to an array using the spread operator.
+
+## StrongSet or Set
+A set can also be considered as a strong set. Object elements in a set are considered as a variable which stores its reference so an object in the set is not garbage collected until all of its references are not destroyed. Consider the following example.
+
+```javascript
+let set = new Set(),
+    obj = {};
+
+set.add(obj);
+console.log(set.size); // 1
+obj = null;
+
+console.log(set.size); //1
+obj = [...set][0]; // restore the object reference
+```
+
+In above example, ```obj = null``` clear one reference to the ```obj``` but one reference to the object is still remains in the set. So, the ```obj``` is not garbage collected.
+
+## WeakSet
+A weak set objects are always garbage collected when all the outer references are destroyed. WeakSets store a weak reference to the object as values inside them which can be garbage collected if it is the only reference to object.
