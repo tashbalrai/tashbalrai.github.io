@@ -143,4 +143,18 @@ obj = [...set][0]; // restore the object reference
 In above example, ```obj = null``` clear one reference to the ```obj``` but one reference to the object is still remains in the set. So, the ```obj``` is not garbage collected.
 
 ## WeakSet
-A weak set objects are always garbage collected when all the outer references are destroyed. WeakSets store a weak reference to the object as values inside them which can be garbage collected if it is the only reference to object.
+A weak set objects are always garbage collected when all the outer references are destroyed. WeakSets store a weak reference to the object as values inside them which can be garbage collected if it is the only reference to object. 
+
+WeakSets only store weak references. WeakSets do not store primitive values.
+
+```javascript
+var wset = new WeakSet(),
+    key = {};
+
+wset.add(key);
+console.log(wset.has(key)); // true
+key = null;
+console.log(wset.has(key)); // false
+```
+
+
