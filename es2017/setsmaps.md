@@ -160,7 +160,7 @@ console.log(wset.has(key)); // false
 ### Notable things about WeakSets
 1. Weak references to the object values.
 2. ```add()``` method throws error on adding primitive values.
-3. ```delete()``` and ```hash()``` method returns ```false``` if passed primitive value.
+3. ```delete()``` and ```has()``` method returns ```false``` if passed primitive value.
 4. WeakSets are not iterable and cannot be used in ```for-in``` loop.
 5. WeakSets do not have iterators so no way of programmatically explore the contents of a WeakSet.
 6. Do not have ```forEach()``` method.
@@ -215,9 +215,21 @@ map.forEach(function(value, key, omap) {
 ```forEach()``` method process the key-value pairs in order they were inserted to the map. Array are processed based on the index value of the array instead of the insertion order.
 
 ## WeakMaps
-Similar to WeakSets, WeakMaps cannot store primitive values as keys. Every key must be an object. WeakMap keys are weak references same as in sets i.e. garbage collector will remove the element if all the outside references are destroyed.
+Similar to WeakSets, WeakMaps cannot store primitive values as keys. Every key must be an object. WeakMap keys are weak references same as in sets i.e. garbage collector will remove the element if all the outside references are destroyed. 
 
-**Use Case for WeakMap**
-The most useful place to employ weak maps is when creating an object related to a particular DOM element in a web page. For example, some JavaScript libraries for web pages maintain one custom object for every DOM element referenced in the library, and that mapping is stored in a cache of objects internally.
+### Notable things about WeakMaps
 
-The difficult part of this approach is determining when a DOM element no longer exists in the web page, so that the library can remove its associated object. Otherwise, the library would hold onto the DOM element reference past the reference’s usefulness and cause a memory leak. Tracking the DOM elements with a weak map would still allow the library to associate a custom object with every DOM element, and it could automatically destroy any object in the map when that object’s DOM element no longer exists.
+1. Do not have ```clear()``` method. 
+2. Do not have ```size``` property.
+3. Do not have ```forEach()``` method.
+4. Cannot programmatically explore content. It is not iterable.
+5. Cannot use ```for-in``` loop.
+
+
+>**Use Case for WeakMap**
+
+>The most useful place to employ weak maps is when creating an object related to a particular DOM element in a web page. For example, some JavaScript libraries for web pages maintain one custom object for every DOM element referenced in the library, and that mapping is stored in a cache of objects internally.
+>
+>The difficult part of this approach is determining when a DOM element no longer exists in the web page, so that the library can remove its associated object. Otherwise, the library would hold onto the DOM element reference past the reference’s usefulness and cause a memory leak. Tracking the DOM elements with a weak map would still allow the library to associate a custom object with every DOM element, and it could automatically destroy any object in the map when that object’s DOM element no longer exists.
+
+
