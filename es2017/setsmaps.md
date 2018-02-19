@@ -225,11 +225,8 @@ Similar to WeakSets, WeakMaps cannot store primitive values as keys. Every key m
 4. Cannot programmatically explore content. It is not iterable.
 5. Cannot use ```for-in``` loop.
 
+>Its important to note that only keys in a WeakMap are weak references not its values. If a value have references outside it won't be garbage collected even if the key do not have any references outside.
 
->**Use Case for WeakMap**
+>WeakMaps are suitable for tracking the DOM elements like a DOM caching system. Where we need to automatically remove the references to the DOM elements whenever a DOM element itself is deleted. This prevents from the memory leaks.
 
->The most useful place to employ weak maps is when creating an object related to a particular DOM element in a web page. For example, some JavaScript libraries for web pages maintain one custom object for every DOM element referenced in the library, and that mapping is stored in a cache of objects internally.
->
->The difficult part of this approach is determining when a DOM element no longer exists in the web page, so that the library can remove its associated object. Otherwise, the library would hold onto the DOM element reference past the reference’s usefulness and cause a memory leak. Tracking the DOM elements with a weak map would still allow the library to associate a custom object with every DOM element, and it could automatically destroy any object in the map when that object’s DOM element no longer exists.
-
-
+>WeakMaps and WeakSets are memory efficient implementations because of the property of having weak references to the set elements and weak references to the map keys.
