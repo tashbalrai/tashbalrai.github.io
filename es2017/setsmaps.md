@@ -154,7 +154,7 @@ for(const value of set.values()) {
 }
 
 // Set Size:  4
-// Set Has['there']: false
+// Set Has['t']: false
 // Set Value:  h
 // Set Value:  e
 // Set Value:  l
