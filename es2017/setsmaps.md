@@ -94,6 +94,52 @@ Sets can contain two different values for 27 and "27" because it doesn't coerce 
 ```clear()``` removes all of the values from the set and makes it empty.
 ```has()``` checks if a value exists in a set.
 
+### Set Constructor Input
+You can directly pass an iterable to the set constructor and it will add all the unique values to the set.
+
+```javascript
+const set = new Set([['key'], ['key'], ['key']]); // Array of array iterable passed
+
+console.log('Set Size:', set.size);
+for(const val of set.values()) {
+    console.log('Set Value:', val);
+}
+
+// Set Size: 3
+// Set Value: Array [ "key" ] 
+// Set Value: Array [ "key" ]
+// Set Value: Array [ "key" ] 
+```
+Each nested array is considered as a unique value because each nested array has a unique reference.
+
+```javascript
+const set = new Set(['key', 'key', 'key']); // Array iterable passed
+
+console.log('Set Size:', set.size);
+for(const val of set.values()) {
+    console.log('Set Value:', val);
+}
+
+// Set Size: 1
+// Set Value: key 
+```
+Here, array do not have nested arrays so uniqueness is computed based on value of the elements.
+
+You can also use maps as input to the Set constructor.
+
+```javascript
+const set = new Set(new Map([['key1', 'value1'], ['key2', 'value2'], ['key1', 'value3']]));
+console.log('Set Size: ', set.size);
+for(const [key, value] of set.entries()) {
+    console.log('Set Key: ', key, ' Value: ', value);
+}
+
+// Set Size:  2
+// Set Key: Array [ "key1", "value3" ] Value: Array [ "key1", "value3" ]
+// Set Key: Array [ "key2", "value2" ] Value: Array [ "key2", "value2" ]
+```
+
+In case of maps as input to the constructor, uniqueness is tracked based on the map keys. If key is duplicate the later key-value will override the former key-value.
 
 ### forEach With Sets
 ```forEach``` accepts a callback function and this callback accepts 3 arguments.
