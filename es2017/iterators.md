@@ -139,3 +139,13 @@ for(const item of o) {
 // 'a'
 // 'b'
 ```
+
+## Built-in Iterators
+1. ```entries()``` iterator returns an array of two elements.
+  i.   For objects, first element contains key and the second value.
+  ii.  For sets, first and second both elements contain same value.
+  iii. For arrays, first element is the index and the second element is the value.
+
+```javascript
+
+```
