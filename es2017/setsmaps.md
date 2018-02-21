@@ -141,6 +141,28 @@ for(const [key, value] of set.entries()) {
 
 In case of maps as input to the constructor, uniqueness is tracked based on the map keys. If key is duplicate the later key-value will override the former key-value.
 
+If you pass multiple parameters to the constructor and all parameters are iterables then only the first one is accepted by set. For example:
+
+```javascript
+const set = new Set('hello', 'there');
+
+console.log('Set Size: ', set.size);
+console.log('Set Has[\'t\']:', set.has('t'));
+
+for(const value of set.values()) {
+  console.log('Set Value: ', value);
+}
+
+// Set Size:  4
+// Set Has['there']: false
+// Set Value:  h
+// Set Value:  e
+// Set Value:  l
+// Set Value:  o
+```
+
+```set.has('t')``` is false because it is not there in the set. You will notice size is 4 and also one 'l' is missing this is because 'l' repeast two times and sets only contain unique values so first 'l' is overridden.
+
 ### forEach With Sets
 ```forEach``` accepts a callback function and this callback accepts 3 arguments.
 
