@@ -142,10 +142,96 @@ for(const item of o) {
 
 ## Built-in Iterators
 1. ```entries()``` iterator returns an array of two elements.
-  i.   For objects, first element contains key and the second value.
+  i.   For maps, first element contains key and the second value.
   ii.  For sets, first and second both elements contain same value.
   iii. For arrays, first element is the index and the second element is the value.
 
 ```javascript
+const arr = ['first', 'second', 'third'];
+for(const [index, value] of arr.entries()) {
+  console.log('[Array] Index: ', index, ' Value: ', value);
+}
 
+const map = new Map([['key1', 'value1'], ['key2', 'value2'], ['key3', 'value3']]);
+for(const [index, value] of map.entries()) {
+  console.log('[Map] Index: ', index, ' Value: ', value);
+}
+
+const set = new Set('abc');
+for(const [index, value] of set.entries()) {
+  console.log('[Set] Index: ', index, ' Value: ', value);
+}
+
+// [Array] Index:  0  Value:  first
+// [Array] Index:  1  Value:  second
+// [Array] Index:  2  Value:  third
+// [Map] Index:  key1  Value:  value1
+// [Map] Index:  key2  Value:  value2
+// [Map] Index:  key3  Value:  value3
+// [Set] Index:  a  Value:  a
+// [Set] Index:  b  Value:  b
+// [Set] Index:  c  Value:  c
+```
+
+2. ```values()``` iterator returns values.
+
+```javascript
+const arr = ['first', 'second', 'third'];
+for(const value of arr.values()) {
+  console.log('[Array] Value: ', value);
+}
+
+const map = new Map([['key1', 'value1'], ['key2', 'value2'], ['key3', 'value3']]);
+for(const [index, value] of map.values()) {
+  console.log('[Map] Value: ', value);
+}
+
+const set = new Set('abc');
+for(const [index, value] of set.values()) {
+  console.log('[Set] Value: ', value);
+}
+
+// output
+// [Array] Value:  first
+// [Array] Value:  second
+// [Array] Value:  third
+// [Map] Value:  value1
+// [Map] Value:  value2
+// [Map] Value:  value3
+// [Set] Value:  a
+// [Set] Value:  b
+// [Set] Value:  c
+```
+
+3. ```keys()``` iterator returns keys.
+  i.   For maps, keys of the map.
+  ii.  For sets, return value.
+  iii. For arrays, numeric index only.
+
+```javascript
+const arr = ["first", "second", "third"];
+for(const key of arr.keys()) {
+  console.log('[Array] Key: ', key);
+}
+
+const map = new Map([['key1', 'value1'], ['key2', 'value2'], ['key3', 'value3']]);
+for(const key of map.keys()) {
+  console.log('[Map] Key: ', key);
+}
+
+const set = new Set('abc');
+for(const key of set.keys()) {
+  console.log('[Set] Key: ', key);
+}
+
+// output
+// [Array] Key:  0
+// [Array] Key:  1
+// [Array] Key:  2
+// [Map] Key:  key1
+// [Map] Key:  key2
+// [Map] Key:  key3
+// [Set] Key:  a
+// [Set] Key:  b
+// [Set] Key:  c
 ```
