@@ -235,3 +235,17 @@ for(const key of set.keys()) {
 // [Set] Key:  b
 // [Set] Key:  c
 ```
+
+> Spread operator can be used to convert Strings, Sets and Maps to Array.
+
+E.g.:
+```javascript
+const set = new Set([1,2,3,4]);
+const str = 'abcd';
+const map = new Map([['name', 'Harry'], ['age', 25]]);
+const arr = [...set, ...str, ...map];
+console.log(arr);
+
+// output
+// [1, 2, 3, 4, 'a', 'b', 'c', 'd', ['name', 'Harry'], ['age', 25]]
+```
