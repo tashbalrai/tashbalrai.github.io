@@ -249,3 +249,8 @@ console.log(arr);
 // output
 // [1, 2, 3, 4, 'a', 'b', 'c', 'd', ['name', 'Harry'], ['age', 25]]
 ```
+
+## Advanced Features of Generators
+
+### Passing parameters to generators
+Parameters passed to generators are assigned to the variables through the yield assignment statement. The very first ```next()``` method of iterator ignore the parameters passed. The second call handsover the parameter to the ```yield``` keyword in the generatro function which then assign the value to the left handside variable.  
