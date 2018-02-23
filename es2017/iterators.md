@@ -256,20 +256,6 @@ console.log(arr);
 Parameters passed to generators are assigned to the variables through the yield assignment statement. The very first ```next()``` method of iterator ignore the parameters passed. The second call handsover the parameter to the ```yield``` keyword in the generator function which then assign the value to the left handside variable and the execution starts till the next ```yield``` keyword. If the third call to the iterator's ```next()``` is parameterized then again same steps are taken.
 
 ```javascript
-function* aParamGen() {
-  let first = yield 1;
-  let second = yield first * 2;
-  let third = yield second * 2;
-  yield third;
-}
-
-it = aParamGen();
-console.log(it.next());
-console.log(it.next(2));
-console.log(it.next(8));
-console.log(it.next(1));
-console.log(it.next(1));
-
 // output
 // Object { value: 1, done: false }
 // Object { value: 4, done: false }
