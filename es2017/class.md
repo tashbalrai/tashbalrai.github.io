@@ -169,3 +169,61 @@ obj.dynamicProp = '123'; // "Setter dynamicProp called."
 let val = obj.dynamicProp; // "Getter dynamicProp called."
 ```
 
+### Generator Methods
+You can also have generator methods inside classes. Just need to mark the method name with star.
+
+```javascript
+class MyClass {
+  constructor() {
+    this.items = [];
+  }
+  
+  *getMyItems() {
+    yield *this.items.entries();
+  }
+}
+
+let obj = new MyClass();
+obj.items.push('Harry');
+obj.items.push('Potter');
+
+for(const [key, val] of obj.getMyItems()) {
+  console.log('Value is: ', val);
+}
+
+// Output
+// Value is:  Harry
+// Value is:  Potter
+```
+
+The above example shows how you can make a class iterable using the custom iterator.
+
+### Setting Default Iterator
+You can also implement a default iterator using ```Symbol.iterator```. To do so, you just need to use the following syntax.
+
+```*[Symbol.iterator]() { //statements }```
+
+```javascript
+class MyClass {
+  constructor() {
+    this.items = [];
+  }
+  
+  *[Symbol.iterator]() {
+    yield *this.items.entries();
+  }
+}
+
+let obj = new MyClass();
+obj.items.push('Harry');
+obj.items.push('Potter');
+
+for(const [key, val] of obj) {
+  console.log('Value is: ', val);
+}
+
+// Output
+// Value is:  Harry
+// Value is:  Potter
+```
+
