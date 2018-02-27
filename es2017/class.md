@@ -287,13 +287,13 @@ When ```console.log``` statement encounters it hits the statis and non-static ve
 
 ```javascript
 class Rectangle {
-  constructor(width, height) {
+  constructor(width, length) {
     this.width = width;
-    this.height = height;
+    this.length = length;
   }
   
   getArea() {
-    return this.width * this.height;
+    return this.width * this.length;
   }
 }
 
@@ -312,3 +312,33 @@ If you haven't defined a constructor in derived class then ```super()``` method 
 
 **3.** Only way to avoid ```super()``` call is to return an object from the constructor. But you won't be able to take advantage of inheritance.
 
+### Overriding Class Method
+When you define the same name method in the derived class as in base class, the base class method is overridden by the derived class method. You can call the base class method from the derived class using the ```super.methodName()``` signature.
+
+```javascript
+class Rectangle {
+  constructor(width, length) {
+    this.width = width;
+    this.length = length;
+  }
+  
+  getArea() {
+    return this.width * this.length;
+  }
+}
+
+class Square extends Rectangle {
+  constructor(side) {
+    super(side, side);
+  }
+  
+  getArea() {
+    return super.getArea();
+  }
+}
+
+let sqr = new Square(5);
+console.log(sqr.getArea()); // 25
+```
+
+All static members of the base class are also available on derived classes.
