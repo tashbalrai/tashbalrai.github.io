@@ -40,6 +40,7 @@ console.log(emp.getName()); // Harry
 4. Methods in class lack [[construct]] internal property and cannot be called with ```new``` keyword.
 5. Calling a class constructor without ```new``` keyword will throw error.
 6. You cannot override class name inside class method. It will throw error.
+7. Class names are treated as a let binding.
 
 ### Class Expressions
 Just like functions have expression form, classes too have expression form.
@@ -98,4 +99,73 @@ let emp = new class {
 console.log(emp.getName()); // Harry
 ```
 
+### Accessor properties
+You can define getter and setter properties by prefixing get and set to the methods of the class respectively. Consider the example below:
+
+```javascript
+class Employee {
+    get name() {
+        return this.empName;
+    }
+    
+    set name(value) {
+        this.empName = value;
+    }
+}
+
+emp = new Employee();
+emp.name = "Harry Potter";
+console.log(emp.name);
+```
+
+Here, you shouldn't have property name and the getter or setter name same, otherwise it will give you "InternalError: too much recursion".
+
+Error example: 
+```javascript
+class Employee {
+    get name() {
+        return this.name;
+    }
+    
+    set name(value) {
+        this.empName = value;
+    }
+}
+
+emp = new Employee();
+emp.name = "Harry Potter";
+console.log(emp.name); // InternalError: too much recursion.
+```
+
+### Computed Method Names
+As in objects, you can also have computed class methods and computed accessor (getter/setter) properties. To do so, you need to have square brackets and then the parenthesis.
+
+```javascript
+let 
+  computedMethodName = 'iAmDynamicMethod',
+  computedAccessorName = 'dynamicProp';
+
+class MyClass {
+  constructor() {
+    // statements
+  }
+  
+  [computedMethodName]() { // Computed method name.
+    console.log('Method ', computedMethodName, ' called.');
+  }
+  
+  get [computedAccessorName]() {
+    console.log('Getter ', computedAccessorName, ' called.');
+  }
+  
+  set [computedAccessorName](value) {
+    console.log('Setter ', computedAccessorName, ' called.');
+  }
+}
+
+let obj = new MyClass();
+obj.iAmDynamicMethod(); // "Method iAmDynamicMethod called."
+obj.dynamicProp = '123'; // "Setter dynamicProp called."
+let val = obj.dynamicProp; // "Getter dynamicProp called."
+```
 
