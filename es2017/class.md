@@ -303,3 +303,12 @@ class Square extends Rectangle {
   }
 }
 ```
+
+If you haven't defined a constructor in derived class then ```super()``` method is automatically called to call base class constructor.
+
+**1.** ```super()``` can only be called in derived class. You will get an error if you try to call the ```super()``` in non-derived class or in a function.
+
+**2.** Must call ```super()``` in derived class before access to ```this``` in constructor.
+
+**3.** Only way to avoid ```super()``` call is to return an object from the constructor. But you won't be able to take advantage of inheritance.
+
