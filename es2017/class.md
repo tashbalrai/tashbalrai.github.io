@@ -281,3 +281,25 @@ Statement ```Employee.company = 'ZZZ'``` initiate the static setter method and o
 Statement ```emp.company = 'XXX'``` initiate the non static version of setter and outputs 'setter called' and set the ```this.objCompany``` to the value 'XXX'.
 
 When ```console.log``` statement encounters it hits the statis and non-static version of getter respectively.
+
+### Inheritance
+```extends``` keyword is used to inherit base class. ```super()``` method is used in contructor to call the parent class constructor.
+
+```javascript
+class Rectangle {
+  constructor(width, height) {
+    this.width = width;
+    this.height = height;
+  }
+  
+  getArea() {
+    return this.width * this.height;
+  }
+}
+
+class Square extends Rectangle {
+  constructor(side) {
+    supert(side, side);
+  }
+}
+```
