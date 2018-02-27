@@ -227,3 +227,57 @@ for(const [key, val] of obj) {
 // Value is:  Potter
 ```
 
+### Static Methods
+You can use ```static``` keyword to create static methods and accessor properties. Static methods can be accessed without needing the object of the class. Static methods and properties are not available on the instance object of the class.
+
+```javascript
+class Employee {
+  constructor(name) {
+    this.name = name;
+  }
+  
+  static create(name) {
+    return new Employee(name);
+  }
+  
+  static get company() {
+    console.log('Static getter called');
+    return this.companyName;
+  }
+  
+  static set company(value) {
+    console.log('Static setter called');
+    this.companyName = value;
+  }
+  
+  get company() {
+    console.log('getter called');
+    this.objCompany;
+  }
+  
+  set company(value) {
+    console.log('setter called');
+    this.objCompany = value;
+  }
+}
+
+let emp = Employee.create('Harry');
+Employee.company = 'ZZZ';
+emp.company = 'XXX';
+console.log(Employee.company, emp.company);
+
+// Output
+// Static setter called
+// setter called
+// Static getter called
+// getter called
+// ZZZ XXX
+```
+
+In the above code, create method is declared static so it can be accessed without any object of the class. We have defined two set of getter and setter for company property. One set is declared as a static so it would be available without class and the other set of getter and setter requires an object to be accessed.
+
+Statement ```Employee.company = 'ZZZ'``` initiate the static setter method and output 'Static setter called' and sets the ```this.companyName``` to the value to 'ZZZ'. 
+
+Statement ```emp.company = 'XXX'``` initiate the non static version of setter and outputs 'setter called' and set the ```this.objCompany``` to the value 'XXX'.
+
+When ```console.log``` statement encounters it hits the statis and non-static version of getter respectively.
