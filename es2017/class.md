@@ -340,5 +340,102 @@ class Square extends Rectangle {
 let sqr = new Square(5);
 console.log(sqr.getArea()); // 25
 ```
+### Inheriting Static Members
+All static members of the base class are also available on derived classes. 
 
-All static members of the base class are also available on derived classes.
+```javascript
+class Rectangle {
+  constructor(width, length) {
+    this.width = width;
+    this.length = length;
+  }
+  
+  getArea() {
+    return this.width * this.length;
+  }
+  
+  static create(width, length) {
+    return new Rectangle(width, length);
+  }
+}
+
+class Square extends Rectangle {
+  constructor(side) {
+    super(side, side);
+  }
+}
+
+let square = Square.create(5, 5);
+console.log(square.getArea()); // 25
+console.log(square instanceof Square); // false
+console.log(square instanceof Rectangle); // true
+```
+
+In the above code, ```Square``` class do have ```create()``` method inherited from ```Rectangle``` class but the behaviour is different. Variable ```square``` holds the object of class ```Rectangle``` instead of ```Square``` class because ```create()``` method creates and returns objec of ```Rectangle``` class. That is why the statement ```console.log(square instanceof Square)``` return false.
+
+### Inherit from Expressions
+In ES6, you can inherit from class expressions as well and the only constraint is the result of the expression must have [[construct]] property and a prototype. For example, instead of using the a base class you can also inherit from a function.
+
+```javascript
+function Department() {
+}
+
+Department.prototype.getDeptName =  function() {
+  return "Accounts";
+}
+
+class Employee extends Department {
+}
+
+let emp = new Employee();
+console.log(emp.getDeptName()); // Accounts
+```
+
+Consider the below example too.
+```javascript
+function getBase() {
+  return class Department {
+    constructor() {
+      this.depName = 'Accounts';
+    }
+    
+    getDeptName() {
+      return this.depName;
+    }
+  };
+}
+
+class Employee extends getBase() {
+  constructor(name) {
+    super();
+    this.name = name;
+  }
+  
+  getName() {
+    return this.name;
+  }
+}
+
+let emp = new Employee('Harry');
+console.log('Employee name: ', emp.getName()); // Employee name: Harry
+console.log('Employee department: ', emp.getDeptName()); // Employee department: Accounts
+```
+
+Any expression that returns a valid class can be used with ```extends``` keyword. Following are not valid class expressions:
+
+1. Null
+2. Generatro functions because they do not have [[construct]] property.
+
+### Inherit Built-in Objects
+You can also inherit from built-in objects such as Arrays. Inheritance model is different in ES6 then that of ES5. In ES5, first derived class object was created and then base class properties and methods were applied on the ```this``` object. Main object was the derived object.
+
+In ES6, ```this``` reference is created first using the base class then making sure all of the built-in functionality is available on the ```this```. After that derived class properties and methods are set. This methodology make sure that built-in objects are inherited properly. For example, consider the following examples.
+
+ECMAScript 5
+```javascript
+```
+
+ECMAScript 6
+```javascript
+
+```
