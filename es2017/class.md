@@ -481,3 +481,10 @@ console.log('CustArray content after length = 0:', custarr[0]);
 ```
 
 In ES6, you can get the inheritance for built-ins properly because of the modified inheritance model where by first the ```this``` reference is set to the base class and then it is decorated with extra features of the derived classes that makes sure that you get proper inheritance even for built-ins.
+
+### Symbol.species
+Built-in methods that returns an instance of built-in object will return instance of the derived class because of inheriting the built-in object. For instance, when applying ```splice()``` method on ```CustArray``` object will return the instance of ```CustArray``` not ```Array```.
+
+Behind the scene this is done by ```Symbol.species``` property and it is used to define the getter accessor method on 
+
+
