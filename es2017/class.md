@@ -433,9 +433,51 @@ In ES6, ```this``` reference is created first using the base class then making s
 
 ECMAScript 5
 ```javascript
+let arr = new Array();
+arr[0] = 'Hello';
+console.log('Array length: ', arr.length);
+
+arr.length = 0;
+console.log('Array content after length = 0: ', arr[0]);
+
+function CustArray() {
+  Array.apply(this, arguments);
+}
+
+CustArray.prototype = new Array();
+CustArray.prototype.constructor = CustArray;
+
+let custarr = new CustArray();
+custarr[0] = 'Hello';
+console.log('CustArray length: ',  custarr.length);
+
+custarr.length = 0;
+console.log('CustArray content after length = 0: ', custarr[0]);
+
+// Output
+// Array length:  1
+// Array content after length = 0:  undefined
+// CustArray length:  0
+// CustArray content after length = 0:  Hello
 ```
+In the above code, if you try to inherit from built-in Array object you get a partial inheritance. Not all of the features that Array have were transfered over to the derived array i.e. ```CustArray```. ```length``` property of the array is not behaving properly with ```CustArray```.
 
 ECMAScript 6
 ```javascript
+class CustArray extends Array {
+  
+}
 
+let custarr = new CustArray();
+custarr[0] = 'Hello';
+console.log('CustArray length: ', custarr.length);
+
+custarr.length = 0;
+console.log('CustArray content after length = 0:', custarr[0]);
+
+// Output
+// CustArray length:  1
+// CustArray content after length = 0: undefined
 ```
+
+In ES6, you can get the inheritance for built-ins properly because of the modified inheritance model where by first the ```this``` reference is set to the base class and then it is decorated with extra features of the derived classes that makes sure that you get proper inheritance even for built-ins.
