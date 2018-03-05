@@ -485,6 +485,38 @@ In ES6, you can get the inheritance for built-ins properly because of the modifi
 ### Symbol.species
 Built-in methods that returns an instance of built-in object will return instance of the derived class because of inheriting the built-in object. For instance, when applying ```splice()``` method on ```CustArray``` object will return the instance of ```CustArray``` not ```Array```.
 
-Behind the scene this is done by ```Symbol.species``` property and it is used to define the getter accessor method on 
+Behind the scene this is done by ```Symbol.species``` property and it is used to define the getter accessor method which returns the function that will define which constructor to use to create the object that should be returned for example ```CustArray``` or ```Array```. 
 
+```javascript
+class CustArray extends Array {}
+
+let custarr = new CustArray();
+custarr[0] = 'Hi';
+custarr[1] = 'hello';
+let retarr = custarr.splice(1,1);
+
+console.log(custarr instanceof CustArray); // true
+console.log(retarr instanceof CustArray); // true
+console.log(retarr instanceof Array); // true
+
+class Cust2Array extends Array {
+  static get [Symbol.species]() {
+    return Array;
+  }
+}
+
+let cust2arr = new Cust2Array();
+
+cust2arr[0] = 1;
+cust2arr[1] = 2;
+cust2arr[2] = 3;
+
+let ret2arr = cust2arr.splice(1,1);
+
+console.log(cust2arr instanceof Cust2Array); // true
+console.log(ret2arr instanceof Cust2Array); // false coz ret2arr is instance of Array not Cust2Array
+console.log(ret2arr instanceof Array); // true
+```
+
+Whenever you want to use ```this.constructor``` inside your class method you should use ```Symbol.species``` to return the appropriate object. This will allow overriding the class constructor according to the static getter property assigned on the object class. For details, consider the below example.
 
