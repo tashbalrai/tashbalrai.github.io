@@ -520,3 +520,73 @@ console.log(ret2arr instanceof Array); // true
 
 Whenever you want to use ```this.constructor``` inside your class method you should use ```Symbol.species``` to return the appropriate object. This will allow overriding the class constructor according to the static getter property assigned on the object class. For details, consider the below example.
 
+```javascript
+class Employee {
+    static get [Symbol.species]() {
+        return this;
+    }
+
+    create() {
+        return new this.constructor[Symbol.species]();
+    }
+}
+
+class EmployeeA extends Employee {}
+
+class EmployeeB extends Employee {
+    static get [Symbol.species]() {
+        return Employee;
+    }
+}
+
+let a = new EmployeeA("foo"),
+    aObj = a.create(),
+    b = new EmployeeB("bar"),
+    bObj = b.create();
+
+console.log(aObj instanceof Employee); // true
+console.log(aObj instanceof EmployeeA); // true
+console.log(bObj instanceof Employee); // true
+console.log(bObj instanceof EmployeeB); // false bObj is instanceof Employee not EmployeeB
+```
+
+In the above code, ```create()``` method creates object of the derived class depending on the ```Symbol.species```. When we call ```a.create()``` variable ```aObj``` gets assigned ```EmployeeA``` instance while calling ```b.create()``` assigns instance of ```Employee``` class because ```EmployeeB``` class implements static getter accessor property ```Symbol.species``` which returns ```Employee``` class and statement ```this.constructor[Symbol.species]()``` inside ```create()``` get reference to ```Employee``` instead of ```this``` because of the ```Symbol.species``` use in constructors square brackets.
+
+### new.target
+Since classes are always initiated using ```new``` keyword, ```new.target``` will never be ```undefined```. ```new.target``` will be equal to the name of the class through which the object is being generated i.e. if object was created using derived class ```new.target``` in base class will have derived class not base class.
+
+```javascript
+class Parent {
+  constructor() {
+    console.log('new.target: ', new.target);
+  }
+}
+
+class Child extends Parent {}
+
+let p = new Parent(),
+    c = new Child();
+
+// Output
+// new.target: function Parent()
+// new.target: function Child()
+```
+With this property of ```new.target```, you can mimic the behavior of abstract classes. Consider the example.
+
+```javascript
+class Parent {
+  constructor() {
+    if (new.target === Parent) {
+      throw new Error('Object cannot be initiated directly.');
+      return;
+    }
+  }
+}
+
+class Child extends Parent {}
+
+let p = new Parent(), // Exception: Error: Object cannot be initiated directly.
+    c = new Child();
+```
+
+
