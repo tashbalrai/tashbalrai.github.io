@@ -55,6 +55,14 @@ import * as mod from './module.js';
 console.log(mod.LIMIT); // prints 10
 ```
 
+You can also import without binding anything.
+
+```javascript
+import './module.js';
+```
+
+In the above example, it will execute the module code only without any bindings. It is mostly done for pollyfills and shims. 
+
 ### Renaming Export and Import Bindings
 You can rename the bindings with ```as``` keyword.
 
@@ -94,8 +102,51 @@ export default add; // exports function add as default value.
 
 Another way to export an identifier as default is using curly '{}' braces with ```as``` keyword.
 ```javascript
+export class Employee{}
+
 function add(a, b) {}
 
 export {add as default}
 ```
+
+Default values are imported without using the curly braces.
+
+E.g.:
+```javascript
+import add from './module.js'; // import the default binding from module.
+```
+
+You can also import the default binding along with other export bindings.
+```javascript
+import add, {Employee} from './module.js';
+```
+
+In the above code, ```add``` the default binding, came first without curly braces and then the other bindings. You can also import the default binding with curly brace along with other bindings as well. But still you will have to keep the default one before every other binding.
+
+```javascript
+import {default as add, Employee} from './module.js';
+```
+
+### Re-exporting a binding
+You can re-export a binding in following ways.
+```javascript
+import {Employee} from './module.js';
+
+export {Employee};
+```
+
+```javascript
+export {Employee} from './module.js';
+```
+
+You can rename re-export as well and export all of the bindings.
+```javascript
+export {Employee as Emp} from './module.js'; // rename
+export * from './module2.js'; // export all of bindinds
+```
+
+### Browser Handling of Modules
+```<script>``` tag has a ```type``` attribute. To use the script as a module you need to assign "module" as a value to the ```type``` attribute. When script is loaded as a module then variables are not sent to the global scope they are bound to the module itself.
+
+
 
