@@ -54,3 +54,21 @@ import * as mod from './module.js';
 
 console.log(mod.LIMIT); // prints 10
 ```
+
+### Renaming Export and Import Bindings
+You can rename the bindings with ```as``` keyword.
+
+Filename: 'module2.js'
+```javascript
+function add(a, b) {
+  // statements
+}
+
+export {add as plus}
+```
+
+```javascript
+import {plus as sum} from './module2.js';
+
+sum(5,5);
+```
