@@ -64,11 +64,38 @@ function add(a, b) {
   // statements
 }
 
-export {add as plus}
+export {add as plus} // renamed the add to plus
 ```
 
 ```javascript
-import {plus as sum} from './module2.js';
+import {plus as sum} from './module2.js'; // renamed the plus to sum
 
 sum(5,5);
 ```
+
+### default exports and imports
+You can use the ```default``` keyword to export default variables, functions or classes from a module. You can have only one default export per module.
+
+```javascript
+export default function() {
+  // statements.
+}
+```
+
+You can default export the identifiers as well.
+
+```javascript
+function add(a, b) {
+  // statements
+}
+
+export default add; // exports function add as default value.
+```
+
+Another way to export an identifier as default is using curly '{}' braces with ```as``` keyword.
+```javascript
+function add(a, b) {}
+
+export {add as default}
+```
+
