@@ -1,4 +1,4 @@
-###### *[Home](https://tashbalrai.github.io)*, **Extended Object Functionality**
+###### *[Home](https://tashbalrai.github.io)*, [Block Level Scoping](https://tashbalrai.github.io/es2017/index.html), [Numeric Features](https://tashbalrai.github.io/es2017/numfeatures.html), **Extended Objects**, [String Features](https://tashbalrai.github.io/es2017/string.html), [Unicode](https://tashbalrai.github.io/es2017/unicode.html), [Symbols](https://tashbalrai.github.io/es2017/symbols.html), [Functions](https://tashbalrai.github.io/es2017/functions.html), [Destructuring](https://tashbalrai.github.io/es2017/destructuring.html), [Sets and Maps](https://tashbalrai.github.io/es2017/setsmaps.html), [Iterators and Generators](https://tashbalrai.github.io/es2017/iterators.html), [Promises](https://tashbalrai.github.io/es2017/promises.html), [Classes](https://tashbalrai.github.io/es2017/classes.html), [Modules](https://tashbalrai.github.io/es2017/modules.html)
 
 ## Types of Objects
 **1. Ordinary object:** Have all the default internal behaviors for objects in JavaScript.
