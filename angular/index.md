@@ -34,4 +34,6 @@ Angular evaluate and resolve the binding syntax before the HTML is displayed to 
 For common or shared code you can create injectable service classes with ```@Injectable``` decorator.
 You can then inject these services to component to keep the components code lean and manageable.
 
+### Router
+A router maps the navigational links in the address bar to the data states and views of the application.
 
