@@ -61,3 +61,4 @@ x[3] = 20; // OK
 x[4] = "Harry"; // OK
 ```
 
+**```enum```** = Giving name to numeric value
