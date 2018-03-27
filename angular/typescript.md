@@ -61,4 +61,54 @@ x[3] = 20; // OK
 x[4] = "Harry"; // OK
 ```
 
-**```enum```** = Giving name to numeric value
+**```enum```** = Giving name to numeric value. Index starts from 0 by default.
+
+```typescript
+enum Color {Red, Green, Blue};
+let c: Color = Color.Red;
+```
+
+Starting enum from custom number other than 0.
+```typescript
+enum Color {Red=100, Green, Blue}; // Red = 100, Green = 101, Blue = 102
+```
+You can assign custome numeric value to all elements in enum too.
+```typescript
+enum Color {Red=100, Green=200, Blue=300};
+```
+
+Get enum string name from numeric value.
+```typescript
+enum Color {Red = 1, Green, Blue}
+let colorName: string = Color[2];
+
+alert(colorName); // Displays 'Green' as its value is 2 above
+```
+
+**```Any```** = Opt-out of type checking at will. Allow any type of value.
+```tyepscript
+let noType: any = 4;
+noType = "Can be assigned string too";
+noType = false; // Bool is okay too;
+```
+
+```Any``` type array, to store multiple types in an array.
+```typescript
+let arr: any[] = [3, 'Hello', 'How are you'];
+```
+
+**```void```** = Absence of any type; Can store ```undefined``` or ```null```; used as return type of functions to signify no value;
+
+**```null``` and ```undefined```** = both are types in typescript; if enabled --stringNullChecks, null and undefined only assigneable to void.
+
+**```never```** = no type even not void; good for functions that never return any value i.e. unreachable end points.
+```typescript
+function error(message: string): never {
+  throw new Error(message);
+}
+
+function endless(): never {
+  while(true) {
+  }
+}
+```
