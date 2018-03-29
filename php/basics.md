@@ -28,3 +28,43 @@ Closing PHP tag automatically applies semicolon on last instruction if not avail
 
 Closing tag includes immediate new line. So immediate new line character after closing tag is not output.
 
+## Comments
+Unix style, starts with #, single line
+C style, starts with //, single line
+/\* ... \*/, multiline comments
+
+## Primitive Types
+4 Scalar types
+  1. boolean
+  2. integer
+  3. float aka double
+  4. string
+
+4 Compound types
+  1. array
+  2. object
+  3. callable since PHP 5.4
+  4. iterable since PHP 7.1
+
+2 Special types
+  1. resource
+  2. NULL
+  
+## pseudo-types
+Only for documentation purpose, cannot be used in code for type hinting.
+1. mixed
+2. number
+3. callback aka callable
+4. array|object = either array or object
+5. void = can be used as return type hint since PHP 7.1
+6. $... = pseudo variable
+
+Type is decided at runtime based on the context of the PHP expressions.
+
+```var_dump()``` = To analyze the type of the expression or variable.
+
+```get_type()``` = More human friendly type.
+
+```is_<type>()``` = To test type, use is_string(), is_int(), is_float(), is_bool() etc.
+
+ 
