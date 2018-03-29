@@ -16,10 +16,15 @@
 
 ## Escaping from HTML
 Everything outside PHP tags is unparsed.
+
 On encountering closing tags, PHP starts outputting content **except** immediate new line.
+
 Conditional statements can skip the non PHP content blocks.
 
 ## Instruction Separation
 Each instruction must be separated by semicolon ';'.
+
 Closing PHP tag automatically applies semicolon on last instruction if not available.
+
 Closing tag includes immediate new line. So immediate new line character after closing tag is not output.
+
