@@ -21,5 +21,13 @@ For compatibility purposes, all react packages should be of same version.
 ## Setting Up Transpiler (Babel)
 Setup babel to support ES6 and JSX. 
 
+First you need to install Gulp tool to automate the processes.
 
+```
+npm install --save-dev gulp
+```
 
+Now install the gulp-babel plugin.
+```
+npm install --save-dev gulp-babel
+```
