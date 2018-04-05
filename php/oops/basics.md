@@ -161,5 +161,13 @@ Value must be constant value or constant expressions PHP 5.6.0.
 
 Assinged to class on per class basis not per instance basis.
 
+HEREDOC and NOWDOC constant initialization, as of PHP 5.3.0
+
+Constant expression support uses scalar numeric, string and constants, as of PHP 5.6.0 
+
+Visibility modifiers for class constants, as of PHP 7.1.0
+
+
+
 
 
