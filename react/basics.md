@@ -31,3 +31,16 @@ Now install the gulp-babel plugin.
 ```
 npm install --save-dev gulp-babel
 ```
+
+Install the babel-preset-env for ES transpiling and install babel-preset-react for JSX and other react related transpiling.
+```
+npm install --save-dev babel-preset-env babel-preset-react
+```
+
+Create .babelrc file and configure the presets.
+```json
+{
+  "plugins": ["babel-preset-env", "babel-preset-react"]
+}
+```
+
