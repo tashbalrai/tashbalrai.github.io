@@ -62,3 +62,9 @@ trait MySecondTrait {
   use MyFirstTrait;
 }
 ```
+
+Traits can have abstract methods; Classes must define them.
+
+Can have static members and methods.
+
+Can have properties defined. If defined class has to define the same property with same value otherwise fatal error.
