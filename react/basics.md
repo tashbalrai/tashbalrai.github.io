@@ -44,3 +44,9 @@ Create .babelrc file and configure the presets.
 }
 ```
 
+Install webpack
+```
+npm install --save-dev webpack
+```
+
+
