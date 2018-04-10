@@ -56,7 +56,9 @@ Methods defined abstract simply have method signatures only.
 
 All abstract methods must be defined in the derived class.
 
-Derived class must have the same visibility.
+Derived class must have the same visibility or less restricted visibility. Protected can be public access at the time of definition but not vice versa.
+
+Abstract method cannot be declared private.
 
 Derived class must have the same typehints and number of REQUIRED arguments NOT optional.
 
