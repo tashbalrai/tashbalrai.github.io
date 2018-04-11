@@ -62,6 +62,8 @@ Works only for inaccessible properties or methods.
 Arguments to these magic methods cannot be passed by reference.
 
 ### Property Overloading.
+Only works in object context not in static context. Therefore cannot be declared static.
+
 ```php
 public void __set ( string $name , mixed $value )
 ```
@@ -82,3 +84,4 @@ public void __unset ( string $name )
 ```
 \__unset() is invoked when unset() is used on inaccessible properties. 
 
+### Method Overloading
