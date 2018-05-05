@@ -13,6 +13,9 @@ These are the actions that are taken on resources. These verbs are for example:
 - OPTIONS = Detect existing supported existing verbs.
 - PATCH = Make partial changes to existing resources.
 
+**3. Representation**
+Resource can be represented in different formats e.g.: JSON, XML etc
+
 
 ## HTTP VERBS
 GET = read only access to data.
