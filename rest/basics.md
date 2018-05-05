@@ -1,7 +1,18 @@
 ## REST
-Resource identification through URI e.g. /create/account, /list/user/234
+REST architecture uses existing HTTP protocol and is based on three entities.
 
-Uniform interface with HTTP verbs such as GET, POST, PUT, DELETE
+**1. Resources**
+A resource is identified using a URI. e.g. /users, /users/234
+
+**2. HTTP Verbs**
+These are the actions that are taken on resources. These verbs are for example:
+- GET = Read only access to data
+- PUT = Create a new resource/collection.
+- POST = Update or create resource/collection.
+- DELETE = Remove the resource
+- OPTIONS = Detect existing supported existing verbs.
+- PATCH = Make partial changes to existing resources.
+
 
 ## HTTP VERBS
 GET = read only access to data.
