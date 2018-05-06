@@ -91,6 +91,10 @@ Requested resource has been assigned a new permanent URI. Response should includ
 
 If requested with HEAD then no message body.
 
+**303 See Other**
+
+The response to the request can be found under a different URI and SHOULD be retrieved using a GET method on that resource. URI should be set in Location header field in response.
+
 **304 Not Modified**
 
 Resource has not been modified since last access. MUST NOT contain a message body.
