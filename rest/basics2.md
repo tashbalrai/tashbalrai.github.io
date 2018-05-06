@@ -112,3 +112,78 @@ Server can detect the Accept-Encoding header and based on the acceptable encodin
 ```
 Content-Encoding: gzip
 ```
+
+## Content Negotiation
+
+Server can support multiple representation of the same resource e.g.: XML, JSON etc. Different clients can ask for different content type. This is call content negotiation.
+
+### Content negotiation using HTTP header
+
+Client send the Accept header in the request telling the required content type e.g.: text/plain, application/xml, text/html, application/json, image/gif, image/jpeg etc.
+
+```
+Accept: application/json
+```
+
+Server include Content-Type header in response to tell client about the type of content.
+
+## HTTP Request idempotent
+GET, HEAD, TRACE, OPTIONS are idempotent.
+POST is not idempotent as it will always create a new resource.
+PUT is mostly idempotent as it will update the selected resource.
+DELETE is idempotent
+
+## REST Security
+
+**1. Use Authentication (JWT)**
+
+Either use the Basic Authorization or use the JWT JSON Web Token to authenticate each request.
+
+**2. Keep It Simple**
+
+Do not unnecessarily overcomplicate the REST api applications. Keep it simple and manageable as much possible.
+
+**3. Always use HTTPS**
+
+Always use HTTPS protocol for REST APIs to encrypt each and every request/response.
+
+**4. Password HASH**
+
+Always HASH the password to make is secure using some secure hashing algorithms such as SHA256, BCrypt.
+
+**5. Never expose information on URLs**
+
+Information must not be exposed to public in URLs. URLs must be clean without any information exposed. 
+
+**6. Validate Every Input**
+
+Never trust on user input. Always validate every user input.
+
+**7. Rate Limiting**
+
+Implement resource rate limiting and always deny access to over request made in a particular time range.
+
+**8. Use API Keys**
+
+For public REST APIs, always use the API key to limit the access to REST APIs.
+
+**9. Restrict HTTP Methods**
+
+Only whitelist few of the HTTP methods supported by the API. Restrict all other HTTP methods. Make user the callee is allowed for a specific HTTP method.
+
+**10. Validate content type**
+
+Validate the content type of the request.
+
+**11. Blacklist API keys/Users**
+
+Revoke and ban the API keys or users who are voilating the policies.
+
+**12. Audit Logs**
+
+Create audit logs for error conditions, failures etc.
+
+**13. Error Handling**
+
+Do not reveal critical internal server or application details to the client. Give generic error message details only.
+
