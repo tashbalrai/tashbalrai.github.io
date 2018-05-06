@@ -16,38 +16,31 @@ These are the actions that are taken on resources. These verbs are for example:
 **3. Representation**
 Resource can be represented in different formats e.g.: JSON, XML etc
 
-
-## HTTP VERBS
-GET = read only access to data.
-
-PUT = create new resource/collection.
-
-POST = update or create new resource/collection.
-
-DELETE = remove existing resource/collection.
-
-OPTIONS = Detect existing VERBS supported.
-
-PATCH = making partial changes on existing resource.
-
-
 ## JWT
 JSON web token is a secure and compact way of transferring information between two parties.
 
-Compact = Can be passed in URL, in POST parameters or as a HTTP Header
-Self-contained = All authentication data in selfcontained in JWT, no multiple database requests are needed.
+**1. Compact** Can be passed in URL, in POST parameters or as a HTTP Header
+**2. Self-contained** All authentication data is self-contained in JWT, no multiple database requests are needed.
 
-Three parts i.e. Header, Payload, Signature formatted in the following way.
+### Parts of JWT 
 
-Header.Payload.Signature
+1. Header 
+2. Payload 
+3. Signature 
 
-Header = Type and hashing algorithem used HMAC SHA256 or RSA.
+Formatted in the following way.
+
+**Header.Payload.Signature**
+
+**Header** 
+Header contain type and hashing algorithem used HMAC SHA256 or RSA.
 {
   "alg": "HS256",
   "typ": "JWT"
 }
 
-Payload = contains claims typically users and sometime other metadata. 3 types of claims registered, public, private
+**Payload**
+Payload contain claims typically users and sometime other metadata. 3 types of claims registered, public, private
 
 Signature = encoded header, encoded payload and a secret. e.g.:
 HMACSHA256(
@@ -57,4 +50,25 @@ HMACSHA256(
 
 Signature is used to verify the intigrity of the message
 
-sample JWTeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+## HTTP Status Codes
+
+### 2xx Success
+
+**200 OK** Request has succeeded.
+GET = respond with message body.
+HEAD = respond with headers not including message body.
+POST = respond with entity described or result of the operation with message body.
+TRACE = respond with request message body.
+
+**201 Created** Request has fulfilled and a new resource created and URI(s) of new resource set in Location header. Response message body may or may not be set.
+
+**202 Accepted** Request accepted for process by some other process. But is not guaranteed to run by other process. Used in Async operations.
+
+The 202 response is intentionally non-committal. Its purpose is to allow a server to accept a request for some other process (perhaps a batch-oriented process that is only run once per day) without requiring that the user agent's connection to the server persist until the process is completed.
+
+It should return a either a pointer to check the status of the request or estimated time when the request will complete.
+
+**204 No Content** request has fulfilled but do not have any content to return.
+
+
+
