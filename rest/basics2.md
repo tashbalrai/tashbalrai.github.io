@@ -1,4 +1,4 @@
-###### *[Home](https://tashbalrai.github.io)*, [REST](https://tashbalrai.github.io/php/rest/basics.html), [REST Best Practices]
+###### *[Home](https://tashbalrai.github.io)*, [REST](https://tashbalrai.github.io/php/rest/basics.html), **REST Best Practices**
 
 ## REST Best Practices
 Use nouns for resource URIs not verbs. Use plural nouns instead of singular to make is consistent
