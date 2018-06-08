@@ -24,7 +24,7 @@
  - Memory caching techniques to process frequently accessed data. For example, Redis, memcached.
  - Application caching to store the processed templates.
  - Try to use background processing for heavier processes (sending emails, notification, calculations). For example, queuing system like RabbitMQ.
-    - Review your system architecture may be use micro services/application architecture with SPAs on frontend.
+ - Review your system architecture may be use micro services/application architecture with SPAs on frontend.
 #### 3 HOSTING OPTIONS
  - Load balancing
  - Website should be scalable and distributable
