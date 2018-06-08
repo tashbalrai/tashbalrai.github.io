@@ -1,3 +1,5 @@
+###### *[Home](https://tashbalrai.github.io)*, [Basics](https://tashbalrai.github.io/php/basics.html), [OOPs - 1](https://tashbalrai.github.io/php/oops/basics.html), [OOPs - 2](https://tashbalrai.github.io/php/oops/basics2.html), [OOPs - Traits](https://tashbalrai.github.io/php/oops/traits.html), [Advanced], [Autoloading](https://tashbalrai.github.io/php/oops/autoloading.html)
+
 ## Anonymous Class
 
 Are classes without name.
