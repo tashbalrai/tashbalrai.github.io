@@ -1,4 +1,4 @@
-###### *[Home](https://tashbalrai.github.io)*, **REST**, [REST Best Practices](https://tashbalrai.github.io/php/rest/basics2.html),
+###### *[Home](https://tashbalrai.github.io)*, **REST**, [REST Best Practices](https://tashbalrai.github.io/rest/basics2.html),
 
 ## REST
 REST architecture uses existing HTTP protocol and is based on three entities.
