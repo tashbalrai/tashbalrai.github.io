@@ -32,7 +32,7 @@
   - Do not use server bound caching for example file based caching.
   - Remove code dependency.
   - Try to build independently host-able application module such as micro application architecture.
- #### 5 DATABASE
+ #### 4 DATABASE
  - Optimize table, create indexes on frequently used columns in where conditions
  - Use SQL profiling tools to analyze and debug slow SQL queries
  - Try to use less joins in single database query.
