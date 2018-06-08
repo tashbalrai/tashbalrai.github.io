@@ -1,3 +1,5 @@
+###### *[Home](https://tashbalrai.github.io)*, [Basics](https://tashbalrai.github.io/php/basics.html)
+
 ## About PHP
 1. Recursive Acronym PHP: Hypertext Preprocessor
 2. General purpose scripting language. Especially for WEB
