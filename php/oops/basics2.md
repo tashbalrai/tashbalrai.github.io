@@ -1,4 +1,4 @@
-###### *[Home](https://tashbalrai.github.io)*, [Basics](https://tashbalrai.github.io/php/basics.html), [OOPs - 1](https://tashbalrai.github.io/php/oops/basics.html), [OOPs - 2], [OOPs - Traits](https://tashbalrai.github.io/php/oops/traits.html), [OOPs - Advanced](https://tashbalrai.github.io/php/oops/advanced.html), [Autoloading](https://tashbalrai.github.io/php/oops/autoloading.html)
+###### *[Home](https://tashbalrai.github.io)*, [Basics](https://tashbalrai.github.io/php/basics.html), [OOPs - 1](https://tashbalrai.github.io/php/oops/basics.html), **OOPs - 2**, [OOPs - Traits](https://tashbalrai.github.io/php/oops/traits.html), [OOPs - Advanced](https://tashbalrai.github.io/php/oops/advanced.html), [Autoloading](https://tashbalrai.github.io/php/oops/autoloading.html)
 
 ## Constructor
 Suitable for class initialization code.
