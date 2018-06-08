@@ -1,3 +1,6 @@
+###### *[Home](https://tashbalrai.github.io)*, [Basics](https://tashbalrai.github.io/php/basics.html), [OOPs - 1](https://tashbalrai.github.io/php/oops/basics.html), [OOPs - 2](https://tashbalrai.github.io/php/oops/basics2.html), [OOPs - Traits](https://tashbalrai.github.io/php/oops/traits.html), [OOPs - Advanced](https://tashbalrai.github.io/php/oops/advanced.html), [Autoloading]
+
+
 ```spl_autoload_register(function)``` function can register multiple autoloading functions. Recommended
 
 ```__autoload()``` can only allow one autoloading function so is discouraged to use.
