@@ -1,3 +1,6 @@
+###### *[Home](https://tashbalrai.github.io)*, [Basics](https://tashbalrai.github.io/php/basics.html), [OOPs - 1](https://tashbalrai.github.io/php/oops/basics.html), [OOPs - 2](https://tashbalrai.github.io/php/oops/basics2.html), [OOPs - Traits], [OOPs - Advanced](https://tashbalrai.github.io/php/oops/advanced.html), [Autoloading](https://tashbalrai.github.io/php/oops/autoloading.html)
+
+## Traits
 Traits added in PHP 5.4.0
 
 Code reusability, in classes and virtually adds multiple inheritance.
