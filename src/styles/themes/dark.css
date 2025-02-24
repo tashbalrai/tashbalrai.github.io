@@ -1,0 +1,12 @@
+[data-theme="dark"] {
+    --bg-body-color: #414141;
+    --bg-tag-color: #575757;
+    --grid-color: #4f4c4f;
+    --text-color: #f5e1e4;
+    --heading-color: #c9c5c5;
+    --sub-heading-color: #c9c5c5;
+    --bg-footer: #e3d6d8;
+    --text-footer-color: #262626;
+
+    --hover-bg-card-color: #302f30;
+}

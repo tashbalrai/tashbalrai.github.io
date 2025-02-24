@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" data-theme="white">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<slot name="meta-head"/>
+	</head>
+	<body class="mx-auto">
+		<header>
+			<slot name="before-body-header"/>
+			<slot name="body-header"/>
+			<slot name="after-body-header"/>
+		</header>
+		<main class="min-h-screen">
+			<slot name="before-body-main"/>
+			<slot name="body-main"/>
+			<slot name="after-body-main"/>
+		</main>
+		<footer>
+			<slot name="before-body-footer"/>
+			<slot name="body-footer"/>
+			<slot name="after-body-footer"/>
+		</footer>
+	</body>
+</html>
