@@ -1,0 +1,48 @@
+---
+---
+<script>
+    import { BOX_COUNT_PER_ROW, BOX_STD_WIDTH, LOCAL_STORAGE_THEME_VAR_NAME, MAX_BOXES } from "../../utils/constants";
+    import { ThemeNames } from "../../utils/types";
+
+    function init() {
+    
+        window.config = {
+            boxes: BOX_COUNT_PER_ROW,
+            boxWidth: BOX_STD_WIDTH,
+        };
+
+        if (window.localStorage) {
+            const themeName = localStorage.getItem(LOCAL_STORAGE_THEME_VAR_NAME);
+
+            if (!themeName && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document
+                    .querySelector("html")
+                    ?.setAttribute("data-theme", ThemeNames.DARK);
+            }
+            
+            if (themeName)
+                document
+                    .querySelector("html")
+                    ?.setAttribute("data-theme", themeName);
+        }
+
+        window.handleScreenResize = () => {
+            const html = window.document.getElementsByTagName("html")[0];
+            const body = window.document.getElementsByTagName("body")[0];
+
+            let count = Math.floor(
+                html.clientWidth / BOX_STD_WIDTH
+            );
+
+            count = count > MAX_BOXES ? MAX_BOXES : count;
+            let width = BOX_STD_WIDTH;
+
+            body.setAttribute("style", `width: ${width * count }px`);
+            
+            window.config.boxes = count;
+            window.config.boxWidth = width;
+        };
+    }
+
+    document.addEventListener("DOMContentLoaded", init);
+</script>   

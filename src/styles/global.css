@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@layer base {
+    @import "./themes/base.css";
+    @import "./themes/white.css";
+    @import "./themes/dark.css";
+}
+
+@theme {
+    --font-sans: "Inter", sans-serif;
+
+    --spacing-header-height: 6.25rem;
+    --spacing-article-height: 35.938rem;
+    --spacing-footer-height: 43rem;
+}
+
+@layer components {
+    h1 {
+        font-size: var(--text-7xl);
+        font-weight: var(--font-weight-black);
+    }
+
+    h2 {
+        font-size: var(--text-6xl);
+        font-weight: var(--font-weight-black);
+    }
+
+    h3 {
+        font-size: var(--text-6xl);
+        font-weight: var(--font-weight-black);
+    }
+
+    h3 {
+        font-size: var(--text-5xl);
+        font-weight: var(--font-weight-black);
+    }
+
+    h4 {
+        font-size: var(--text-4xl);
+        font-weight: var(--font-weight-extrabold);
+    }
+
+    h5 {
+        font-size: var(--text-3xl);
+        font-weight: var(--font-weight-extrabold);
+    }
+
+    h6 {
+        font-size: var(--text-2xl);
+        font-weight: var(--font-weight-bold);
+    }
+
+    p {
+        font-size: var(--text-lg);
+        font-weight: var(--font-weight-normal);
+    }
+
+    b {
+        font-weight: var(--font-weight-bold);
+    }
+
+    strong {
+        font-weight: var(--font-weight-bold);
+    }
+}
