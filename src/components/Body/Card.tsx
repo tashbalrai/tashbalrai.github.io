@@ -25,11 +25,11 @@ const Card = ({ data }: ICard) => {
                             className="hidden group-hover:inline-flex"
                         />
                     </div>
-                    <a href={`/posts/${data.slug}`}>
+                    <a href={`/article/${data.slug}`}>
                         <h5>{data.title}</h5>
                     </a>
 
-                    <a href={`/posts/${data.slug}`}>
+                    <a href={`/article/${data.slug}`}>
                         <p className="line-clamp-6">{data.excerpt}</p>
                     </a>
                 </div>
