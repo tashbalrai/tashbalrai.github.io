@@ -36,7 +36,9 @@ const Card = ({ data }: ICard) => {
                 <TagList tags={data.tags} />
                 <div className="flex flex-row items-baseline gap-2">
                     <p className="text-base">{data.author}</p>
-                    <p className="text-sm">{data.publishedAt.toDateString()}</p>
+                    <p className="text-sm">
+                        {data.publishedAt?.toDateString()}
+                    </p>
                 </div>
             </article>
         </Box>

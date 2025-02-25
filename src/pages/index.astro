@@ -6,96 +6,17 @@ import Header from '../components/Body/Header.tsx'
 import Footer from '../components/Body/Footer.tsx'
 import '../styles/global.css';
 import CardList from '../components/Body/CardList';
-import { type IArticle } from '../utils/types';
+import { getCollection } from 'astro:content';
+import type { IArticle } from '../utils/types';
 
-const cards: IArticle[] = [
-    {
-        slug: "product/dummy-article",
-        title: "Title Launch Observability at Netflix Scale",
-        excerpt: "At Netflix, we manage over a thousand global content launches each month, backed by billions of dollars in annual investment. Ensuring the success and discoverability of each title across our platform is a top priority, as we aim to connect every story with the right audience to delight our members. ",
-        description: "The open-source security testing tool is designed to help developers find and fix vulnerabilities in their code. It is known for its ability to provide extensive vulnerability coverage and support for a wide range of languages and frameworks.",
-        category: "Security",
-        tags: ["security", "testing", "vulnerability"],
-        author: "V. Balrai",
-        publishedAt: new Date(),
-    },
-    {
-        slug: "dummy-article",
-        title: "Title Launch Observability at Netflix Scale",
-        excerpt: "At Netflix, we manage over a thousand global content launches each month, backed by billions of dollars in annual investment. Ensuring the success and discoverability of each title across our platform is a top priority, as we aim to connect every story with the right audience to delight our members. ",
-        description: "The open-source security testing tool is designed to help developers find and fix vulnerabilities in their code. It is known for its ability to provide extensive vulnerability coverage and support for a wide range of languages and frameworks.",
-        category: "Security",
-        tags: ["security", "testing", "vulnerability"],
-        author: "V. Balrai",
-        publishedAt: new Date(),
-    },
-    {
-        slug: "dummy-article",
-        title: "Title Launch Observability at Netflix Scale",
-        excerpt: "At Netflix, we manage over a thousand global content launches each month, backed by billions of dollars in annual investment. Ensuring the success and discoverability of each title across our platform is a top priority, as we aim to connect every story with the right audience to delight our members. ",
-        description: "The open-source security testing tool is designed to help developers find and fix vulnerabilities in their code. It is known for its ability to provide extensive vulnerability coverage and support for a wide range of languages and frameworks.",
-        category: "Security",
-        tags: ["security", "testing", "vulnerability"],
-        author: "V. Balrai",
-        publishedAt: new Date(),
-    },
-    {
-        slug: "dummy-article",
-        title: "Title Launch Observability at Netflix Scale",
-        excerpt: "At Netflix, we manage over a thousand global content launches each month, backed by billions of dollars in annual investment. Ensuring the success and discoverability of each title across our platform is a top priority, as we aim to connect every story with the right audience to delight our members. ",
-        description: "The open-source security testing tool is designed to help developers find and fix vulnerabilities in their code. It is known for its ability to provide extensive vulnerability coverage and support for a wide range of languages and frameworks.",
-        category: "Security",
-        tags: ["security", "testing", "vulnerability"],
-        author: "V. Balrai",
-        publishedAt: new Date(),
-    },
-    {
-        slug: "dummy-article",
-        title: "Title Launch Observability at Netflix Scale",
-        excerpt: "At Netflix, we manage over a thousand global content launches each month, backed by billions of dollars in annual investment. Ensuring the success and discoverability of each title across our platform is a top priority, as we aim to connect every story with the right audience to delight our members. ",
-        description: "The open-source security testing tool is designed to help developers find and fix vulnerabilities in their code. It is known for its ability to provide extensive vulnerability coverage and support for a wide range of languages and frameworks.",
-        category: "Security",
-        tags: ["security", "testing", "vulnerability"],
-        author: "V. Balrai",
-        publishedAt: new Date(),
-    },
-    {
-        slug: "dummy-article",
-        title: "Title Launch Observability at Netflix Scale",
-        excerpt: "At Netflix, we manage over a thousand global content launches each month, backed by billions of dollars in annual investment. Ensuring the success and discoverability of each title across our platform is a top priority, as we aim to connect every story with the right audience to delight our members. ",
-        description: "The open-source security testing tool is designed to help developers find and fix vulnerabilities in their code. It is known for its ability to provide extensive vulnerability coverage and support for a wide range of languages and frameworks.",
-        category: "Security",
-        tags: ["security", "testing", "vulnerability"],
-        author: "V. Balrai",
-        publishedAt: new Date(),
-    },
-    {
-        slug: "dummy-article",
-        title: "Title Launch Observability at Netflix Scale",
-        excerpt: "At Netflix, we manage over a thousand global content launches each month, backed by billions of dollars in annual investment. Ensuring the success and discoverability of each title across our platform is a top priority, as we aim to connect every story with the right audience to delight our members. ",
-        description: "The open-source security testing tool is designed to help developers find and fix vulnerabilities in their code. It is known for its ability to provide extensive vulnerability coverage and support for a wide range of languages and frameworks.",
-        category: "Security",
-        tags: ["security", "testing", "vulnerability"],
-        author: "V. Balrai",
-        publishedAt: new Date(),
-    },
-    {
-        slug: "dummy-article",
-        title: "Title Launch Observability at Netflix Scale",
-        excerpt: "At Netflix, we manage over a thousand global content launches each month, backed by billions of dollars in annual investment. Ensuring the success and discoverability of each title across our platform is a top priority, as we aim to connect every story with the right audience to delight our members. ",
-        description: "The open-source security testing tool is designed to help developers find and fix vulnerabilities in their code. It is known for its ability to provide extensive vulnerability coverage and support for a wide range of languages and frameworks.",
-        category: "Security",
-        tags: ["security", "testing", "vulnerability"],
-        author: "V. Balrai",
-        publishedAt: new Date(),
-    },
-];
+const articles = await getCollection('articles');
+const articlesData: IArticle[] = articles.map(article => article.data);
 ---
 
 <BaseLayout>
     <ThemeScript slot="meta-head"/>
     <Seo slot="meta-head" title="Huntize: Here the hunt starts" description="Huntize is a platform for hunters to share their hunting experiences and tips." keywords="hunting, hunting tips, hunting experiences" />
     <Header client:only="react" slot="body-header"/>
-    <CardList client:only="react" slot="body-main" data={cards}/>
+    <CardList client:only="react" slot="body-main" data={articlesData}/>
     <Footer client:only="react" slot="body-footer"/>
 </BaseLayout>
