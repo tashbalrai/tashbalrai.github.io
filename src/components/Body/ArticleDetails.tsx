@@ -1,27 +1,36 @@
-import type { IArticle } from "../../utils/types";
+import { getEntry, render, type RenderedContent } from "astro:content";
+import type { IArticleFrontmatter } from "../../utils/types";
 
 export interface IArticleDetails {
-    data: IArticle;
+    article: {
+        id: string;
+        body?: string;
+        data: IArticleFrontmatter;
+        rendered?: RenderedContent;
+        filePath?: string;
+    };
 }
 
-const ArticleDetails = (props: IArticleDetails) => {
+const ArticleDetails = async ({ article }: IArticleDetails) => {
     return (
         <article>
             <header>
-                <h1 className="mt-12 mb-5">{props.data.title}</h1>
+                <h1 className="mt-12 mb-5">Title</h1>
             </header>
-            <p className="text-2xl font-light">{props.data.description}</p>
-            <footer className="w-full border-(--grid-color) border-t-1 mt-24 pt-5">
+            <div
+                dangerouslySetInnerHTML={{ __html: article.rendered?.html! }}
+            />
+            {/* <footer className="w-full border-(--grid-color) border-t-1 mt-24 pt-5">
                 <p className="text-lg mt-5 ml-2">
                     Written by {props.data.author}
                 </p>
                 <p className="text-sm ml-2">
-                    Published: {props.data.publishedAt.toDateString()}
+                    Published: {props.data.publishedAt?.toDateString()}
                 </p>
                 <p className="text-sm mt-5 ml-2 mb-10">
                     {props.data.aboutAuthor}
                 </p>
-            </footer>
+            </footer> */}
         </article>
     );
 };

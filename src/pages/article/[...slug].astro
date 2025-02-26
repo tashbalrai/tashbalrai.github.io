@@ -6,40 +6,21 @@ import ThemeScript from '../../components/Head/ThemeScript.astro';
 import Seo from '../../components/Head/Seo.astro';
 import Footer from '../../components/Body/Footer.tsx'
 import '../../styles/global.css';
+import { getCollection, render } from 'astro:content';
 
 
 export async function getStaticPaths() {
-  const pages = [
-  {
-        slug: "product/dummy-article",
-        title: "Title Launch Observability at Netflix Scale",
-        excerpt: "At Netflix, we manage over a thousand global content launches each month, backed by billions of dollars in annual investment. Ensuring the success and discoverability of each title across our platform is a top priority, as we aim to connect every story with the right audience to delight our members. ",
-        description: "The open-source security testing tool is designed to help developers find and fix vulnerabilities in their code. It is known for its ability to provide extensive vulnerability coverage and support for a wide range of languages and frameworks.",
-        category: "Security",
-        tags: ["security", "testing", "vulnerability"],
-        author: "Vipan Balrai",
-        aboutAuthor: "Vipan Balrai is a software engineer at Netflix, where he works on the platform security team. He is passionate about building secure and reliable software systems.",
-        publishedAt: new Date(),
-    },
-    {
-        slug: "dummy-article",
-        title: "Title Launch Observability at Netflix Scale",
-        excerpt: "At Netflix, we manage over a thousand global content launches each month, backed by billions of dollars in annual investment. Ensuring the success and discoverability of each title across our platform is a top priority, as we aim to connect every story with the right audience to delight our members. ",
-        description: "The open-source security testing tool is designed to help developers find and fix vulnerabilities in their code. It is known for its ability to provide extensive vulnerability coverage and support for a wide range of languages and frameworks.",
-        category: "Security",
-        tags: ["security", "testing", "vulnerability"],
-        author: "Vipan Balrai",
-        aboutAuthor: "Vipan Balrai is a software engineer at Netflix, where he works on the platform security team. He is passionate about building secure and reliable software systems.",
-        publishedAt: new Date(),
-    },
-  ];
-  return pages.map((page) => {
+  const collection = await getCollection('articles')
+  return collection.map((article) => {
     return {
-      params: { slug:page.slug },
-      props: { ...page },
+      params: { slug: article.data.slug },
+      props: { article},
     };
   });
 }
+
+const { article } = Astro.props;
+const { Content } = await render(article);
 
 ---
 
@@ -47,6 +28,19 @@ export async function getStaticPaths() {
   <ThemeScript slot="meta-head"/>
   <Seo slot="meta-head" title="Huntize: Here the hunt starts" description="Huntize is a platform for hunters to share their hunting experiences and tips." keywords="hunting, hunting tips, hunting experiences" />
   <Header client:only="react" slot="body-header"/>
-  <ArticleDetails data={Astro.props} slot="body-main"/>
+  <article class="article-details" slot="body-main">
+    <Content />
+    <footer class="w-full border-(--grid-color) border-t-1 mt-24 pt-5">
+      {article.data.author && <p class="text-lg mt-5 ml-2">
+          Written by {article.data.author}
+      </p>}
+      {article.data.publishedAt && <p class="text-sm ml-2">
+          Published: {article.data.publishedAt?.toDateString()}
+      </p>}
+      {article.data.aboutAuthor && <p class="text-sm mt-5 ml-2 mb-10">
+          {article.data.aboutAuthor}
+      </p>}
+    </footer>
+  </article>
   <Footer client:only="react" slot="body-footer"/>
 </BaseLayout>

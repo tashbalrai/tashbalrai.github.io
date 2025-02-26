@@ -1,25 +1,23 @@
-export interface IArticle {
+export interface IArticleFrontmatter {
     slug: string;
     title: string;
-    coverImage?: string;
-    excerpt?: string;
+    excerpt: string;
     category: string;
     tags: string[];
-    author?: string;
-    aboutAuthor?: string;
     seoTitle?: string;
     seoKeywords?: string;
     seoDescription?: string;
     publishedAt?: Date;
+    draft?: boolean;
 }
 
 export interface ICard {
-    data: IArticle;
+    data: IArticleFrontmatter;
     boxWidth?: string;
 }
 
 export interface ICardList {
-    data: IArticle[];
+    data: IArticleFrontmatter[];
 }
 
 export interface ITextTag {

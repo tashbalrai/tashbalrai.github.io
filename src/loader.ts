@@ -11,9 +11,12 @@ export function directoryContentLoader(options: IOptions): Loader {
     return {
         name: "directory-content-loader",
         load: async ({ store, parseData }): Promise<void> => {
-            const matches: any = import.meta.glob("./content/*.md", {
-                eager: true,
-            });
+            const matches: any = import.meta.glob(
+                ["./content/angular/*.md", "./content/*.md"],
+                {
+                    eager: true,
+                }
+            );
             store.clear();
 
             for (const path in matches) {
@@ -48,14 +51,12 @@ export function directoryContentLoader(options: IOptions): Loader {
             }
         },
         schema: z.object({
+            draft: z.boolean().optional(),
             slug: z.string(),
             title: z.string(),
-            coverImage: z.string().optional(),
             excerpt: z.string(),
             category: z.string(),
             tags: z.array(z.string()),
-            author: z.string().optional(),
-            aboutAuthor: z.string().optional(),
             seoTitle: z.string().optional(),
             seoKeywords: z.string().optional(),
             seoDescription: z.string().optional(),
