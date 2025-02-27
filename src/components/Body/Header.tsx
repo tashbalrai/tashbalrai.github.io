@@ -60,7 +60,7 @@ export default function Header() {
 
     return (
         <Flex>
-            <Box height="h-[71px]" width={`${(width * boxes) / 16}rem`}>
+            <Box height="h-[71px]" >
                 <div className="h-[71px] px-5 flex flex-row items-center justify-between">
                     <div className="h-[71px] px-5 flex flex-row items-center gap-4">
                         <a href="/">

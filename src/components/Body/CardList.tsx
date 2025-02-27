@@ -8,7 +8,8 @@ import Slogans from "./Slogans";
 
 const CardList = ({ data }: ICardList) => {
     const { width, boxes } = useBoxAttributes();
-    const noEmptyBoxes = data.length % boxes;
+    const noEmptyBoxes = boxes % data.length;
+    
     let i = 0;
     return (
         <Flex>

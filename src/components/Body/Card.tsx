@@ -19,7 +19,7 @@ const Card = ({ data }: ICard) => {
             >
                 <div className="flex flex-col gap-8">
                     <div className="flex flex-row w-full justify-between">
-                        <p className="text-lg">/ {data.category}</p>
+                        <p className="text-xl font-semibold">/ {data.category}</p>
                         <FaShareAlt
                             style={{ fontSize: "1.25rem" }}
                             className="hidden group-hover:inline-flex"
