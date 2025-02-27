@@ -7,6 +7,9 @@
     --sub-heading-color: #000;
     --bg-footer: #d4e5e6;
     --text-footer-color: #000;
-
+    --link-color: #336699;
+    --hover-link-color: #336699;
+    --inline-code-bg: #9ec0c3;
+    --inline-code-color: #474747;
     --hover-bg-card-color: #90c4ca;
 }

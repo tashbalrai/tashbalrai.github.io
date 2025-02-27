@@ -66,7 +66,7 @@ export default function Header() {
                         <a href="/">
                             <Logo />
                         </a>
-                        <div className="text-3xl uppercase font-bold">
+                        <div className="text-2xl uppercase font-bold">
                             <a href="/">Huntize</a>
                         </div>
                     </div>
