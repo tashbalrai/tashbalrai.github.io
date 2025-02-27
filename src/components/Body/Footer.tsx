@@ -10,7 +10,7 @@ import { FaMedium } from "react-icons/fa6";
 const Footer = () => {
     return (
         <footer className="w-full sm:h-f bg-(--bg-footer) py-10 sm:py-20">
-            <div className="flex flex-col sm:flex-row text-(--text-footer-color) gap-8 h-full w-3/4 mx-auto">
+            <div className="flex flex-col lg:flex-row text-(--text-footer-color) gap-8 h-full w-3/4 mx-auto">
                 <div className="flex flex-col justify-between h-full w-full">
                     <div className="flex flex-col gap-4">
                         <strong className="text-5xl font-bold">
