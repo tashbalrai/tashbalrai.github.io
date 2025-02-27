@@ -25,18 +25,22 @@ const Card = ({ data }: ICard) => {
                             className="hidden group-hover:inline-flex"
                         />
                     </div>
-                    <a href={`/posts/${data.slug}`}>
-                        <h5>{data.title}</h5>
+                    <a href={`/article/${data.slug}`}>
+                        <h5 className="text-3xl">{data.title}</h5>
                     </a>
 
-                    <a href={`/posts/${data.slug}`}>
-                        <p className="line-clamp-6">{data.excerpt}</p>
+                    <a href={`/article/${data.slug}`}>
+                        <p className="text-lg line-clamp-6">{data.excerpt}</p>
                     </a>
                 </div>
-                <TagList tags={data.tags} />
-                <div className="flex flex-row items-baseline gap-2">
-                    <p className="text-base">{data.author}</p>
-                    <p className="text-sm">{data.publishedAt.toDateString()}</p>
+                <div className="flex flex-col gap-4">
+                    <TagList tags={data.tags} />
+                    <div className="flex flex-row items-baseline gap-2">
+                        <p className="text-base">Vipan Balrai</p>
+                        <p className="text-sm">
+                            {data.publishedAt?.toDateString()}
+                        </p>
+                    </div>
                 </div>
             </article>
         </Box>

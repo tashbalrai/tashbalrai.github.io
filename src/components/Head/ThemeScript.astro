@@ -37,7 +37,7 @@
             count = count > MAX_BOXES ? MAX_BOXES : count;
             let width = BOX_STD_WIDTH;
 
-            body.setAttribute("style", `width: ${width * count }px`);
+            body.setAttribute("style", `width: ${width * (count || 1) }px`);
             
             window.config.boxes = count;
             window.config.boxWidth = width;
