@@ -7,7 +7,7 @@ export interface IArticleFrontmatter {
     seoTitle?: string;
     seoKeywords?: string;
     seoDescription?: string;
-    publishedAt?: Date;
+    publishedAt?: string;
     draft?: boolean;
 }
 

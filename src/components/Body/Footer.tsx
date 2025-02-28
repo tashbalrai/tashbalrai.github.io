@@ -1,11 +1,5 @@
-import {
-    FaLinkedin,
-    FaFacebook,
-    FaYoutube,
-    FaTwitter,
-    FaRss,
-} from "react-icons/fa";
-import { FaMedium } from "react-icons/fa6";
+import SocialLinks from "./SocialLinks";
+import { SOCIAL_LINKS } from "../../utils/constants";
 
 const Footer = () => {
     return (
@@ -18,14 +12,10 @@ const Footer = () => {
                         </strong>
                         <p>Or, just say hello. I love to hear from people.</p>
                         <p className="text-2xl">vbalrai [at] gmail [.] com</p>
-                        <div className="flex flex-rows gap-3 mt-10">
-                            <FaLinkedin style={{ fontSize: "1.875rem" }} />
-                            <FaFacebook style={{ fontSize: "1.875rem" }} />
-                            <FaYoutube style={{ fontSize: "1.875rem" }} />
-                            <FaTwitter style={{ fontSize: "1.875rem" }} />
-                            <FaMedium style={{ fontSize: "1.875rem" }} />
-                            <FaRss style={{ fontSize: "1.875rem" }} />
-                        </div>
+                        <SocialLinks
+                            links={SOCIAL_LINKS}
+                            className="text-(--text-footer-color)"
+                        />
                     </div>
                     <p className="font-normal text-sm pb-10 mt-4 max-sm:hidden">
                         Designed & developed by Vipan Balrai.

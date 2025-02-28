@@ -1,6 +1,5 @@
 ---
 slug: es2017/javascript-classes
-title: Javascript Classes
 excerpt: JavaScript supports inheritance using prototypes. There is no classical class like inheritance in JavaScript. ECMAScript 6 added classes but these are still based on the prototypal inheritance and uses functions behind the scene. Before ES6, we could mimic the class using the below code example.
 category: javascript
 tags: [javascript, es6]
