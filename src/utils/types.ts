@@ -7,7 +7,7 @@ export interface IArticleFrontmatter {
     seoTitle?: string;
     seoKeywords?: string;
     seoDescription?: string;
-    publishedAt?: Date;
+    publishedAt?: string;
     draft?: boolean;
 }
 
@@ -18,6 +18,8 @@ export interface ICard {
 
 export interface ICardList {
     data: IArticleFrontmatter[];
+    showSlogan?: boolean;
+    minHeight?: string;
 }
 
 export interface ITextTag {

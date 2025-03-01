@@ -6,13 +6,13 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<slot name="meta-head"/>
 	</head>
-	<body class="mx-auto">
+	<body class="w-full">
 		<header>
 			<slot name="before-body-header"/>
 			<slot name="body-header"/>
 			<slot name="after-body-header"/>
 		</header>
-		<main class="min-h-screen">
+		<main id="main-card-list" class="mx-auto">
 			<slot name="before-body-main"/>
 			<slot name="body-main"/>
 			<slot name="after-body-main"/>

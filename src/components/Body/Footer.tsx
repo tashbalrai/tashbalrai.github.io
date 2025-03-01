@@ -1,11 +1,6 @@
-import {
-    FaLinkedin,
-    FaFacebook,
-    FaYoutube,
-    FaTwitter,
-    FaRss,
-} from "react-icons/fa";
-import { FaMedium } from "react-icons/fa6";
+import SocialLinks from "./SocialLinks";
+import { SOCIAL_LINKS } from "../../utils/constants";
+import { TAGS } from "../../utils/taxonomy";
 
 const Footer = () => {
     return (
@@ -18,14 +13,10 @@ const Footer = () => {
                         </strong>
                         <p>Or, just say hello. I love to hear from people.</p>
                         <p className="text-2xl">vbalrai [at] gmail [.] com</p>
-                        <div className="flex flex-rows gap-3 mt-10">
-                            <FaLinkedin style={{ fontSize: "1.875rem" }} />
-                            <FaFacebook style={{ fontSize: "1.875rem" }} />
-                            <FaYoutube style={{ fontSize: "1.875rem" }} />
-                            <FaTwitter style={{ fontSize: "1.875rem" }} />
-                            <FaMedium style={{ fontSize: "1.875rem" }} />
-                            <FaRss style={{ fontSize: "1.875rem" }} />
-                        </div>
+                        <SocialLinks
+                            links={SOCIAL_LINKS}
+                            className="text-(--text-footer-color)"
+                        />
                     </div>
                     <p className="font-normal text-sm pb-10 mt-4 max-sm:hidden">
                         Designed & developed by Vipan Balrai.
@@ -38,32 +29,19 @@ const Footer = () => {
                     <h3 className="text-2xl font-bold underline">Topics</h3>
                     <ul className="flex flex-col sm:flex-row flex-wrap w-full gap-4 text-base">
                         <li className="hover:underline whitespace-nowrap">
-                            <a href="/node">About Me</a>
+                            <a href="/author">About Me</a>
                         </li>
-                        <li className="hover:underline whitespace-nowrap">
-                            <a href="/node">Javascript</a>
-                        </li>
-                        <li className="hover:underline whitespace-nowrap">
-                            <a href="/node">Typescript</a>
-                        </li>
-                        <li className="hover:underline whitespace-nowrap">
-                            <a href="/node">NodeJS</a>
-                        </li>
-                        <li className="hover:underline whitespace-nowrap">
-                            <a href="/node">Data Structures & Algorithms</a>
-                        </li>
-                        <li className="hover:underline whitespace-nowrap">
-                            <a href="/node">Machine Learning</a>
-                        </li>
-                        <li className="hover:underline whitespace-nowrap">
-                            <a href="/node">Java</a>
-                        </li>
-                        <li className="hover:underline whitespace-nowrap">
-                            <a href="/node">Cloud</a>
-                        </li>
-                        <li className="hover:underline whitespace-nowrap">
-                            <a href="/node">System Design</a>
-                        </li>
+                        {TAGS &&
+                            Object.keys(TAGS).map((key) => {
+                                return (
+                                    <li
+                                        key={key}
+                                        className="hover:underline whitespace-nowrap"
+                                    >
+                                        <a href={`/tags/${key}`}>{TAGS[key]}</a>
+                                    </li>
+                                );
+                            })}
                     </ul>
                 </nav>
                 <p className="font-normal text-sm pb-10 mt-4 sm:hidden">

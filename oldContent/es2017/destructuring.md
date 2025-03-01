@@ -1,6 +1,5 @@
 ---
 slug: es2017/javascript-destructuring
-title: Destructuring in Javascript
 excerpt: Extract the values from a nested objects or arrays. Destructuring can be used in variable declarations, assignements, function calls, function return values, for-of loops etc.
 category: javascript
 tags: [javascript, es6]

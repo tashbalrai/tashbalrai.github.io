@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Body/Header.tsx'
+import ThemeScript from '../../components/Head/ThemeScript.astro';
+import Seo from '../../components/Head/Seo.astro';
+import Footer from '../../components/Body/Footer.tsx'
+import '../../styles/global.css';
+import loadArticles from '../../utils/collection';
+import CardList from '../../components/Body/CardList';
+import type { IArticleFrontmatter } from '../../utils/types';
+
+
+
+
+export async function getStaticPaths() {
+    const collection = await loadArticles();
+    const tagNames = new Set<string>();
+    for(let i=0; i<collection.length; i++) {
+        const tags = collection[i].frontmatter.tags as Array<string>;
+        tags.forEach(tag => tagNames.add(tag));
+    }
+    
+    return Array.from(tagNames).map((key, value) => {
+        return {
+            params: { tag: key },
+        };
+    });
+}
+
+const collection = await loadArticles();
+const {tag} = Astro.params;
+const articles:IArticleFrontmatter[] = collection.filter(article => {
+    if(article.frontmatter.tags.includes(tag)) {
+        return true;
+    }
+    return false;
+}).map(article => article.frontmatter).sort((a, b) => {
+    const aDate = new Date(a.publishedAt);
+    const bDate = new Date(b.publishedAt);
+    
+    if(aDate.valueOf() > bDate.valueOf()) {
+        return -1;
+    } else if(aDate.valueOf() < bDate.valueOf()) {
+        return 1;
+    }
+    return 0;
+});
+---
+
+<BaseLayout>
+    <ThemeScript slot="meta-head"/>
+    <Seo slot="meta-head" title="Huntize: Here the hunt starts" description="Huntize is a platform for hunters to share their hunting experiences and tips." keywords="hunting, hunting tips, hunting experiences" />
+    <Header client:only="react" slot="body-header"/>
+    <CardList client:only="react" slot="body-main" data={articles} showSlogan={false}/>
+    <Footer client:only="react" slot="body-footer"/>
+</BaseLayout>

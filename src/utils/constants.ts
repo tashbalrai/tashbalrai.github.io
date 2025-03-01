@@ -5,3 +5,8 @@ export const BOX_COUNT_PER_ROW = 4;
 export const MAX_BOXES = 4;
 
 export const LOCAL_STORAGE_THEME_VAR_NAME = "theme-name";
+
+export const SOCIAL_LINKS = {
+    linkedin: "https://www.linkedin.com/in/vipan-balrai/",
+    medium: "https://www.linkedin.com/in/vipan-balrai/",
+};

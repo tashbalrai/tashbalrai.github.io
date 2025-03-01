@@ -3,14 +3,15 @@
 import Flex from "./Flex";
 import Box from "./Box";
 import Logo from "../SVG/Logo";
-import { useBoxAttributes } from "../../utils/hooks/UseBoxAttributes";
-import { useCallback, useLayoutEffect, useRef } from "react";
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { LOCAL_STORAGE_THEME_VAR_NAME } from "../../utils/constants";
 import { ThemeNames } from "../../utils/types";
+import { GiHamburgerMenu } from "react-icons/gi";
+import Menu from "./Menu";
 
 export default function Header() {
-    const { width, boxes } = useBoxAttributes();
     const switchThemeRef = useRef<HTMLInputElement>(null);
+    const [isOpen, setIsOpen] = useState(false);
 
     useLayoutEffect(() => {
         let selectedTheme = document
@@ -60,9 +61,9 @@ export default function Header() {
 
     return (
         <Flex>
-            <Box height="h-[71px]" width={`${(width * boxes) / 16}rem`}>
+            <Box height="h-[71px]">
                 <div className="h-[71px] px-5 flex flex-row items-center justify-between">
-                    <div className="h-[71px] px-5 flex flex-row items-center gap-4">
+                    <div className="z-20 h-[71px] px-5 flex flex-row items-center gap-4">
                         <a href="/">
                             <Logo />
                         </a>
@@ -70,10 +71,13 @@ export default function Header() {
                             <a href="/">Huntize</a>
                         </div>
                     </div>
-                    <div className="flex flex-row items-center gap-4">
-                        <p className="text-sm">
-                            <a href="#">About Me</a>
-                        </p>
+                    <div className="flex flex-row items-center z-20">
+                        <GiHamburgerMenu
+                            size="2rem"
+                            className="hover:cursor-pointer"
+                            onClick={() => setIsOpen(true)}
+                        />
+                        <Menu isOpen={isOpen} callback={setIsOpen} />
                         <label className="group relative flex items-center justify-between p-2 text-xl hover:cursor-pointer">
                             <input
                                 ref={switchThemeRef}

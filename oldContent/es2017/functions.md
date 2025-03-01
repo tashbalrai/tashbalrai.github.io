@@ -1,6 +1,5 @@
 ---
 slug: es2017/javascript-default-values
-title: Javascript default values for arguments
 excerpt: ES6 supports default values for parameters.
 category: javascript
 tags: [javascript, es6]

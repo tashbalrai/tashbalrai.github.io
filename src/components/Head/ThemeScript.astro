@@ -28,7 +28,7 @@
 
         window.handleScreenResize = () => {
             const html = window.document.getElementsByTagName("html")[0];
-            const body = window.document.getElementsByTagName("body")[0];
+            const body = window.document.getElementById("main-card-list");
 
             let count = Math.floor(
                 html.clientWidth / BOX_STD_WIDTH
@@ -37,7 +37,9 @@
             count = count > MAX_BOXES ? MAX_BOXES : count;
             let width = BOX_STD_WIDTH;
 
-            body.setAttribute("style", `width: ${width * (count || 1) }px`);
+            if(body) {
+                body.setAttribute("style", `width: ${width * (count || 1) }px`);
+            }
             
             window.config.boxes = count;
             window.config.boxWidth = width;

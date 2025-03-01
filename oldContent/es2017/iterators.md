@@ -1,6 +1,5 @@
 ---
 slug: es2017/javascript-iterators
-title: Javascript Iterators
 excerpt: An iterator is a good way of iterating of the iterable data. Iterators have ```next()``` method that returns a result object which contains two properties ```value``` and ```done```. When iterator has processed all the positions the ```done``` property will contain a boolean ```true``` value. Iterator have an internal pointer will tracks the location with in collection.
 category: javascript
 tags: [javascript]

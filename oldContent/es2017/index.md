@@ -1,6 +1,5 @@
 ---
 slug: es2017/javascript-es2015-es2017
-title: Javascript journey from es2015 to es2017.
 excerpt: JavaScript have evolved too much. The current JavaScript version have so many advanced concepts added like classes, modules, generator functions, arrow functions. ES6 or ES2015 have been a very big release in the JavaScript history and many of the JavaScript implementors are still upgrading to the new ECMAScript standards. These enchancements have made the JavaScript even more powerful. One of the feature that we are going to discuss in this post today is called block level scoping.
 category: javascript
 tags: [javascript]
