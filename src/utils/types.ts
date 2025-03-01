@@ -18,6 +18,8 @@ export interface ICard {
 
 export interface ICardList {
     data: IArticleFrontmatter[];
+    showSlogan?: boolean;
+    minHeight?: string;
 }
 
 export interface ITextTag {

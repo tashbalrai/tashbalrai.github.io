@@ -1,5 +1,6 @@
 import SocialLinks from "./SocialLinks";
 import { SOCIAL_LINKS } from "../../utils/constants";
+import { tags } from "../../utils/tags";
 
 const Footer = () => {
     return (
@@ -28,32 +29,19 @@ const Footer = () => {
                     <h3 className="text-2xl font-bold underline">Topics</h3>
                     <ul className="flex flex-col sm:flex-row flex-wrap w-full gap-4 text-base">
                         <li className="hover:underline whitespace-nowrap">
-                            <a href="/node">About Me</a>
+                            <a href="/author">About Me</a>
                         </li>
-                        <li className="hover:underline whitespace-nowrap">
-                            <a href="/node">Javascript</a>
-                        </li>
-                        <li className="hover:underline whitespace-nowrap">
-                            <a href="/node">Typescript</a>
-                        </li>
-                        <li className="hover:underline whitespace-nowrap">
-                            <a href="/node">NodeJS</a>
-                        </li>
-                        <li className="hover:underline whitespace-nowrap">
-                            <a href="/node">Data Structures & Algorithms</a>
-                        </li>
-                        <li className="hover:underline whitespace-nowrap">
-                            <a href="/node">Machine Learning</a>
-                        </li>
-                        <li className="hover:underline whitespace-nowrap">
-                            <a href="/node">Java</a>
-                        </li>
-                        <li className="hover:underline whitespace-nowrap">
-                            <a href="/node">Cloud</a>
-                        </li>
-                        <li className="hover:underline whitespace-nowrap">
-                            <a href="/node">System Design</a>
-                        </li>
+                        {tags &&
+                            Object.keys(tags).map((key) => {
+                                return (
+                                    <li
+                                        key={key}
+                                        className="hover:underline whitespace-nowrap"
+                                    >
+                                        <a href={`/tags/${key}`}>{tags[key]}</a>
+                                    </li>
+                                );
+                            })}
                     </ul>
                 </nav>
                 <p className="font-normal text-sm pb-10 mt-4 sm:hidden">
