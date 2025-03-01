@@ -57,7 +57,7 @@ const Menu = ({
                     className="flex flex-col w-full items-start justify-center m-10"
                 >
                     <h3>/ CATEGORIES</h3>
-                    <div className="flex flex-row items-center justify-start m-5 gap-2">
+                    <div className="flex flex-col md:flex-row items-start justify-start m-5 gap-2">
                         {Object.keys(CATEGORIES).map((category) => {
                             return (
                                 <motion.p variants={variantItems}>
@@ -72,7 +72,7 @@ const Menu = ({
                         })}
                     </div>
                     <h3>/ TAGS</h3>
-                    <div className="flex flex-row items-center justify-start m-5 gap-2">
+                    <div className="flex flex-col md:flex-row items-start justify-start m-5 gap-2">
                         {Object.keys(TAGS).map((tag) => {
                             return (
                                 <motion.p variants={variantItems}>
