@@ -5,14 +5,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Body/Header.tsx'
 import Footer from '../components/Body/Footer.tsx'
 import '../styles/global.css';
-
-
-
 ---
 
 <BaseLayout>
     <ThemeScript slot="meta-head"/>
-    <Seo slot="meta-head" title="Huntize: Here the hunt starts" description="Huntize is a platform for hunters to share their hunting experiences and tips." keywords="hunting, hunting tips, hunting experiences" />
     <Header client:only="react" slot="body-header"/>
     <div class="flex flex-col items-center justify-around min-h-screen" slot="body-main">
         <p class="text-4xl font-bold">Sorry, this page is not available.<br/><span class="text-base font-normal">The page you are looking for is not available. Click <a href="/">here</a> to go to home page.</span></p>

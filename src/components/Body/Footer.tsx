@@ -1,6 +1,6 @@
 import SocialLinks from "./SocialLinks";
 import { SOCIAL_LINKS } from "../../utils/constants";
-import { tags } from "../../utils/tags";
+import { TAGS } from "../../utils/taxonomy";
 
 const Footer = () => {
     return (
@@ -31,14 +31,14 @@ const Footer = () => {
                         <li className="hover:underline whitespace-nowrap">
                             <a href="/author">About Me</a>
                         </li>
-                        {tags &&
-                            Object.keys(tags).map((key) => {
+                        {TAGS &&
+                            Object.keys(TAGS).map((key) => {
                                 return (
                                     <li
                                         key={key}
                                         className="hover:underline whitespace-nowrap"
                                     >
-                                        <a href={`/tags/${key}`}>{tags[key]}</a>
+                                        <a href={`/tags/${key}`}>{TAGS[key]}</a>
                                     </li>
                                 );
                             })}

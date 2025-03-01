@@ -1,4 +1,4 @@
-export const tags: { [key: string]: string } = {
+export const TAGS: { [key: string]: string } = {
     concepts: "Concepts",
     javascript: "Javascript",
     typescript: "Typescript",
@@ -9,4 +9,9 @@ export const tags: { [key: string]: string } = {
     "object-oriented": "Object Oriented Analysis & Design",
     "system-design": "System Design",
     "system-architecture": "Architecture",
+};
+
+export const CATEGORIES: { [key: string]: string } = {
+    concepts: "Concepts",
+    javascript: "Javascript",
 };
