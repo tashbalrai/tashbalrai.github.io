@@ -29,7 +29,7 @@ const Footer = () => {
                     <h3 className="text-2xl font-bold underline">Topics</h3>
                     <ul className="flex flex-col sm:flex-row flex-wrap w-full gap-4 text-base">
                         <li className="hover:underline whitespace-nowrap">
-                            <a href="/author">About Me</a>
+                            <a href="/about-me">About Me</a>
                         </li>
                         {TAGS &&
                             Object.keys(TAGS).map((key) => {
