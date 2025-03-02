@@ -34,11 +34,13 @@
             );
 
             count = count > MAX_BOXES ? MAX_BOXES : count;
-            let width = BOX_STD_WIDTH;
+            let width = html.clientWidth < BOX_STD_WIDTH ? html.clientWidth :BOX_STD_WIDTH;
 
             if(body) {
                 body.setAttribute("style", `width: ${width * (count || 1) }px`);
             }
+
+            console.log(width, html.clientWidth);
            
             window.config.boxes = count;
             window.config.boxWidth = width;
