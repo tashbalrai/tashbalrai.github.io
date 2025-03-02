@@ -41,9 +41,9 @@ const Menu = ({
             initial={{ opacity: 0, y: -1000 }}
             variants={variants}
             animate={isOpen ? "play" : "stop"}
-            className="absolute border-(--grid-color) border-y w-full min-h-screen top-[71px] left-0 bg-(--bg-body-color) z-10"
+            className="absolute border-(--grid-color) w-full border-y min-h-screen top-[71px] left-0 bg-(--bg-body-color) z-10 p-10"
         >
-            <div className="flex justify-end w-full p-16 ">
+            <div className="flex justify-end w-full">
                 <TfiClose
                     onClick={() => callback(false)}
                     size="3rem"
@@ -54,13 +54,16 @@ const Menu = ({
                 <motion.div
                     variants={variantItems}
                     animate={isOpen ? "visible" : "hidden"}
-                    className="flex flex-col w-full items-start justify-center m-10"
+                    className="flex flex-col w-full items-start justify-center"
                 >
                     <h3>/ CATEGORIES</h3>
                     <div className="flex flex-col md:flex-row items-start justify-start m-5 gap-2">
                         {Object.keys(CATEGORIES).map((category) => {
                             return (
-                                <motion.p variants={variantItems}>
+                                <motion.p
+                                    key={`cat-${category}`}
+                                    variants={variantItems}
+                                >
                                     <a
                                         href={`/category/${category}`}
                                         className="text-(--link-color) hover:text-(--hover-link-color) hover:underline"
@@ -75,7 +78,10 @@ const Menu = ({
                     <div className="flex flex-col md:flex-row items-start justify-start m-5 gap-2">
                         {Object.keys(TAGS).map((tag) => {
                             return (
-                                <motion.p variants={variantItems}>
+                                <motion.p
+                                    key={`tag-${tag}`}
+                                    variants={variantItems}
+                                >
                                     <a
                                         href={`/tags/${tag}`}
                                         className="text-(--link-color) hover:text-(--hover-link-color) hover:underline"
