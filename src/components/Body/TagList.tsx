@@ -3,10 +3,11 @@ const TagList = ({ tags }: { tags: string[] }) => {
         <div className="flex flex-row flex-wrap gap-2">
             {tags.map((tag) => (
                 <a
+                    key={tag}
                     href={`/tags/${tag}`}
                     className="text-(--link-color) hover:text-(--hover-link-color) hover:underline"
                 >
-                    <span key={tag} className="px-3 py-1 rounded-full text-sm">
+                    <span key={tag} className="text-sm">
                         #{tag}
                     </span>
                 </a>

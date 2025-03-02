@@ -5,7 +5,6 @@
     import { ThemeNames } from "../../utils/types";
 
     function init() {
-    
         window.config = {
             boxes: BOX_COUNT_PER_ROW,
             boxWidth: BOX_STD_WIDTH,
@@ -40,10 +39,11 @@
             if(body) {
                 body.setAttribute("style", `width: ${width * (count || 1) }px`);
             }
-            
+           
             window.config.boxes = count;
             window.config.boxWidth = width;
         };
+
     }
 
     document.addEventListener("DOMContentLoaded", init);

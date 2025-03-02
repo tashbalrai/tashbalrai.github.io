@@ -11,7 +11,7 @@ import '../styles/global.css';
     <ThemeScript slot="meta-head"/>
     <Header client:only="react" slot="body-header"/>
     <div class="flex flex-col items-center justify-around min-h-screen" slot="body-main">
-        <p class="text-4xl font-bold">Sorry, this page is not available.<br/><span class="text-base font-normal">The page you are looking for is not available. Click <a href="/">here</a> to go to home page.</span></p>
+        <p class="text-4xl font-bold">Sorry, this page is not available.<br/><span class="text-base font-normal">The page you are looking for is not available. Click <a href="/" class="text-(--link-color) hover:text-(--hover-link-color) hover:underline">here</a> to go to home page.</span></p>
     </div>
     <Footer client:only="react" slot="body-footer"/>
 </BaseLayout>

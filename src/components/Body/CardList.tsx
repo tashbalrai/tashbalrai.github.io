@@ -6,13 +6,16 @@ import Card from "./Card";
 import Flex from "./Flex";
 import Slogans from "./Slogans";
 
-const CardList = ({ data, showSlogan = true, minHeight }: ICardList) => {
+const CardList = ({ data, showSlogan = true }: ICardList) => {
     const { width, boxes } = useBoxAttributes();
-    const noEmptyBoxes = boxes % data.length;
+    let noEmptyBoxes = boxes % data.length;
+    if (noEmptyBoxes === boxes) {
+        noEmptyBoxes = 0;
+    }
 
     let i = 0;
     return (
-        <Flex className={minHeight}>
+        <Flex>
             {showSlogan && <Slogans />}
             {data.map((card) => {
                 return <Card key={`card-${++i}`} data={card} />;
