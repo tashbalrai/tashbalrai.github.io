@@ -15,9 +15,13 @@ const Card = ({ data }: ICard) => {
                 <div className="flex flex-col gap-8">
                     <div className="flex flex-row w-full justify-between">
                         <p className="text-xl font-semibold">
-                            /{" "}
-                            {data.category.charAt(0).toUpperCase() +
-                                data.category.toLowerCase().slice(1)}
+                            <a
+                                href={`/category/${data.category.toLowerCase()}`}
+                            >
+                                /{" "}
+                                {data.category.charAt(0).toUpperCase() +
+                                    data.category.toLowerCase().slice(1)}
+                            </a>
                         </p>
                         <FaShareAlt
                             style={{ fontSize: "1.25rem" }}
@@ -35,7 +39,9 @@ const Card = ({ data }: ICard) => {
                 <div className="flex flex-col gap-4">
                     <TagList tags={data.tags} />
                     <div className="flex flex-row items-baseline gap-2">
-                        <p className="text-base">Vipan Balrai</p>
+                        <p className="text-base">
+                            <a href="/about-me">Vipan Balrai</a>
+                        </p>
                         <p className="text-sm">
                             {formatDate(data.publishedAt)}
                         </p>

@@ -33,13 +33,13 @@ const Slogans = () => {
 
     return (
         <>
-            <Box height="h-article-height" width={`${boxWidth / 16}rem`}>
-                <div className="h-article-height w-full justify-items-center inline-flex justify-center items-center hover:cursor-pointer">
-                    <h1
-                        onMouseEnter={() => setIsHuntPlaying(true)}
-                        onMouseLeave={() => setIsHuntPlaying(false)}
-                        className="mx-auto"
-                    >
+            <Box height="h-slogan-height" width={`${boxWidth / 16}rem`}>
+                <div
+                    onMouseEnter={() => setIsHuntPlaying(true)}
+                    onMouseLeave={() => setIsHuntPlaying(false)}
+                    className="h-slogan-height w-full justify-items-center inline-flex justify-center items-center hover:cursor-pointer"
+                >
+                    <h1 className="mx-auto">
                         <SplitText
                             text="HUNT"
                             play={isHuntPlaying}
@@ -48,13 +48,13 @@ const Slogans = () => {
                     </h1>
                 </div>
             </Box>
-            <Box height="h-article-height" width={`${boxWidth / 16}rem`}>
-                <div className="h-article-height w-full justify-items-center inline-flex justify-center items-center hover:cursor-pointer">
-                    <h1
-                        onMouseEnter={() => setIsLearnPlaying(true)}
-                        onMouseLeave={() => setIsLearnPlaying(false)}
-                        className="mx-auto "
-                    >
+            <Box height="h-slogan-height" width={`${boxWidth / 16}rem`}>
+                <div
+                    onMouseEnter={() => setIsLearnPlaying(true)}
+                    onMouseLeave={() => setIsLearnPlaying(false)}
+                    className="h-slogan-height w-full justify-items-center inline-flex justify-center items-center hover:cursor-pointer"
+                >
+                    <h1 className="mx-auto ">
                         <SplitText
                             text="LEARN"
                             play={isLearnPlaying}
@@ -63,13 +63,13 @@ const Slogans = () => {
                     </h1>
                 </div>
             </Box>
-            <Box height="h-article-height" width={`${boxWidth / 16}rem`}>
-                <div className="h-article-height w-full px-4 justify-items-center inline-flex justify-center items-center hover:cursor-pointer">
-                    <h1
-                        onMouseEnter={() => setIsWritePlaying(true)}
-                        onMouseLeave={() => setIsWritePlaying(false)}
-                        className="mx-auto "
-                    >
+            <Box height="h-slogan-height" width={`${boxWidth / 16}rem`}>
+                <div
+                    onMouseEnter={() => setIsWritePlaying(true)}
+                    onMouseLeave={() => setIsWritePlaying(false)}
+                    className="h-slogan-height w-full px-4 justify-items-center inline-flex justify-center items-center hover:cursor-pointer"
+                >
+                    <h1 className="mx-auto ">
                         <SplitText
                             text="WRITE"
                             play={isWritePlaying}
@@ -78,13 +78,13 @@ const Slogans = () => {
                     </h1>
                 </div>
             </Box>
-            <Box height="h-article-height" width={`${boxWidth / 16}rem`}>
-                <div className="h-article-height w-full px-4 justify-items-center inline-flex justify-center items-center hover:cursor-pointer">
-                    <h1
-                        onMouseEnter={() => setIsInspirePlaying(true)}
-                        onMouseLeave={() => setIsInspirePlaying(false)}
-                        className="mx-auto "
-                    >
+            <Box height="h-slogan-height" width={`${boxWidth / 16}rem`}>
+                <div
+                    onMouseEnter={() => setIsInspirePlaying(true)}
+                    onMouseLeave={() => setIsInspirePlaying(false)}
+                    className="h-slogan-height w-full px-4 justify-items-center inline-flex justify-center items-center hover:cursor-pointer"
+                >
+                    <h1 className="mx-auto ">
                         <SplitText
                             text="INSPIRE"
                             play={isInspirePlaying}
