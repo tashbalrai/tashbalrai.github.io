@@ -12,6 +12,7 @@
     --spacing-header-height: 6.25rem;
     --spacing-article-height: 35.938rem;
     --spacing-footer-height: 43rem;
+    --spacing-slogan-height: 15rem;
 }
 
 @layer components {

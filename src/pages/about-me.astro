@@ -8,23 +8,25 @@ import '../styles/global.css';
 import vbImage from '../assets/va.jpg';
 import SocialLinks from '../components/Body/SocialLinks';
 import { SOCIAL_LINKS } from "../utils/constants";
+import ThemeScript from '../components/Head/ThemeScript.astro';
 
 ---
 
 <BaseLayout>
+    <ThemeScript slot="meta-head"/>
     <Seo slot="meta-head" title="Huntize: Here the hunt starts" description="Huntize is a platform for hunters to share their hunting experiences and tips." keywords="hunting, hunting tips, hunting experiences" />
     <Header client:only="react" slot="body-header" />
     <div class="flex flex-col p-4 gap-4 items-center my-5 w-full md:w-[800px] mx-auto" slot="body-main" >
         <Picture src={vbImage} alt="A bird sitting on a nest of eggs." width={500} class="rounded-full my-10" />
         <div class="flex flex-col items-start">
             
-            <p>Hi, I’m <b>Vipan Balrai</b>. a Software Engineering Leader, Teacher, and Mentor with a strong focus on backend development, security, and scalable architectures.</p>
+            <p>Hi, I’m <b>Vipan Balrai</b>. a Software Engineering Leader, Teacher, and Mentor with a strong focus on backend development, security, and scalable architectures. My highest education qualification is Masters in Information Technologies.</p>
             <p>With 15+ years of experience in software development and management, I have worked across diverse roles—from full-stack developer to engineering leadership—guiding teams, mentoring developers, and building high-performance, secure applications.</p>
-            <p>My journey started in India, where I developed full-stack applications using PHP and gradually progressed into leadership roles. After migrating to Canada, I embraced the Individual Contributor role, where I focused on designing scalable backend systems and mentoring engineers.</p>
-            <p>I specialize in architecting backend systems, microservices, and APIs using Javascript/Typescript, while also delivering seamless frontend experiences with React and TypeScript. My expertise extends to security, system design, and object-oriented programming, ensuring robust and maintainable software solutions. I have also good experience in Java and PHP</p>
-            <h4 class="mb-2">My Expertise</h4>
+            <p>My journey started in India, where I developed full-stack  end to end applications (SaaS, Portals and Products) using PHP and gradually progressed into leadership roles. After migrating to Canada, I embraced the Individual Contributor role. </p>
+            <p>I specialize in JavaScript/TypeScript, architecting and designing scalable, resilient, and reliable backend systems, microservices, and APIs while also delivering seamless frontend experiences with React and TypeScript. My expertise extends to security and system design, ensuring robust and maintainable software solutions. I can also read, write, and speak Java and PHP.</p>
+            <h4 class="mb-2">My Tech Stack</h4>
             <h5>Backend Engineering</h5>
-            <p>Javascript/Typescript, Node(Express, NestJS), PHP, Java</p>
+            <p>JavaScript/TypeScript, Node(Express, NestJS), PHP, Java</p>
             <h5>Scalable System Architecture </h5>
             <p>Microservices, API design, cloud-native development, Best Practice Principals, Object Oriented Design</p>
             <h5>Security & Performance </h5>
@@ -35,7 +37,7 @@ import { SOCIAL_LINKS } from "../utils/constants";
             <p>React, TypeScript, Next.js</p>
             
             <p>I started <b><a href="/" class="text-(--link-color) hover:text-(--hover-link-color) hover:underline">Huntize</a></b> as a way to share knowledge, teach, and mentor developers on backend development, security, and software architecture. Through my blog, I aim to break down complex topics, offer practical insights, and help engineers grow in their careers.</p>
-            <p>Let’s connect and talk tech! You can write to me at vipan.balrai@huntize.com </p>
+            <p>Let’s connect and talk tech! You can write to me at hello@huntize.com </p>
             <SocialLinks links={SOCIAL_LINKS}/>
         </div>
     </div>

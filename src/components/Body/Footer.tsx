@@ -9,10 +9,10 @@ const Footer = () => {
                 <div className="flex flex-col justify-between h-full w-full">
                     <div className="flex flex-col gap-4">
                         <strong className="text-5xl font-bold">
-                            Have an idea?, Let&apos;s talk.
+                            Have a Project?, Let&apos;s talk.
                         </strong>
                         <p>Or, just say hello. I love to hear from people.</p>
-                        <p className="text-2xl">vbalrai [at] gmail [.] com</p>
+                        <p className="text-2xl">hello [at] huntize [.] com</p>
                         <SocialLinks
                             links={SOCIAL_LINKS}
                             className="text-(--text-footer-color)"
