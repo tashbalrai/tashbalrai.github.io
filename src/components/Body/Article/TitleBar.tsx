@@ -1,10 +1,10 @@
-import { SOCIAL_LINKS } from "../../utils/constants";
-import formatDate from "../../utils/date";
-import SocialLinks from "./SocialLinks";
+import { SOCIAL_LINKS } from "../../../utils/constants";
+import formatDate from "../../../utils/date";
+import SocialLinks from "../SocialLinks";
 
 interface ITitleBarProps {
-    readtime: string;
-    publishedAt: string;
+    readtime?: string;
+    publishedAt?: string;
 }
 
 const TitleBar = ({ readtime, publishedAt }: ITitleBarProps) => {
@@ -16,7 +16,7 @@ const TitleBar = ({ readtime, publishedAt }: ITitleBarProps) => {
                 parentClassName="gap-2"
             />
             <span className="text-sm">
-                {readtime && <span>{readtime} Minutes Read</span>},{" "}
+                {readtime && <span>{readtime} Minutes Read, </span>}{" "}
                 {publishedAt && formatDate(publishedAt)}
             </span>
         </div>

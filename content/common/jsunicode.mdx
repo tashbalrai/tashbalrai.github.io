@@ -8,13 +8,14 @@ seoTitle: Introduction to website
 seoKeywords: some keywords
 seoDescription: some description
 publishedAt: "2025-02-12"
+readtime: "5"
 ---
 
-import TitleBar from "../../components/Body/TitleBar.tsx";
+import Header from "../../src/components/Body/Article/Header.tsx";
 
 # {frontmatter.title}
 
-<TitleBar readtime="8" publishedAt={frontmatter.publishedAt} />
+<Header frontmatter={frontmatter} />
 JavaScript uses the unicode to support the source code. It uses UTF-16 encoding for
 handling text (code) in two ways, first one while parsing the source code internally
 and second when a JavaScript code is loaded externally from a file for example loading
