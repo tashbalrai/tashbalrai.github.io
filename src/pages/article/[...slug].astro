@@ -28,7 +28,7 @@ const { frontmatter, Content } = Astro.props.article;
 
 <BaseLayout>
   <ThemeScript slot="meta-head"/>
-  <Seo slot="meta-head" title="Huntize: Here the hunt starts" description="Huntize is a platform for hunters to share their hunting experiences and tips." keywords="hunting, hunting tips, hunting experiences" />
+  <Seo slot="meta-head" title={frontmatter.seoTitle} description={frontmatter.seoDescription} />
   <Header client:only="react" slot="body-header"/>
   <article class="article-details mx-4 md:mx-auto md:max-w-[850px]" slot="body-main">
     <Content/>

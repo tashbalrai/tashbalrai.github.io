@@ -12,6 +12,9 @@
     --inline-code-bg: #000;
     --inline-code-color: #000;
     --hover-bg-card-color: #90c4ca;
+
+    --blockquote-bg: #a6cfd2;
+    --blockquote-border: #70b1bd;
 }
 
 body {
