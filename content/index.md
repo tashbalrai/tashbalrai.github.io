@@ -22,15 +22,3 @@ JavaScript have evolved too much. The current JavaScript version have so many ad
 ### Unicode - A Universal, Unified and Unique Character Mappings
 
 At the core of computers there is only electronic digital signal processing. Anything and everything that is presented on the computer screen in the form of the word, text, numbers are just the interpretation of the signals in the forms of bytes and then a special meaning is formed out of these byte values (decimal, octal or hexadecimal) to map them to characters. Different byte values or character codes represent different character/symbol that are shown on the computer screen in a human friendly way. Such a common character/symbol mapping is popularly known as ASCII (American Standard Codes for Information Interchange). [more](/common/unicode.md)
-
-#### Heading Four
-
-Some text
-
-##### Heading Five
-
-some more text
-
-###### Heading Six
-
-some text
