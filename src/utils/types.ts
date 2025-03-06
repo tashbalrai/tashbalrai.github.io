@@ -1,6 +1,7 @@
 export interface IArticleFrontmatter {
     slug: string;
     title: string;
+    coverImage?: string;
     excerpt: string;
     category: string;
     tags: string[];

@@ -13,7 +13,6 @@
     "license": "ISC",
     "description": "",
     "dependencies": {
-        "@astrojs/mdx": "^4.1.0",
         "@astrojs/react": "^4.2.0",
         "@fontsource-variable/inter": "^5.1.1",
         "@tailwindcss/vite": "^4.0.8",

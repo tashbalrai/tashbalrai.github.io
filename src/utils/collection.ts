@@ -1,7 +1,7 @@
 import { z } from "astro:content";
 
 const loadArticles = async () => {
-    const matches: any = import.meta.glob("../../content/**/*.{md,mdx}", {
+    const matches: any = import.meta.glob("../../../notes/**/*.md", {
         eager: true,
     });
 

@@ -8,6 +8,7 @@ import '../../styles/global.css';
 import TagList from '../../components/Body/TagList';
 import loadArticles from '../../utils/collection';
 import formatDate from '../../utils/date';
+import ArticleHeader from '../../components/Body/Article/Header.tsx';
 
 
 export async function getStaticPaths() {
@@ -31,6 +32,7 @@ const { frontmatter, Content } = Astro.props.article;
   <Seo slot="meta-head" title={frontmatter.seoTitle} description={frontmatter.seoDescription} />
   <Header client:only="react" slot="body-header"/>
   <article class="article-details mx-4 md:mx-auto md:max-w-[850px]" slot="body-main">
+    <ArticleHeader frontmatter={frontmatter} />
     <Content/>
     <TagList tags={frontmatter.tags} />
     <footer class="w-full border-(--grid-color) border-t-1 mt-24 pt-5">
