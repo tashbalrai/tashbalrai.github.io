@@ -26,7 +26,6 @@ jobs:
               with:
                   repository: "tashbalrai/notes"
                   ref: "published"
-                  token: ${{ secrets.PATTOKEN }}
             - name: Install, build, and upload your site
               uses: withastro/action@v3
               # with:
