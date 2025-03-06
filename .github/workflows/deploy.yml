@@ -18,6 +18,8 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
+            - name: "Print Data"
+              run: "echo 'hello'"
             - name: Checkout website repository using git
               uses: actions/checkout@v4
             - name: Checkout notes repository using git
