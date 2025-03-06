@@ -25,7 +25,7 @@ const articlesData: IArticleFrontmatter[] = articles.map(article => article.fron
 
 <BaseLayout>
     <ThemeScript slot="meta-head"/>
-    <Seo slot="meta-head" title="Huntize: Here the hunt starts" description="Huntize is a platform for hunters to share their hunting experiences and tips." keywords="hunting, hunting tips, hunting experiences" />
+    <Seo slot="meta-head" title="Huntize: Here the hunt starts" description="Huntize is a platform for hunters to share their hunting experiences and tips." />
     <Header client:only="react" slot="body-header"/>
     <CardList client:only="react" slot="body-main" data={articlesData}/>
     <Footer client:only="react" slot="body-footer"/>
