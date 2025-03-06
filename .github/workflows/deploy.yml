@@ -23,7 +23,7 @@ jobs:
             - name: Checkout notes repository using git
               uses: actions/checkout@v4
               with:
-                  repository: "notes"
+                  repository: "tashbalrai/notes"
                   ref: "published"
                   token: ${{secrets.PATTOKEN}}
             - name: Install, build, and upload your site
