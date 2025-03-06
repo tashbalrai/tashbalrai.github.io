@@ -1,0 +1,15 @@
+name: "TestCheckout"
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  build:
+    runs-on: unbuntu-latest
+    steps:
+      - name: Checkout notes
+      - uses: actions/checkout@v4
+      - with: 
+          repository: tashbalrai/notes
+          ref: published
+          token: ${{secrets.PATTOKEN}}
