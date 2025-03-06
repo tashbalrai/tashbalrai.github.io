@@ -3,11 +3,9 @@ name: Deploy to GitHub Pages
 on:
     # Trigger the workflow every time you push to the `main` branch
     # Using a different branch name? Replace `main` with your branch’s name
-    pull_request_target:
-        branches:
-            - master
-        types:
-            - closed
+    push:
+        branches: [master]
+
     # Allows you to run this workflow manually from the Actions tab on GitHub.
     workflow_dispatch:
 
@@ -21,8 +19,6 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - name: "Print Data"
-              run: "echo 'hello'"
             - name: Checkout website repository using git
               uses: actions/checkout@v4
             - name: Checkout notes repository using git
@@ -30,7 +26,7 @@ jobs:
               with:
                   repository: "tashbalrai/notes"
                   ref: "published"
-                  token: ${{secrets.PATTOKEN}}
+                  token: ${{ secrets.PATTOKEN }}
             - name: Install, build, and upload your site
               uses: withastro/action@v3
               # with:
