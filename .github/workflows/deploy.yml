@@ -4,6 +4,8 @@ on:
     pull_request_target:
         branches:
             - master
+        types:
+            - closed
 
     # Allows you to run this workflow manually from the Actions tab on GitHub.
     workflow_dispatch:
@@ -25,6 +27,7 @@ jobs:
               with:
                   repository: "tashbalrai/notes"
                   ref: "published"
+                  token: ${{ secrets. PATTOKEN }}
             - name: Install, build, and upload your site
               uses: withastro/action@v3
               # with:
