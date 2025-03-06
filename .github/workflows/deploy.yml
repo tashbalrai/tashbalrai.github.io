@@ -18,8 +18,14 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout your repository using git
+            - name: Checkout website repository using git
               uses: actions/checkout@v4
+            - name: Checkout notes repository using git
+              uses: actions/checkout@v4
+              with:
+                  repository: "tashbalrai/notes"
+                  ref: "published"
+                  token: ${{secrets.PATTOKEN}}
             - name: Install, build, and upload your site
               uses: withastro/action@v3
               # with:
