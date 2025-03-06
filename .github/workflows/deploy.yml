@@ -22,6 +22,10 @@ jobs:
         steps:
             - name: Checkout website repository using git
               uses: actions/checkout@v4
+            - name: List Directory 1
+              run: |
+                  pwd
+                  ls -l
             - name: Checkout notes repository using git
               uses: actions/checkout@v4
               with:
