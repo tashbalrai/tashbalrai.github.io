@@ -8,5 +8,5 @@ export const LOCAL_STORAGE_THEME_VAR_NAME = "theme-name";
 
 export const SOCIAL_LINKS = {
     linkedin: "https://www.linkedin.com/in/vipan-balrai/",
-    medium: "https://www.linkedin.com/in/vipan-balrai/",
+    medium: "https://medium.com/@vbalrai",
 };
