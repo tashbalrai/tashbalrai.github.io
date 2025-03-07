@@ -29,7 +29,7 @@ export async function getStaticPaths() {
 const collection = await loadArticles();
 const {category} = Astro.params;
 const articles:IArticleFrontmatter[] = collection.filter(article => {
-    if(article.frontmatter.tags.includes(category)) {
+    if(article.frontmatter.category == category) {
         return true;
     }
     return false;
