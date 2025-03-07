@@ -1,8 +1,17 @@
 import SocialLinks from "./SocialLinks";
 import { SOCIAL_LINKS } from "../../utils/constants";
-import { TAGS } from "../../utils/taxonomy";
+import { useEffect, useState } from "react";
 
 const Footer = () => {
+    const [tags, setTags] = useState<string[]>([]);
+    useEffect(() => {
+        fetch("/tags.json").then(async (response) => {
+            const data = await response.json();
+            if (Array.isArray(data)) {
+                setTags(data);
+            }
+        });
+    }, []);
     return (
         <footer className="w-full sm:h-f bg-(--bg-footer) py-10 sm:py-20">
             <div className="flex flex-col lg:flex-row text-(--text-footer-color) gap-8 h-full w-3/4 mx-auto">
@@ -31,14 +40,14 @@ const Footer = () => {
                         <li className="hover:underline whitespace-nowrap">
                             <a href="/about-me">About Me</a>
                         </li>
-                        {TAGS &&
-                            Object.keys(TAGS).map((key) => {
+                        {tags &&
+                            tags.map((key) => {
                                 return (
                                     <li
                                         key={key}
                                         className="hover:underline whitespace-nowrap"
                                     >
-                                        <a href={`/tags/${key}`}>{TAGS[key]}</a>
+                                        <a href={`/tags/${key}`}>{key}</a>
                                     </li>
                                 );
                             })}
