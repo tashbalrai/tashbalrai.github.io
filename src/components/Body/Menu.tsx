@@ -43,14 +43,14 @@ const Menu = ({
         fetch("/categories.json").then(async (response) => {
             const data = await response.json();
             if (Array.isArray(data)) {
-                setCategories(data);
+                setCategories(Array.from(new Set(data)));
             }
         });
 
         fetch("/tags.json").then(async (response) => {
             const data = await response.json();
             if (Array.isArray(data)) {
-                setTags(data);
+                setTags(Array.from(new Set(data)));
             }
         });
     }, []);

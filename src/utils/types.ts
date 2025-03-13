@@ -11,6 +11,7 @@ export interface IArticleFrontmatter {
     publishedAt?: string;
     readtime?: string;
     draft?: boolean;
+    relatedArticles?: string[];
 }
 
 export interface ICard {

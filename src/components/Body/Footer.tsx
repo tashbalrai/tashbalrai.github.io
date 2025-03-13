@@ -8,7 +8,7 @@ const Footer = () => {
         fetch("/tags.json").then(async (response) => {
             const data = await response.json();
             if (Array.isArray(data)) {
-                setTags(data);
+                setTags(Array.from(new Set(data)));
             }
         });
     }, []);
@@ -44,7 +44,7 @@ const Footer = () => {
                             tags.map((key) => {
                                 return (
                                     <li
-                                        key={key}
+                                        key={`footer-${key}`}
                                         className="hover:underline whitespace-nowrap"
                                     >
                                         <a href={`/tags/${key}`}>{key}</a>
