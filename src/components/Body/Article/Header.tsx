@@ -1,4 +1,3 @@
-import { Picture } from "astro:assets";
 import type { IArticleFrontmatter } from "../../../utils/types";
 import TagList from "../TagList";
 import TitleBar from "./TitleBar";

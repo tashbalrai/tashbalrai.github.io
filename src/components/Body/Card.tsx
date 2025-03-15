@@ -14,13 +14,16 @@ const Card = ({ data }: ICard) => {
             <article className="group flex flex-col h-full px-5 pt-11 pb-6 justify-between hover:bg-(--hover-bg-card-color)  hover:scale-105 transition-transform duration-300">
                 <div className="flex flex-col gap-8">
                     <div className="flex flex-row w-full justify-between">
-                        <p className="text-xl font-semibold">
+                        <p className="text-lg font-semibold">
                             <a
                                 href={`/category/${data.category.toLowerCase()}`}
                             >
                                 /{" "}
                                 {data.category.charAt(0).toUpperCase() +
-                                    data.category.toLowerCase().slice(1)}
+                                    data.category
+                                        .replace("-", " ")
+                                        .toLowerCase()
+                                        .slice(1)}
                             </a>
                         </p>
                         <FaShareAlt
@@ -28,12 +31,15 @@ const Card = ({ data }: ICard) => {
                             className="hidden group-hover:inline-flex"
                         />
                     </div>
-                    <a href={`/article/${data.slug}`}>
-                        <h5 className="text-3xl">{data.title}</h5>
+                    <a
+                        href={`/article/${data.slug}`}
+                        aria-label="Read full article."
+                    >
+                        <h1 className="text-xl my-0 ">{data.title}</h1>
                     </a>
 
                     <a href={`/article/${data.slug}`}>
-                        <p className="text-lg line-clamp-6">{data.excerpt}</p>
+                        <p className="text-lg line-clamp-5">{data.excerpt}</p>
                     </a>
                 </div>
                 <div className="flex flex-col gap-4">
