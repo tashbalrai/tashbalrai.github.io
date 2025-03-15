@@ -2,7 +2,6 @@
 
 import { useLayoutEffect, useState } from "react";
 import { BOX_COUNT_PER_ROW, BOX_STD_WIDTH } from "../constants";
-import { createWindowElement } from "astro/runtime/client/dev-toolbar/apps/utils/window.js";
 
 const useBoxAttributes = (): { width: number; boxes: number } => {
     const [attr, setAttr] = useState({

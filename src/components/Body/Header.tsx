@@ -64,7 +64,7 @@ export default function Header() {
             <Box height="h-[71px]">
                 <div className="h-[71px] px-5 flex flex-row items-center justify-between">
                     <div className="z-20 h-[71px] px-5 flex flex-row items-center gap-4">
-                        <a href="/">
+                        <a href="/" aria-label="Go to homepage">
                             <Logo />
                         </a>
                         <div className="text-2xl uppercase font-bold">
@@ -83,6 +83,7 @@ export default function Header() {
                                 ref={switchThemeRef}
                                 className="peer absolute left-1/2 h-full w-full -translate-x-1/2 appearance-none rounded-md"
                                 type="checkbox"
+                                aria-label="Switch theme"
                                 onChange={handleThemeChange}
                             />
                             <span className="ml-4 text-white flex h-10 w-16 flex-shrink-0 items-center rounded-full bg-[url(/public/moon.svg)] bg-right p-1 duration-300 ease-in-out peer-checked:bg-[url(/public/sun.svg)] peer-checked:bg-left bg-no-repeat after:h-8 after:w-8 after:rounded-full after:bg-white after:shadow-md after:duration-300 group-hover:after:translate-x-1 peer-checked:after:translate-x-6"></span>

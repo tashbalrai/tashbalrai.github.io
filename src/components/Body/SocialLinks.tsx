@@ -1,4 +1,4 @@
-import { FaLinkedin, FaYoutube, FaRss } from "react-icons/fa";
+import { FaLinkedin, FaYoutube } from "react-icons/fa";
 import { FaBluesky, FaMedium, FaX } from "react-icons/fa6";
 
 interface ISocialLinks {
@@ -23,7 +23,11 @@ const SocialLinks = ({
     return (
         <div className={"flex flex-rows " + parentClassName}>
             {links?.["linkedin"] && (
-                <a href={links["linkedin"]} target="_blank">
+                <a
+                    href={links["linkedin"]}
+                    aria-label="Linkedin profile"
+                    target="_blank"
+                >
                     <FaLinkedin
                         style={{ fontSize: size }}
                         className={className}
@@ -33,6 +37,7 @@ const SocialLinks = ({
             {links?.["medium"] && (
                 <a href={links["medium"]} target="_blank">
                     <FaMedium
+                        aria-label="Medium profile"
                         style={{ fontSize: size }}
                         className={className}
                     />
@@ -41,13 +46,18 @@ const SocialLinks = ({
             {links?.["bluesky"] && (
                 <a href={links["bluesky"]} target="_blank">
                     <FaBluesky
+                        aria-label="Bluesky profile"
                         style={{ fontSize: size }}
                         className={className}
                     />
                 </a>
             )}
             {links?.["youtube"] && (
-                <a href={links["youtube"]} target="_blank">
+                <a
+                    href={links["youtube"]}
+                    aria-label="Youtube channel"
+                    target="_blank"
+                >
                     <FaYoutube
                         style={{ fontSize: size }}
                         className={className}
@@ -55,7 +65,7 @@ const SocialLinks = ({
                 </a>
             )}
             {links?.["x"] && (
-                <a href={links["x"]} target="_blank">
+                <a href={links["x"]} aria-label="X profile" target="_blank">
                     <FaX style={{ fontSize: size }} className={className} />
                 </a>
             )}

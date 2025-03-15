@@ -14,6 +14,7 @@
     "description": "",
     "dependencies": {
         "@astrojs/react": "^4.2.0",
+        "@astrojs/sitemap": "^3.2.1",
         "@fontsource-variable/inter": "^5.1.1",
         "@tailwindcss/vite": "^4.0.8",
         "@types/react": "^19.0.10",
