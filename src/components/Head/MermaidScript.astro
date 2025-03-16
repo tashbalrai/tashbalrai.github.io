@@ -1,0 +1,17 @@
+---
+const {elementSelector} = Astro.props;
+---
+<vb-variable data-elementSelector={elementSelector}></script>
+<script>
+    import mermaid from 'mermaid';
+    mermaid.initialize({ startOnLoad: false, theme: 'forest' });
+
+    customElements.define('vb-variable', class extends HTMLElement {
+        connectedCallback() {
+            const elementSelector = this.dataset.elementselector as string;
+            mermaid.run({
+                nodes: document.querySelectorAll(elementSelector),
+            })
+        }
+    });
+</script>

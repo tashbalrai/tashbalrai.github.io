@@ -10,7 +10,7 @@ import loadArticles from '../../utils/collection';
 import formatDate from '../../utils/date';
 import ArticleHeader from '../../components/Body/Article/Header.tsx';
 import RelatedArticles from '../../components/Body/Article/RelatedArticles';
-
+import MermaidScript from '../../components/Head/MermaidScript.astro';
 
 export async function getStaticPaths() {
   const collection = await loadArticles();
@@ -47,4 +47,5 @@ const { frontmatter, Content } = Astro.props.article;
     </footer>
   </article>
   <Footer client:only="react" slot="body-footer"/>
+  <MermaidScript slot="body-footer" elementSelector=".language-mermaid"/>
 </BaseLayout>
