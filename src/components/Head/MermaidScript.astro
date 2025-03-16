@@ -4,7 +4,14 @@ const {elementSelector} = Astro.props;
 <vb-variable data-elementSelector={elementSelector}></script>
 <script>
     import mermaid from 'mermaid';
-    mermaid.initialize({ startOnLoad: false, theme: 'forest' });
+    mermaid.initialize({ startOnLoad: false, theme: 'base', themeVariables: {
+        primaryColor: '#E49D9D',
+        primaryTextColor: '#3D2C2C',
+        primaryBorderColor: '#b58986',
+        secondaryColor: '#FFD4C8',
+        lineColor: '#7A7A7A',
+        textColor: '#3D2C2C',
+    } });
 
     customElements.define('vb-variable', class extends HTMLElement {
         connectedCallback() {
