@@ -33,21 +33,23 @@ const Slogans = () => {
 
     return (
         <>
-            <Box height="h-slogan-height" width={`${boxWidth / 16}rem`}>
-                <div
-                    onMouseEnter={() => setIsHuntPlaying(true)}
-                    onMouseLeave={() => setIsHuntPlaying(false)}
-                    className="h-slogan-height w-full justify-items-center inline-flex justify-center items-center hover:cursor-pointer"
-                >
-                    <h1 className="mx-auto">
-                        <SplitText
-                            text="HUNT"
-                            play={isHuntPlaying}
-                            variants={defaultVariants}
-                        />
-                    </h1>
-                </div>
-            </Box>
+            {boxes > 3 && (
+                <Box height="h-slogan-height" width={`${boxWidth / 16}rem`}>
+                    <div
+                        onMouseEnter={() => setIsHuntPlaying(true)}
+                        onMouseLeave={() => setIsHuntPlaying(false)}
+                        className="h-slogan-height w-full justify-items-center inline-flex justify-center items-center hover:cursor-pointer"
+                    >
+                        <h1 className="mx-auto">
+                            <SplitText
+                                text="HUNT"
+                                play={isHuntPlaying}
+                                variants={defaultVariants}
+                            />
+                        </h1>
+                    </div>
+                </Box>
+            )}
             <Box height="h-slogan-height" width={`${boxWidth / 16}rem`}>
                 <div
                     onMouseEnter={() => setIsLearnPlaying(true)}

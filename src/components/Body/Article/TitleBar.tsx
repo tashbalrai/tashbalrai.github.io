@@ -3,11 +3,11 @@ import formatDate from "../../../utils/date";
 import SocialLinks from "../SocialLinks";
 
 interface ITitleBarProps {
-    readtime?: string;
+    minutesRead?: string;
     publishedAt?: string;
 }
 
-const TitleBar = ({ readtime, publishedAt }: ITitleBarProps) => {
+const TitleBar = ({ minutesRead, publishedAt }: ITitleBarProps) => {
     return (
         <div className="flex flex-row justify-between items-center mb-8 py-2 border-y  border-(--grid-color)">
             <SocialLinks
@@ -16,7 +16,7 @@ const TitleBar = ({ readtime, publishedAt }: ITitleBarProps) => {
                 parentClassName="gap-2"
             />
             <span className="text-sm">
-                {readtime && <span>{readtime} Minutes Read, </span>}{" "}
+                {minutesRead && <span>{minutesRead}, </span>}{" "}
                 {publishedAt && formatDate(publishedAt)}
             </span>
         </div>

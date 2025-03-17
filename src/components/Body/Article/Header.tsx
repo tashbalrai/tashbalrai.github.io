@@ -11,7 +11,7 @@ const ArticleHeader = ({ frontmatter }: props) => {
             <h1>{frontmatter.title}</h1>
             <TagList tags={frontmatter.tags} />
             <TitleBar
-                readtime={frontmatter.readtime}
+                minutesRead={frontmatter.minutesRead}
                 publishedAt={frontmatter.publishedAt}
             />
         </>
