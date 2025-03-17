@@ -5,12 +5,12 @@ const {elementSelector} = Astro.props;
 <script>
     import mermaid from 'mermaid';
     mermaid.initialize({ startOnLoad: false, theme: 'base', themeVariables: {
-        primaryColor: '#E49D9D',
-        primaryTextColor: '#3D2C2C',
-        primaryBorderColor: '#b58986',
-        secondaryColor: '#FFD4C8',
-        lineColor: '#7A7A7A',
-        textColor: '#3D2C2C',
+        primaryColor: '#dddddd',
+        primaryTextColor: '#515151',
+        primaryBorderColor: '#b4b4b4',
+        secondaryColor: '#c5c1c1',
+        lineColor: '#b4b4b4',
+        textColor: '#515151',
     } });
 
     customElements.define('vb-variable', class extends HTMLElement {

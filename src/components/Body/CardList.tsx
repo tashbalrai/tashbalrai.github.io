@@ -16,7 +16,7 @@ const CardList = ({ data, showSlogan = true }: ICardList) => {
     let i = 0;
     return (
         <Flex>
-            {showSlogan && <Slogans />}
+            {showSlogan && boxes > 2 && <Slogans />}
             {data.map((card) => {
                 return <Card key={`card-${++i}`} data={card} />;
             })}
