@@ -14,7 +14,7 @@ const Card = ({ data }: ICard) => {
             <article className="group flex flex-col h-full px-5 pt-11 pb-6 justify-between hover:bg-(--hover-bg-card-color)  hover:scale-105 transition-transform duration-300">
                 <div className="flex flex-col gap-8">
                     <div className="flex flex-row w-full justify-between">
-                        <p className="text-lg">
+                        <p className="text-lg font-semibold">
                             <a
                                 href={`/category/${data.category.toLowerCase()}`}
                             >
