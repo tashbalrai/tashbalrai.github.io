@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://huntize.com/sitemap-index.xml

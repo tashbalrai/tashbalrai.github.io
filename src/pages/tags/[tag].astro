@@ -8,6 +8,7 @@ import '../../styles/global.css';
 import loadArticles from '../../utils/collection';
 import CardList from '../../components/Body/CardList';
 import type { IArticleFrontmatter } from '../../utils/types';
+import { TAG_BASE_URL } from '../../utils/constants';
 
 
 
@@ -48,6 +49,7 @@ const articles:IArticleFrontmatter[] = collection.filter(article => {
 ---
 
 <BaseLayout>
+    <link rel="canonical" href={`${TAG_BASE_URL}${tag}`} slot="meta-head"/>
     <ThemeScript slot="meta-head"/>
     <Seo slot="meta-head" title={`Blog articles for tag ${tag}.`} description={`Filter blog by tag ${tag}.`}  />
     <Header client:only="react" slot="body-header"/>

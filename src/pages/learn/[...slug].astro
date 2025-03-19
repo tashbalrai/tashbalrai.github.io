@@ -11,6 +11,7 @@ import formatDate from '../../utils/date';
 import ArticleHeader from '../../components/Body/Article/Header.tsx';
 import RelatedArticles from '../../components/Body/Article/RelatedArticles';
 import MermaidScript from '../../components/Head/MermaidScript.astro';
+import { ARTICLE_BASE_URL } from "../../utils/constants";
 
 export async function getStaticPaths() {
   const collection = await loadArticles();
@@ -27,11 +28,12 @@ const { frontmatter, Content } = Astro.props.article;
 ---
 
 <BaseLayout>
+  <link rel="canonical" href={`${ARTICLE_BASE_URL}${frontmatter.slug}`} slot="meta-head"/>
   <ThemeScript slot="meta-head"/>
   <Seo slot="meta-head" title={frontmatter.seoTitle} description={frontmatter.seoDescription} />
   <Header client:only="react" slot="body-header"/>
   <article class="article-details mx-4 md:mx-auto md:max-w-[850px]" slot="body-main">
-    <ArticleHeader frontmatter={frontmatter} />
+    <ArticleHeader frontmatter={frontmatter} client:load/>
     <Content/>
     <TagList tags={frontmatter.tags} />
     <RelatedArticles frontmatter={frontmatter} client:only="react"/>
