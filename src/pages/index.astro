@@ -8,6 +8,7 @@ import '../styles/global.css';
 import CardList from '../components/Body/CardList';
 import type { IArticleFrontmatter } from '../utils/types';
 import loadArticles from '../utils/collection';
+import { BASE_HTTP_URL } from '../utils/constants';
 
 const articles = await loadArticles();
 const articlesData: IArticleFrontmatter[] = articles.map(article => article.frontmatter).sort((a, b) => {
@@ -24,8 +25,9 @@ const articlesData: IArticleFrontmatter[] = articles.map(article => article.fron
 ---
 
 <BaseLayout>
+    <link rel="canonical" href={BASE_HTTP_URL} slot="meta-head"/>
     <ThemeScript slot="meta-head"/>
-    <Seo slot="meta-head" title="Huntize - Read and learn trending software engineering topics." description="Huntize is a bloging platform for software engineer learn about computer science and latest software development practices." />
+    <Seo slot="meta-head" title="Read and learn trending software engineering topics." description="Huntize is a bloging platform for software engineers to learn about computer science and latest software development practices such as JavaScript, React, System Design, TypeScript, NodeJS." />
     <Header client:only="react" slot="body-header"/>
     <CardList client:only="react" slot="body-main" data={articlesData}/>
     <Footer client:only="react" slot="body-footer"/>

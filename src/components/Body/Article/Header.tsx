@@ -1,3 +1,6 @@
+"use client";
+
+import { ARTICLE_BASE_URL } from "../../../utils/constants";
 import type { IArticleFrontmatter } from "../../../utils/types";
 import TagList from "../TagList";
 import TitleBar from "./TitleBar";
@@ -13,6 +16,7 @@ const ArticleHeader = ({ frontmatter }: props) => {
             <TitleBar
                 minutesRead={frontmatter.minutesRead}
                 publishedAt={frontmatter.publishedAt}
+                pageUrl={`${ARTICLE_BASE_URL}${frontmatter.slug}`}
             />
         </>
     );

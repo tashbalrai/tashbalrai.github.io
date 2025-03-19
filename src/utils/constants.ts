@@ -10,3 +10,10 @@ export const SOCIAL_LINKS = {
     linkedin: "https://www.linkedin.com/in/vipan-balrai/",
     medium: "https://medium.com/@vbalrai",
 };
+
+const LIVE_URL = "https://huntize.com";
+export const BASE_HTTP_URL =
+    import.meta.env.MODE == "production" ? LIVE_URL : "http://localhost:4321";
+export const ARTICLE_BASE_URL = BASE_HTTP_URL + "/learn/";
+export const CATEGORY_BASE_URL = BASE_HTTP_URL + "/category/";
+export const TAG_BASE_URL = BASE_HTTP_URL + "/tags/";
