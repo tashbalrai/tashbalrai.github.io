@@ -47,4 +47,10 @@ export default defineConfig({
         },
         remarkPlugins: [remarkReadingTime],
     },
+    redirects: {
+        "/article/[...slug]": {
+            status: 301,
+            destination: "/learn/[...slug]",
+        },
+    },
 });
