@@ -1,17 +1,17 @@
 [data-theme="dark"] {
-    --bg-body-color: #414141;
-    --bg-tag-color: #575757;
-    --grid-color: #4f4c4f;
-    --text-color: #f5e1e4;
+    --bg-body-color: #26474a;
+    --bg-tag-color: #497b80;
+    --grid-color: #295256;
+    --text-color: #c6c2bc;
     --heading-color: #c9c5c5;
     --sub-heading-color: #c9c5c5;
-    --bg-footer: #e3d6d8;
-    --text-footer-color: #4d3b3b;
+    --bg-footer: #22393a;
+    --text-footer-color: #e7e5e2;
     --link-color: #94f6ff;
     --hover-link-color: #71b0b6;
     --inline-code-bg: #4d3838;
     --inline-code-color: #dfd5ca;
-    --hover-bg-card-color: #302f30;
+    --hover-bg-card-color: #163336;
 
     --blockquote-bg: #505050;
     --blockquote-border: #939393;
