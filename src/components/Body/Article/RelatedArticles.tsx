@@ -6,6 +6,7 @@ interface IFrontmatter {
 }
 const RelatedArticles = ({ frontmatter }: IFrontmatter) => {
     const [articles, setArticles] = useState([]);
+
     useEffect(() => {
         fetch("/collection.json")
             .then((res) => res.json())
@@ -23,9 +24,20 @@ const RelatedArticles = ({ frontmatter }: IFrontmatter) => {
             <strong>Related Articles:</strong>
             <div className="flex flex-col">
                 {articles
-                    .filter((article: IArticleFrontmatter) =>
-                        frontmatter?.relatedArticles?.includes(article.slug)
-                    )
+                    .filter((article: IArticleFrontmatter) => {
+                        let found = false;
+                        for (let i = 0; i < article.tags.length; i++) {
+                            if (
+                                frontmatter.relatedArticles?.includes(
+                                    article.tags[i]
+                                ) &&
+                                article.slug !== frontmatter.slug
+                            ) {
+                                found = true;
+                            }
+                        }
+                        return found;
+                    })
                     .map((article: IArticleFrontmatter) => (
                         <div key={article.slug} className="mt-5">
                             <a href={`/article/${article.slug}`}>
