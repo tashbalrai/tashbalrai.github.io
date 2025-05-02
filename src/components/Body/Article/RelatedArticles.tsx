@@ -25,16 +25,18 @@ const RelatedArticles = ({ frontmatter }: IFrontmatter) => {
             <div className="flex flex-col">
                 {articles
                     .filter((article: IArticleFrontmatter) => {
-                        for (const tag of article.tags) {
-                            console.log(tag);
+                        let found = false;
+                        for (let i = 0; i < article.tags.length; i++) {
                             if (
-                                frontmatter.relatedArticles?.includes(tag) &&
+                                frontmatter.relatedArticles?.includes(
+                                    article.tags[i]
+                                ) &&
                                 article.slug !== frontmatter.slug
                             ) {
-                                return true;
+                                found = true;
                             }
-                            return false;
                         }
+                        return found;
                     })
                     .map((article: IArticleFrontmatter) => (
                         <div key={article.slug} className="mt-5">
