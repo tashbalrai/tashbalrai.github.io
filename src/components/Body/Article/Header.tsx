@@ -1,5 +1,3 @@
-"use client";
-
 import { ARTICLE_BASE_URL } from "../../../utils/constants";
 import type { IArticleFrontmatter } from "../../../utils/types";
 import TagList from "../TagList";
