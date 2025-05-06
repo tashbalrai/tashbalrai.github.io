@@ -97,6 +97,7 @@
             font-weight: 200;
         }
 
+        li > code,
         p > code {
             padding: 4px;
             border-radius: 2px;
