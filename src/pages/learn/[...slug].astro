@@ -11,7 +11,8 @@ import formatDate from '../../utils/date';
 import ArticleHeader from '../../components/Body/Article/Header.tsx';
 import RelatedArticles from '../../components/Body/Article/RelatedArticles';
 import MermaidScript from '../../components/Head/MermaidScript.astro';
-import { ARTICLE_BASE_URL } from "../../utils/constants";
+import { ARTICLE_BASE_URL, SOCIAL_LINKS } from "../../utils/constants";
+import SocialLinks from '../../components/Body/SocialLinks';
 
 export async function getStaticPaths() {
   const collection = await loadArticles();
@@ -36,16 +37,17 @@ const { frontmatter, Content } = Astro.props.article;
     <ArticleHeader frontmatter={frontmatter} client:load/>
     <Content/>
     <TagList tags={frontmatter.tags} />
-    <RelatedArticles frontmatter={frontmatter} client:only="react"/>
     <footer class="w-full border-(--grid-color) border-t-1 mt-24 pt-5">
       {frontmatter.publishedAt && <p class="text-sm">
         Published: {formatDate(frontmatter.publishedAt)}
     </p>}
-       <p class="text-lg mt-5 mb-16">
-          Written by Vipan Balrai
+       <p class="text-lg mt-5">
+          <strong>Written by Vipan Balrai</strong>
           <br/><span class="text-sm mb-10">Vipan Balrai is a seasoned software engineer and mentor with over 15 years of experience in software development. Passionate about crafting secure, high-performance, and reliable software, he specializes in JavaScript and TypeScript. With a deep understanding of modern development practices, he enjoys sharing his expertise through technical writing, helping engineers build scalable and efficient applications.</span>
+          <SocialLinks links={SOCIAL_LINKS} className="text-(--text-footer-color)" size="25"/>
       </p>
-      
+    
+    <RelatedArticles frontmatter={frontmatter} client:only="react"/>
     </footer>
   </article>
   <Footer client:only="react" slot="body-footer"/>
