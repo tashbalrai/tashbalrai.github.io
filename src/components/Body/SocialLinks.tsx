@@ -22,6 +22,7 @@ const SocialLinks = ({
 }: ISocialLinks) => {
     return (
         <div className={"flex flex-rows " + parentClassName}>
+            <strong className="text-lg">Follow me:</strong>
             {links?.["linkedin"] && (
                 <a
                     href={links["linkedin"]}

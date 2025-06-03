@@ -20,7 +20,7 @@ const RelatedArticles = ({ frontmatter }: IFrontmatter) => {
     }
 
     return (
-        <div className="w-full border-(--grid-color) border-t-1 mt-24 pt-5">
+        <div className="w-full border-(--grid-color) border-t-1 mt-10 pt-5">
             <strong>Related Articles:</strong>
             <div className="flex flex-col">
                 {articles
